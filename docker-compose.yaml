@@ -1,0 +1,77 @@
+version: "3.3"
+
+services:
+
+  db:
+    image: mariadb:10.5
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - db:/var/lib/mysql
+
+  wordpress-mapp:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    restart: on-failure
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: testdb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - wordpress:/var/www/html
+
+  wordpress-mapp-dev:
+    depends_on:
+      - wordpress-mapp
+    build:
+      context: .
+      dockerfile: Dockerfile3
+    environment:
+      USER_ID: ${USER_ID}
+      GROUP_ID: ${GROUP_ID}
+      USER_NAME: ${USER_NAME}
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: testdb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - wordpress:/var/www/html
+
+  wordpress-cli:
+    depends_on:
+      - db
+      - wordpress-mapp
+      - wordpress-mapp-dev
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - 9000:9000
+    restart: on-failure
+    environment:
+      WORDPRESS_VERSION: ${TEST_WORDPRESS_VERSION}
+      WOOCOMMERCE_VERSION:
+    user: xfs
+    volumes:
+      - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - wordpress:/var/www/html
+
+volumes:
+  db:
+  wordpress:
