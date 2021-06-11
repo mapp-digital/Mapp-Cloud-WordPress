@@ -61,7 +61,7 @@ class MappIntelligenceInstallIndicator extends MappIntelligenceOptionsManager {
      */
     public function getPluginHeaderValue($key) {
         // Read the string from the comment header of the main plugin file
-        $data = file_get_contents($this->getPluginDir() . DIRECTORY_SEPARATOR . $this->getMainPluginFileName());
+        $data = file_get_contents($this->getPluginDir() . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . $this->getMainPluginFileName());
         $match = array();
         preg_match('/' . $key . ':\s*(\S+)/', $data, $match);
         if (count($match) >= 1) {

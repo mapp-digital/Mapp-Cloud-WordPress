@@ -328,10 +328,10 @@ describe('Product', () => {
                 listenerFunction = (msg) => {
                     let result;
                     try {
-                      result = JSON.parse(msg.text());
+                        result = JSON.parse(msg.text());
                     }
                     catch (e) {
-                      // do nothing
+                        // do nothing
                     }
 
                     if (result) {
@@ -517,71 +517,6 @@ describe('Product', () => {
                 expect(result.gtmProductArray[2].sku).toBe('woo-hoodie-with-zipper');
                 expect(result.gtmProductArray[2].product_cat_0).toBe('Hoodies');
                 expect(result.gtmProductArray[2].status).toBe('confirmation');
-            });
-
-            it('as user', async () => {
-                await User.login();
-                await User.navigateToCatalog();
-                await User.addToCartFromCatalog(12);
-                await User.addToCartFromCatalog(16);
-                await User.addToCartFromCatalog(19);
-                await User.addToCartFromCatalog(13);
-                await User.navigateToCheckout();
-                await User.fillBillingDetails();
-                await User.waitForUIUnblocked();
-                await User.clickOnElement('.wc_payment_method label', {text: 'Direct bank transfer'});
-                await User.waitForUIUnblocked();
-                await User.placeOrder();
-
-                const result = await User.getDataLayer('dataLayer');
-                expect(result.pageName).toBe(`wordpress-mapp/checkout/order-received/${result.orderId}/`);
-                expect(result.pageTitle).toBe('Checkout');
-                expect(result.contentCategory).toBe('order-received');
-                expect(result.couponValue).toBe('0');
-                expect(result.orderId).toMatch(/^\d+$/);
-                expect(result.paymentMethod).toBe('Direct bank transfer');
-                expect(result.shippingCost).toBe('0.00');
-                expect(result.shippingMethod).toBe('');
-                expect(result.subtotalOrderValue).toBe('133');
-                expect(result.totalOrderValue).toBe('133.00');
-
-                expect(result.gtmProductArray[0].cost).toBe('16');
-                expect(result.gtmProductArray[0].id).toBe('12 - Cap');
-                expect(result.gtmProductArray[0].id_only).toBe('12');
-                expect(result.gtmProductArray[0].name).toBe('Cap');
-                expect(result.gtmProductArray[0].quantity).toBe('1');
-                expect(result.gtmProductArray[0].sku).toBe('woo-cap');
-                expect(result.gtmProductArray[0].product_cat_0).toBe('Accessories');
-                expect(result.gtmProductArray[0].status).toBe('confirmation');
-
-                expect(result.gtmProductArray[1].cost).toBe('25');
-                expect(result.gtmProductArray[1].id).toBe('16 - Long Sleeve Tee');
-                expect(result.gtmProductArray[1].id_only).toBe('16');
-                expect(result.gtmProductArray[1].name).toBe('Long Sleeve Tee');
-                expect(result.gtmProductArray[1].quantity).toBe('1');
-                expect(result.gtmProductArray[1].sku).toBe('woo-long-sleeve-tee');
-                expect(result.gtmProductArray[1].product_cat_0).toBe('Tshirts');
-                expect(result.gtmProductArray[1].status).toBe('confirmation');
-
-                expect(result.gtmProductArray[2].cost).toBe('2');
-                expect(result.gtmProductArray[2].id).toBe('19 - Single');
-                expect(result.gtmProductArray[2].id_only).toBe('19');
-                expect(result.gtmProductArray[2].name).toBe('Single');
-                expect(result.gtmProductArray[2].quantity).toBe('1');
-                expect(result.gtmProductArray[2].sku).toBe('woo-single');
-                expect(result.gtmProductArray[2].product_cat_0).toBe('Music');
-                expect(result.gtmProductArray[2].status).toBe('confirmation');
-
-                expect(result.gtmProductArray[3].cost).toBe('90');
-                expect(result.gtmProductArray[3].id).toBe('13 - Sunglasses');
-                expect(result.gtmProductArray[3].id_only).toBe('13');
-                expect(result.gtmProductArray[3].name).toBe('Sunglasses');
-                expect(result.gtmProductArray[3].quantity).toBe('1');
-                expect(result.gtmProductArray[3].sku).toBe('woo-sunglasses');
-                expect(result.gtmProductArray[3].product_cat_0).toBe('Accessories');
-                expect(result.gtmProductArray[3].status).toBe('confirmation');
-
-                await User.logout();
             });
         });
     });
@@ -851,10 +786,10 @@ describe('Product', () => {
                 listenerFunction = (msg) => {
                     let result;
                     try {
-                      result = JSON.parse(msg.text());
+                        result = JSON.parse(msg.text());
                     }
                     catch (e) {
-                      // do nothing
+                        // do nothing
                     }
 
                     if (result) {
@@ -875,7 +810,7 @@ describe('Product', () => {
                         expect(result.taxonomies.product_type[0]).toBe('grouped;simple;simple;simple');
 
                         listenerFunctionCounter++;
-                  }
+                    }
                 };
 
                 await User.navigateToProduct(addedProductId);
@@ -1006,43 +941,6 @@ describe('Product', () => {
                 expect(result.productCategory).toBe('Accessories;Accessories;Hoodies');
                 expect(result.productSubcategory).toBe(';;');
                 expect(result.shoppingCartStatus).toBe('conf');
-            });
-
-            it('as user', async () => {
-                await User.login();
-                await User.navigateToCatalog();
-                await User.addToCartFromCatalog(12);
-                await User.addToCartFromCatalog(16);
-                await User.addToCartFromCatalog(19);
-                await User.addToCartFromCatalog(13);
-                await User.navigateToCheckout();
-                await User.fillBillingDetails();
-                await User.waitForUIUnblocked();
-                await User.clickOnElement('.wc_payment_method label', {text: 'Direct bank transfer'});
-                await User.waitForUIUnblocked();
-                await User.placeOrder();
-
-                const result = await User.getDataLayer('_ti');
-                expect(result.pageName).toBe(`wordpress-mapp/checkout/order-received/${result.orderId}/`);
-                expect(result.pageTitle).toBe('Checkout');
-                expect(result.contentCategory).toBe('order-received');
-                expect(result.couponValue).toBe('0');
-                expect(result.orderId).toMatch(/^\d+$/);
-                expect(result.paymentMethod).toBe('Direct bank transfer');
-                expect(result.shippingCost).toBe('0.00');
-                expect(result.shippingMethod).toBe('');
-                expect(result.subtotalOrderValue).toBe('133');
-                expect(result.totalOrderValue).toBe('133.00');
-                expect(result.productCost).toBe('16;25;2;90');
-                expect(result.productId).toBe('12;16;19;13');
-                expect(result.productName).toBe('Cap;Long Sleeve Tee;Single;Sunglasses');
-                expect(result.productQuantity).toBe('1;1;1;1');
-                expect(result.productSKU).toBe('woo-cap;woo-long-sleeve-tee;woo-single;woo-sunglasses');
-                expect(result.productCategory).toBe('Accessories;Tshirts;Music;Accessories');
-                expect(result.productSubcategory).toBe(';;;');
-                expect(result.shoppingCartStatus).toBe('conf');
-
-                await User.logout();
             });
         });
     });

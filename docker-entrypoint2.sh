@@ -115,7 +115,6 @@ wp_update_option woocommerce_currency_pos "left" yes
 wp_update_option woocommerce_price_thousand_sep "." yes
 wp_update_option woocommerce_price_decimal_sep "," yes
 wp_update_option woocommerce_price_num_decimals "2" yes
-wp_update_option woocommerce_shop_page_id "$SHOP_ID" yes
 wp_update_option woocommerce_cart_redirect_after_add "no" yes
 wp_update_option woocommerce_enable_ajax_add_to_cart "yes" yes
 wp_update_option woocommerce_placeholder_image "5" yes
@@ -233,9 +232,10 @@ wp post create --post_type=post --post_status=publish --post_title='Hello world!
 
 # update page ids
 wp_update_option wp_page_for_privacy_policy "$PRIVACY_POLICY_ID" yes
-wp_update_option woocommerce_cart_page_id "$CART_ID" no
-wp_update_option woocommerce_checkout_page_id "$CHECKOUT_ID" no
-wp_update_option woocommerce_myaccount_page_id "$MY_ACCOUNT_ID" no
+wp_update_option woocommerce_shop_page_id "$SHOP_ID" yes
+wp_update_option woocommerce_cart_page_id "$CART_ID" yes
+wp_update_option woocommerce_checkout_page_id "$CHECKOUT_ID" yes
+wp_update_option woocommerce_myaccount_page_id "$MY_ACCOUNT_ID" yes
 
 # delete menu
 wp_delete_menu
@@ -251,6 +251,9 @@ wp menu item add-post "$TOP_MENU_ID" "$CART_ID"
 wp menu item add-post "$TOP_MENU_ID" "$SHOP_ID"
 wp menu item add-post "$TOP_MENU_ID" "$PRIVACY_POLICY_ID"
 wp menu item add-post "$TOP_MENU_ID" "$SAMPLE_PAGE_ID"
+
+# update rewrite
+wp rewrite structure "/%category%/%postname%/"
 
 # display the current WordPress version
 wp core version --extra

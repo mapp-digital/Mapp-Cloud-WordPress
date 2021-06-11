@@ -1,3 +1,8 @@
+<a name="1.1.4"></a>
+# 1.1.4
+
+* Update Smartpixel to version 6.2.6
+
 <a name="1.1.3"></a>
 # 1.1.3
 

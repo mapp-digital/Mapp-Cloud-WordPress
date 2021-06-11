@@ -1,5 +1,17 @@
 import { User, Admin, GTM_ID, TI_ID } from '../../utils/puppeteer';
 
+let changePermalink = true;
+
+beforeAll(async () => {
+    if (changePermalink) {
+        changePermalink = false;
+
+        await Admin.login();
+        await Admin.savePermalink();
+        await Admin.logout();
+    }
+});
+
 describe('Plugin', () => {
     beforeEach(async () => {
         await Admin.login();

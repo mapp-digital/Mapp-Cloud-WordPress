@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 NEW_USER_GROUP_NAME="${USER_NAME}"
 
@@ -21,7 +20,7 @@ fi
 
 chown -R www-data:www-data /var/www/html/
 
-cd /var/www/html/wp-content/plugins/mapp_intelligence/
+cd /var/www/html/wp-content/plugins/mapp_intelligence/ || exit
 
 echo "install npm dependencies"
 npm install
@@ -33,9 +32,10 @@ fi
 
 bash /tmp/wait-for-it.sh -t 0 wordpress-cli:9000
 
-chown -R "${USER_ID}:${GROUP_ID}" /var/www/html/
-
 echo "run test"
 npm run test:e2e
+
+echo "change file permission back from 'www-data:www-data' to '${USER_ID}:${GROUP_ID}'"
+chown -R "${USER_ID}:${GROUP_ID}" /var/www/html/
 
 exec "$@"

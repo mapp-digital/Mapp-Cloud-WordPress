@@ -11,6 +11,7 @@ const WP_ADMIN_LOGIN = baseUrl + 'wp-login.php';
 const WP_ADMIN_DASHBOARD = baseUrl + 'wp-admin';
 const WP_ADMIN_PLUGINS = WP_ADMIN_DASHBOARD + '/plugins.php';
 const WP_ADMIN_MI_SETTINGS = WP_ADMIN_DASHBOARD + '/plugins.php?page=MappIntelligenceSettings';
+const WP_ADMIN_PERMALINK = WP_ADMIN_DASHBOARD + '/options-permalink.php';
 
 const SHOP_HOME = baseUrl;
 const SHOP_PRIVACY_POLICY = baseUrl + 'privacy-policy';
@@ -354,6 +355,23 @@ const Admin = {
         await page.goto(WP_ADMIN_MI_SETTINGS, {
             waitUntil: 'networkidle0',
         });
+    },
+
+    savePermalink: async () => {
+        await page.goto(WP_ADMIN_PERMALINK, {
+            waitUntil: 'networkidle0',
+        });
+
+        await page.setViewport({width: 1000, height: 2000});
+
+        await page.click('#custom_selection');
+        await expect(page).toFill('#permalink_structure', '/%category%/%postname%/');
+        await expect(page).toFill('#woocommerce_permalink_structure', '/product/');
+
+        await Promise.all([
+            page.waitForNavigation({waitUntil: 'networkidle0'}),
+            page.click('#submit')
+        ]);
     }
 };
 
