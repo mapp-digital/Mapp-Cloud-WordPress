@@ -12,6 +12,8 @@ services:
       MYSQL_PASSWORD: wordpress
     volumes:
       - db:/var/lib/mysql
+    networks:
+      - mapp
 
   wordpress-mapp:
     depends_on:
@@ -32,6 +34,8 @@ services:
     volumes:
       - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
+    networks:
+      - mapp
 
   wordpress-mapp-dev:
     depends_on:
@@ -52,6 +56,8 @@ services:
     volumes:
       - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
+    networks:
+      - mapp
 
   wordpress-cli:
     depends_on:
@@ -66,12 +72,23 @@ services:
     restart: on-failure
     environment:
       WORDPRESS_VERSION: ${TEST_WORDPRESS_VERSION}
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: testdb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 1
       WOOCOMMERCE_VERSION:
     user: xfs
     volumes:
       - "./:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
+    networks:
+      - mapp
 
 volumes:
   db:
   wordpress:
+
+networks:
+    mapp:

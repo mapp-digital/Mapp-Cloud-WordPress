@@ -485,7 +485,8 @@ describe('Product', () => {
                 expect(result.couponValue).toBe('0');
                 expect(result.orderId).toMatch(/^\d+$/);
                 expect(result.paymentMethod).toBe('Direct bank transfer');
-                expect(result.shippingCost).toBe('0.00');
+                expect(result.shippingCost).toBe('0');
+                expect(result.shippingCost).toMatch(/^(0|0\.00)$/);
                 expect(result.shippingMethod).toBe('');
                 expect(result.subtotalOrderValue).toBe('136');
                 expect(result.totalOrderValue).toBe('136.00');
@@ -929,7 +930,7 @@ describe('Product', () => {
                 expect(result.couponValue).toBe('0');
                 expect(result.orderId).toMatch(/^\d+$/);
                 expect(result.paymentMethod).toBe('Direct bank transfer');
-                expect(result.shippingCost).toBe('0.00');
+                expect(result.shippingCost).toMatch(/^(0|0\.00)$/);
                 expect(result.shippingMethod).toBe('');
                 expect(result.subtotalOrderValue).toBe('136');
                 expect(result.totalOrderValue).toBe('136.00');
