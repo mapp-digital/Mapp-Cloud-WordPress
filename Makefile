@@ -1,4 +1,10 @@
-.PHONY: test-e2e release get-smartpixel
+.PHONY: test-e2e release get-smartpixel start-dev stop-dev
+
+start-dev:
+	cd ./dev-server && docker-compose up -d
+
+stop-dev:
+	cd ./dev-server && docker-compose down
 
 test-e2e:
 	./synchronizer.sh $(VERSION) $(OUTPUT_URL)
