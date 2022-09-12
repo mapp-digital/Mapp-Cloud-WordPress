@@ -2,16 +2,16 @@
 
 Plugin name: Mapp Cloud Integration
 Description: Adds the Mapp Cloud Tag Integration code to your WordPress blog or WooCommerce shop and creates the necessary data layer for your customer insights dashboards.
-Version: 1.1.5
+Version: 1.1.6
 Tags: analytics, tracking, marketing
 Author: Mapp Digital US, LLC
 Author URI: https://mapp.com/mapp-cloud/mapp-intelligence/
 Contributors: mappdigital
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.0
+Tested up to: 6.0.2
 WC requires at least: 3.0
-WC tested up to: 6.5.1
+WC tested up to: 6.8.2
 
 The plugin adds the Mapp Cloud Tag Integration code to your website and creates the data layer for your customer insights dashboards.
 
@@ -52,13 +52,16 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 4. Optionally, exclude users logged into the WordPress admin panel from being tracked via the pixel.
 5. Optionally, add your Mapp Acquire script tag.
 6. Save the plugin in WordPress.
-7. Follow the instructions to set up tracking in Mapp Intelligence here: [WordPress Plugin](https://docs.mapp.com/display/WP).
+7. Follow the instructions to set up tracking in Mapp Intelligence here: [WordPress Plugin](https://documentation.mapp.com/latest/en/wordpress-woocommerce-19109987.html).
 
 == Screenshots ==
 
 1. Mapp Cloud settings
 
 == Changelog ==
+
+= 1.1.6=
+* update Smartpixel to version 6.3.7
 
 = 1.1.5=
 * update Smartpixel to version 6.3.4
