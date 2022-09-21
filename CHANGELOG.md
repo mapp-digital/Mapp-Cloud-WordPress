@@ -1,4 +1,9 @@
-<a name="1.1.5"></a>
+<a name="1.1.7"></a>
+# 1.1.7
+
+* fix pixel statistic version
+
+<a name="1.1.6"></a>
 # 1.1.6
 
 * Update Smartpixel to version 6.3.7

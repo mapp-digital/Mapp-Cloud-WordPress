@@ -153,9 +153,10 @@ class MappIntelligence extends MappIntelligenceLifeCycle
 
     private function get_version()
     {
-        $path = dirname(__FILE__) . '/../package.json';
-        $packages = json_decode(file_get_contents($path), true);
-        return $packages["version"];
+        $path = WP_PLUGIN_DIR . '/mapp-intelligence/mapp_intelligence.php';
+        $file = file_get_contents($path);
+        preg_match('/Version.+?([0-9]+.[0-9]+.[0-9]+)/', $file, $matches);
+        return $matches[1];
     }
 
     private function ti_loader()
