@@ -1,0 +1,1 @@
+export const t = window._mappConfig.strings;

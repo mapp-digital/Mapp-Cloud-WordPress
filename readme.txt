@@ -2,7 +2,7 @@
 
 Plugin name: Mapp Cloud Integration
 Description: Adds the Mapp Cloud Tag Integration code to your WordPress blog or WooCommerce shop and creates the necessary data layer for your customer insights dashboards.
-Version: 1.1.7
+Version: 1.1.8
 Tags: analytics, tracking, marketing
 Author: Mapp Digital US, LLC
 Author URI: https://mapp.com/mapp-cloud/mapp-intelligence/
@@ -59,6 +59,10 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 1. Mapp Cloud settings
 
 == Changelog ==
+
+= 1.1.8=
+* internal refactor
+* German language support
 
 = 1.1.7=
 * fix pixel statistic version
