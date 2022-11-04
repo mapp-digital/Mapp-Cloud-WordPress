@@ -9,6 +9,19 @@ composer.lock
 package-lock.json
 output-*.txt
 
+phpcs.xml
+phpunit.xml
+Thumbs.db
+wp-cli.local.yml
+node_modules/
+*.sql
+*.tar.gz
+*.zip
+cache/*.*
+release
+.cache
+.idea
+
 .DS_Store
 /frontend/public/build/bundle.css.map
 /frontend/public/build/bundle.js.map

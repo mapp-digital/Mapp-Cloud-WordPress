@@ -21,9 +21,8 @@
         "local:e2e:nightly": "TEST_WORDPRESS_VERSION=nightly bash -c \"docker-compose -p nightly build && docker-compose -p nightly up --build\"",
         "test:e2e": "./tests/e2e-tests/config/integration.js",
         "test:e2e-dev": "./tests/e2e-tests/config/integration.js --dev",
-        "start": "grunt default",
-        "readme": "grunt readme",
-        "i18n": "grunt i18n"
+        "i18n": "mv package.json package.bak && npm install --no-save grunt grunt-wp-i18n grunt-wp-readme-to-markdown && mv package.bak package.json && ./node_modules/.bin/grunt i18n",
+        "install-prettier": "mv package.json package.bak && npm install --no-save prettier @prettier/plugin-php && mv package.bak package.json"
     },
     "devDependencies": {
         "@babel/cli": "7.8.4",
@@ -41,11 +40,6 @@
         "jest": "25.1.0",
         "jest-puppeteer": "4.4.0",
         "puppeteer": "2.0.0",
-        "puppeteer-utils": "github:Automattic/puppeteer-utils#0f3ec50",
-        "@prettier/plugin-php": "^0.19.1",
-        "grunt": "^1.5.3",
-        "grunt-wp-i18n": "^1.0.3",
-        "grunt-wp-readme-to-markdown": "^2.1.0",
-        "prettier": "^2.7.1"
+        "puppeteer-utils": "github:Automattic/puppeteer-utils#0f3ec50"
     }
 }

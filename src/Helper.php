@@ -82,5 +82,4 @@ class Helper
 
 		return $taxonomies;
 	}
-
 }

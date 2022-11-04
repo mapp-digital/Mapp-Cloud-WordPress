@@ -25,3 +25,8 @@ From main directory, run `npm run e2e:xxx`.
 - e2e:release: run tests for wordpress v5.0 - v5.4 and latest
 - e2e:latest: run tests for latest wordpress
 - e2e:nightly: run tests for nightly wordpress
+
+## Other scripts
+
+- npm run i18n: creates a pot file for translations - use this if new strings are introduced
+- npm run install-prettier: installs just prettier without the e2e dependencies
