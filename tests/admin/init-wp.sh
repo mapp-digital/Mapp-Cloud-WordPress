@@ -3,7 +3,7 @@
 set -e
 
 # wait for the database to be ready
-bash /tmp/wait-for-it.sh -t 0 db:3306
+bash /wait-for-it.sh -t 0 db:3306
 
 function wp_delete_post()
 {
@@ -65,9 +65,11 @@ function wp_update_option()
   fi
 }
 
+cd /var/www/html/
+
 echo "install and update wordpress to v$WORDPRESS_VERSION";
 wp core install --url=http://wordpress-mapp --title="Mapp Intelligence E2E Test Suite" --admin_user=admin --admin_password=password --admin_email=admin@mapp.com --path=/var/www/html --skip-email
-wp core update --version="$WORDPRESS_VERSION" --locale=en_US --path=/var/www/html --force
+# wp core update --version="$WORDPRESS_VERSION" --locale=en_US --path=/var/www/html --force
 
 if [ "$WOOCOMMERCE_VERSION" != "" ]; then
   wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION" --activate
@@ -228,7 +230,7 @@ CHECKOUT_ID=$(wp post create --porcelain --post_type=page --post_status=publish 
 MY_ACCOUNT_ID=$(wp post create --porcelain --post_type=page --post_status=publish --post_title='My account' --post_category='' --post_content='<!-- wp:shortcode -->[woocommerce_my_account]<!-- /wp:shortcode -->')
 
 # create post
-wp post create --post_type=post --post_status=publish --post_title='Hello world!' --post_category='' --post_content='<!-- wp:paragraph --><p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p><!-- /wp:paragraph --><!-- wp:image {"id":64,"sizeSlug":"large"} --><figure class="wp-block-image size-large"><img src="http://wordpress-mapp/wp-content/uploads/2020/02/HeidiSQL_logo_image.png" alt="Heidi logo alt text" class="wp-image-64"/><figcaption>HeidiSQL logo caption</figcaption></figure><!-- /wp:image --><!-- wp:paragraph --><p>Another parapragh</p><!-- /wp:paragraph --><!-- wp:gallery {"ids":[59,57,56,55],"columns":2} --><figure class="wp-block-gallery columns-2 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="http://wordpress-mapp/wp-content/uploads/2019/01/pennant-1.jpg" alt="pennanr alt text" data-id="59" data-full-url="http://wordpress-mapp/wp-content/uploads/2019/01/pennant-1.jpg" data-link="http://wordpress-mapp/?attachment_id=59" class="wp-image-59"/><figcaption class="blocks-gallery-item__caption">penant caption</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="http://wordpress-mapp/wp-content/uploads/2019/01/beanie-with-logo-1.jpg" alt="beany alt text" data-id="57" data-full-url="http://wordpress-mapp/wp-content/uploads/2019/01/beanie-with-logo-1.jpg" data-link="http://wordpress-mapp/?attachment_id=57" class="wp-image-57"/><figcaption class="blocks-gallery-item__caption">beany caption</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="http://wordpress-mapp/wp-content/uploads/2019/01/t-shirt-with-logo-1.jpg" alt="t-shirt alt" data-id="56" data-full-url="http://wordpress-mapp/wp-content/uploads/2019/01/t-shirt-with-logo-1.jpg" data-link="http://wordpress-mapp/?attachment_id=56" class="wp-image-56"/><figcaption class="blocks-gallery-item__caption">t-shirt caption</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="http://wordpress-mapp/wp-content/uploads/2019/01/single-1.jpg" alt="single alt" data-id="55" data-full-url="http://wordpress-mapp/wp-content/uploads/2019/01/single-1.jpg" data-link="http://wordpress-mapp/?attachment_id=55" class="wp-image-55"/><figcaption class="blocks-gallery-item__caption">single caption</figcaption></figure></li></ul></figure><!-- /wp:gallery -->'
+wp post create --post_type=post --post_status=publish --post_title='Mapp Cloud Wordpress/Woocommerce E2E' --post_category='' --post_content='<!-- wp:paragraph --><p>This is the Wordpress dev- an E2E testserver for Wordpress / Woocommerce and Mapp Cloud Integration. Plugin settings are available <a href="http://wordpress-mapp/wp-admin/plugins.php?page=mapp-intelligence">here</a></p><!-- /wp:paragraph -->'
 
 # update page ids
 wp_update_option wp_page_for_privacy_policy "$PRIVACY_POLICY_ID" yes
@@ -257,7 +259,3 @@ wp rewrite structure "/%category%/%postname%/"
 
 # display the current WordPress version
 wp core version --extra
-
-php -S 0.0.0.0:9000 -t /var/www/html/wp-content/plugins/mapp_intelligence/
-
-exec "$@"

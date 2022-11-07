@@ -37,11 +37,11 @@ describe('Plugin', () => {
             afterEach(async () => {
                 await Admin.fillFormField('#mapp_gtmId', GTM_ID);
                 await Admin.fillFormField('#mapp_filterKeys', 'customFields');
-                await Admin.saveChanges();
+                // await Admin.saveChanges();
             });
 
             it('overview', async () => {
-                await Admin.checkText('Mapp Cloud Settings');
+                await Admin.checkText('Mapp Cloud');
                 await Admin.checkText('Mapp Intelligence Pixel Version');
                 await Admin.checkText('Google Tag Manager Container ID');
                 await Admin.checkText('Exclude keys');

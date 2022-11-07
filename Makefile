@@ -1,13 +1,29 @@
-.PHONY: test-e2e release get-smartpixel start-dev stop-dev
+.PHONY: start-e2e stop-e2e exec-cypress cypress-run reset-wp init-wp release get-smartpixel
 
-start-dev:
-	cd ./dev-server && docker-compose up -d
+USER_NAME := $(shell id -un)
+USER_ID := $(shell id -u)
+GROUP_ID := $(shell id -g)
+USER_GROUP = $(USER_ID):$(GROUP_ID)
 
-stop-dev:
-	cd ./dev-server && docker-compose down
+export USER_ID
+export GROUP_ID
 
-test-e2e:
-	./synchronizer.sh $(VERSION) $(OUTPUT_URL)
+start-e2e:
+	cd ./tests/admin && docker-compose up -d
+stop-e2e: 
+	cd ./tests/admin && docker-compose down
+
+exec-cypress:
+	docker exec -it  mapp_e2e_wp_cypress bash
+
+cypress-run:
+	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run"
+
+reset-wp:
+	docker exec -t -u xfs mapp_e2e_wpcli bash -c "php /db.php drop_db"
+
+init-wp:
+	docker exec -t -u xfs mapp_e2e_wpcli bash -c "bash /init-wp.sh"
 
 release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release

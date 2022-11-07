@@ -73,7 +73,7 @@ trait Page
 			$this->datalayer["contentCategory"] = "home";
 		} elseif (is_search()) {
 			$this->datalayer["contentCategory"] = "internal search";
-		} elseif ($woocommerce_enabled) {
+		} elseif ($this->woocommerce_enabled) {
 			if (is_shop()) {
 				$this->datalayer["contentCategory"] = isset(
 					$this->datalayer["contentCategory"]

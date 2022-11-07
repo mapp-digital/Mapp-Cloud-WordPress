@@ -1,7 +1,6 @@
 /frontend/node_modules/
 woocommerce
 coverage
-vendor
 composer.lock
 .idea
 /release/

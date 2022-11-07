@@ -10,7 +10,7 @@ const TI_ID = '111111111111111';
 const WP_ADMIN_LOGIN = baseUrl + 'wp-login.php';
 const WP_ADMIN_DASHBOARD = baseUrl + 'wp-admin';
 const WP_ADMIN_PLUGINS = WP_ADMIN_DASHBOARD + '/plugins.php';
-const WP_ADMIN_MI_SETTINGS = WP_ADMIN_DASHBOARD + '/plugins.php?page=MappIntelligenceSettings';
+const WP_ADMIN_MI_SETTINGS = WP_ADMIN_DASHBOARD + '/plugins.php?page=mapp-intelligence';
 const WP_ADMIN_PERMALINK = WP_ADMIN_DASHBOARD + '/options-permalink.php';
 
 const SHOP_HOME = baseUrl;

@@ -11,7 +11,7 @@
         <fieldset>
             <legend class="screen-reader-text"><span>{t.header.exclude_users}</span></legend>
             <label for="exclude_user">
-                <input type="checkbox" id="exclude_user" bind:checked={$excludeWpUser}>{t.hints.exclude_users}
+                <input type="checkbox" id="mapp_excludeWpUser" bind:checked={$excludeWpUser}>{t.hints.exclude_users}
             </label>
         </fieldset>
     </td>

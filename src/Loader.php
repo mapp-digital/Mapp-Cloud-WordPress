@@ -10,7 +10,7 @@ class Loader
 		$tiId = $config["General"]["tiId"];
 		$tiDomain =
 			isset($config["General"]["tiDomain"]) &&
-			count($config["General"]["tiDomain"]) > 1
+			strlen($config["General"]["tiDomain"]) > 1
 				? $config["General"]["tiDomain"]
 				: "responder.wt-safetag.com";
 		echo "<script>", "\n";

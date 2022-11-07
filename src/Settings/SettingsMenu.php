@@ -25,7 +25,8 @@ class SettingsMenu
 
 	public function add_page()
 	{
-		add_menu_page(
+		add_submenu_page(
+			'plugins.php',
 			__("Mapp Cloud", Helper::$slug, "mapp-intelligence"),
 			__("Mapp Cloud", Helper::$slug, "mapp-intelligence"),
 			"manage_options",
@@ -38,7 +39,7 @@ class SettingsMenu
 	{
 		wp_register_script(
 			Helper::$slug,
-			$this->assets_url . "admin-menu/dist/assets/index.0a034170.js",
+			$this->assets_url . "admin-menu/dist/assets/index.b642faed.js",
 			[]
 		);
 		wp_localize_script("admin-bar", "_mappConfig", [
