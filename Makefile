@@ -25,6 +25,9 @@ reset-wp:
 init-wp:
 	docker exec -t -u xfs mapp_e2e_wpcli bash -c "bash /init-wp.sh"
 
+set-version:
+	npm run set-version $(version)
+
 release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release
 	cp ./*.php ./release/trunk/

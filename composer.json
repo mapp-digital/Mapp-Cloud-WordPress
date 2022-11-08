@@ -1,20 +1,19 @@
 {
-    "name": "mapp-digital/mapp-cloud-wordpress",
-    "description": "Mapp Cloud for Wordpress and Woccommerce",
-    "type": "wordpress-plugin",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Sascha Stieglitz",
-            "email": "sascha.stieglitz@mapp.com.de"
-        }
-    ],
+  "name": "mapp-digital/mapp-cloud-wordpress",
+  "version": "1.1.8",
+  "description": "Mapp Cloud for Wordpress and Woccommerce",
+  "type": "wordpress-plugin",
+  "license": "GNU",
+  "authors": [
+    {
+      "name": "Mapp Digital",
+      "email": "support@mapp.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
-      "MappCloud\\":"src/"
+      "MappCloud\\": "src/"
     }
   },
-    "minimum-stability": "alpha",
-    "require": {
-    }
+  "require": {}
 }

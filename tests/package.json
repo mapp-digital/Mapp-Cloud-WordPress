@@ -1,6 +1,6 @@
 {
   "name": "mapp-wordpress-e2e",
-  "version": "1.0.0",
+  "version": "1.1.8",
   "description": "Cypress E2E tests for Mapp Intelligence Wordpress plugin",
   "main": "index.js",
   "scripts": {
