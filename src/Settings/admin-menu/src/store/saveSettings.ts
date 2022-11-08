@@ -5,7 +5,7 @@ import * as settings from './settings';
 export const saveState = writable('');
 
 export const saveSettings = () => {
-	saveState.set('Saving...');
+	saveState.set(t.saving_changes);
 	fetch(window._mappConfig.api.url, {
 		method: 'POST',
 		mode: 'cors',
@@ -21,7 +21,6 @@ export const saveSettings = () => {
 	})
 		.then((r) => r.json())
 		.then((config) => {
-			console.log('saved', config);
 			saveState.set(t.settings_saved);
 			window.setTimeout(() => {
 				saveState.set('');

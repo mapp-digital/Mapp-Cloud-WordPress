@@ -1,4 +1,4 @@
-.PHONY: start-e2e stop-e2e exec-cypress cypress-run reset-wp init-wp release get-smartpixel
+.PHONY: start-e2e stop-e2e exec-cypress exec-wpcli cypress-run reset-wp init-wp release get-smartpixel
 
 USER_NAME := $(shell id -un)
 USER_ID := $(shell id -u)
@@ -15,6 +15,9 @@ stop-e2e:
 
 exec-cypress:
 	docker exec -it  mapp_e2e_wp_cypress bash
+	
+exec-wpcli:
+	docker exec -it -u xfs  mapp_e2e_wpcli bash
 
 cypress-run:
 	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run"

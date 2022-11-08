@@ -66,7 +66,7 @@ class Translation
 					Helper::$slug
 				),
 				"gtm_id" => __(
-					"GTM Conatiner ID not valid - keep this field empty or enter \"GTM-XXXXXXX\" ID.",
+					"GTM Container ID not valid - keep this field empty or enter \"GTM-XXXXXXX\" ID.",
 					Helper::$slug
 				),
 				"ti_domain" => __(

@@ -71,6 +71,8 @@ echo "install and update wordpress to v$WORDPRESS_VERSION";
 wp core install --url=http://wordpress-mapp --title="Mapp Intelligence E2E Test Suite" --admin_user=admin --admin_password=password --admin_email=admin@mapp.com --path=/var/www/html --skip-email
 # wp core update --version="$WORDPRESS_VERSION" --locale=en_US --path=/var/www/html --force
 
+wp language core install de_DE
+
 if [ "$WOOCOMMERCE_VERSION" != "" ]; then
   wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION" --activate
 else
