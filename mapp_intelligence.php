@@ -6,7 +6,6 @@
  * Version:           1.1.8
  * Author:            Mapp Digital US, LLC
  * Author URI:        https://mapp.com
- * Domain Path:       /languages
  * Text Domain:       mapp-intelligence
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

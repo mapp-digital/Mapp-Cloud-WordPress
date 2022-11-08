@@ -10,7 +10,8 @@
   "main": "Gruntfile.js",
   "scripts": {
     "i18n": "grunt i18n",
-    "set-version": "node ./bin/set-version.js"
+    "set-version": "node ./bin/set-version.js",
+    "set-tested-version": "node ./bin/set-tested-version.js"
   },
   "devDependencies": {
     "prettier": "^2.7.1",

@@ -1,4 +1,4 @@
-.PHONY: start-e2e stop-e2e exec-cypress exec-wpcli cypress-run reset-wp init-wp release get-smartpixel
+.PHONY: start-e2e stop-e2e exec-cypress exec-wpcli cypress-run reset-wp init-wp get-wordpress-version get-woocommerce-version set-version set-tested-version release get-smartpixel
 
 USER_NAME := $(shell id -un)
 USER_ID := $(shell id -u)
@@ -26,10 +26,19 @@ reset-wp:
 	docker exec -t -u xfs mapp_e2e_wpcli bash -c "php /db.php drop_db"
 
 init-wp:
-	docker exec -t -u xfs mapp_e2e_wpcli bash -c "bash /init-wp.sh"
+	docker exec -t -u xfs mapp_e2e_wpcli bash -c "bash /init-wp.sh"+
+
+get-wordpress-version:
+	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp core version"
+
+get-woocommerce-version:
+	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin list --format=json" | grep -oE "woocommerce.+name" | grep -o "[0-9.]\+"
 
 set-version:
-	npm run set-version $(version)
+	@npm run set-version $(version)
+
+set-tested-version:
+	@node ./bin/set-tested-version.js
 
 release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release
