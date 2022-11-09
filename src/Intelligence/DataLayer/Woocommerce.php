@@ -1,8 +1,8 @@
 <?php
 
-namespace MappCloud\DataLayer;
+namespace MappCloud\Intelligence\DataLayer;
 
-use MappCloud\Helper;
+use MappCloud\Intelligence\Helper;
 
 trait Woocommerce
 {

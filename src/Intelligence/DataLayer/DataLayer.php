@@ -1,11 +1,11 @@
 <?php
 
-namespace MappCloud\DataLayer;
+namespace MappCloud\Intelligence\DataLayer;
 
-use MappCloud\Helper;
-use MappCloud\DataLayer\Page;
-use MappCloud\DataLayer\User;
-use MappCloud\DataLayer\Woocommerce;
+use MappCloud\Intelligence\Helper;
+use MappCloud\Intelligence\DataLayer\Page;
+use MappCloud\Intelligence\DataLayer\User;
+use MappCloud\Intelligence\DataLayer\Woocommerce;
 
 class Datalayer
 {

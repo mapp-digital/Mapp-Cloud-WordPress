@@ -232,7 +232,7 @@ CHECKOUT_ID=$(wp post create --porcelain --post_type=page --post_status=publish 
 MY_ACCOUNT_ID=$(wp post create --porcelain --post_type=page --post_status=publish --post_title='My account' --post_category='' --post_content='<!-- wp:shortcode -->[woocommerce_my_account]<!-- /wp:shortcode -->')
 
 # create post
-wp post create --post_type=post --post_status=publish --post_title='Mapp Cloud Wordpress/Woocommerce E2E' --post_category='' --post_content='<!-- wp:paragraph --><p>This is the Wordpress dev- an E2E testserver for Wordpress / Woocommerce and Mapp Cloud Integration. Plugin settings are available <a href="http://wordpress-mapp/wp-admin/plugins.php?page=mapp-intelligence">here</a></p><!-- /wp:paragraph -->'
+wp post create --post_type=post --post_status=publish --post_title='Mapp Cloud Wordpress/Woocommerce E2E' --post_category='' --post_content='<!-- wp:paragraph --><p>This is the Wordpress dev- and E2E testserver for Wordpress / Woocommerce and Mapp Cloud Integration. Plugin settings are available <a href="http://wordpress-mapp/wp-admin/plugins.php?page=mapp-intelligence">here</a></p><!-- /wp:paragraph -->'
 
 # update page ids
 wp_update_option wp_page_for_privacy_policy "$PRIVACY_POLICY_ID" yes

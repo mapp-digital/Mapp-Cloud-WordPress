@@ -18,6 +18,7 @@ services:
 
   wordpress-mapp:
     image: wordpress:latest
+    container_name: wordpress-mapp
     depends_on:
       - db
     ports:
@@ -44,8 +45,7 @@ services:
       - wordpress-mapp
     restart: on-failure
     environment:
-      # TODO replace latest with env variable
-      WORDPRESS_VERSION: latest
+      WORDPRESS_VERSION: "${WORDPRESS_VERSION:-latest}"
       WP_CLI_CACHE_DIR: /var/www/html/.wp-cli/cache
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: testdb

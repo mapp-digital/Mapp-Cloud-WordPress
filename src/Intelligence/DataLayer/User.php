@@ -1,6 +1,6 @@
 <?php
 
-namespace MappCloud\DataLayer;
+namespace MappCloud\Intelligence\DataLayer;
 
 
 trait User

@@ -1,8 +1,8 @@
 <?php
 
-namespace MappCloud;
+namespace MappCloud\i18n;
 
-use MappCloud\Helper;
+use MappCloud\Intelligence\Helper;
 
 class Translation
 {

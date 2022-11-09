@@ -1,6 +1,6 @@
 <?php
 
-namespace MappCloud;
+namespace MappCloud\Intelligence;
 
 class Helper
 {

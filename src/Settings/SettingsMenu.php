@@ -1,8 +1,8 @@
 <?php
 namespace MappCloud\Settings;
 
-use MappCloud\Helper;
-use MappCloud\Translation;
+use MappCloud\Intelligence\Helper;
+use MappCloud\i18n\Translation;
 
 class SettingsMenu
 {

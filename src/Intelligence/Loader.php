@@ -1,7 +1,7 @@
 <?php
-namespace MappCloud;
+namespace MappCloud\Intelligence;
 
-use MappCloud\Helper;
+use MappCloud\Intelligence\Helper;
 
 class Loader
 {
@@ -32,7 +32,7 @@ class Loader
         <script>
             window.loaderConfig_ = window.loaderConfig_ || {
                 domain: '',
-                path: '<?php echo plugin_dir_url(__FILE__) . "../js/"; ?>',
+                path: '<?php echo plugin_dir_url(__FILE__) . "../../js/"; ?>',
                 file: 'smart-pixel.min.js'
             };
             (function(f,c,a,b){function d(){}var e=c.getElementsByTagName(a)[0];a=c.createElement(a);a.async=!0;a.onload=d;a.onerror=d;if(-1!==c.cookie.indexOf("wtstp_debug=1")||-1!==f.location.hash.indexOf("wtstp_debug"))b.file=b.file.replace(/\.min\./,".debug.");a.src=(""!==b.domain?"//"+b.domain:"")+b.path+b.file;e.parentNode.insertBefore(a,e)})(window,document,"script",window.loaderConfig_||{});
