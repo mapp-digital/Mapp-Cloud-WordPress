@@ -37,7 +37,7 @@ Cypress.Commands.add(
             return {params: Object.fromEntries(urlSearchParams.entries()), version: isSmartpixel ? '6' : '5'};
         });
     }
-)
+);
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from

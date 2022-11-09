@@ -55,13 +55,17 @@ services:
       WORDPRESS_DEBUG: 1
       WOOCOMMERCE_VERSION:
     user: xfs
+    ports:
+      - 8000:8000
     volumes:
       - "../../:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
+      - ./cli.php:/cli.php
       - "./init-wp.sh:/init-wp.sh"
       - "./wait-for-it.sh:/wait-for-it.sh"
       - "./db.php:/db.php"
-    command: sh -c "tail -f /dev/null"
+    # command: sh -c "tail -f /dev/null"
+    command: php -S mapp_e2e_wpcli:8000 /cli.php
     networks:
       - mapp
 

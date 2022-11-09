@@ -36,4 +36,6 @@ class Settings
 	{
 		return current_user_can("manage_options");
 	}
+
+	
 }
