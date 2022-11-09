@@ -2,8 +2,6 @@
 
 namespace MappCloud\Intelligence;
 
-use MappCloud\Settings\SettingRoutes;
-use MappCloud\Settings\SettingsMenu;
 use MappCloud\i18n\Translation;
 use MappCloud\Intelligence\Loader;
 use MappCloud\Intelligence\Helper;
@@ -23,19 +21,8 @@ class Runtime
 		$this->addActionsAndFilters();
 	}
 
-	private function addSettingsMenu()
-	{
-		add_action("init", [
-			Translation::class,
-			"load_mapp_intelligence_textdomain",
-		]);
-		add_action("init", [SettingsMenu::class, "add_settings_menu"]);
-		add_action("rest_api_init", [new SettingRoutes(), "register_routes"]);
-	}
-
 	private function addActionsAndFilters()
 	{
-		$this->addSettingsMenu();
 		add_action("wp_head", [&$this, "wp_head_actions"]);
 
 		if ($this->woocommerce_enabled) {

@@ -23,6 +23,16 @@ class SettingsMenu
 		}
 	}
 
+	public static function initSettingsMenu()
+	{
+		add_action("init", [
+			Translation::class,
+			"load_mapp_intelligence_textdomain",
+		]);
+		add_action("init", [SettingsMenu::class, "add_settings_menu"]);
+		add_action("rest_api_init", [new SettingRoutes(), "register_routes"]);
+	}
+
 	public function add_page()
 	{
 		add_submenu_page(
