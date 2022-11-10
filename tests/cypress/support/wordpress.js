@@ -23,7 +23,15 @@ Cypress.Commands.add("setSettings", (newSettings) => {
 		.then((db) => db.json())
 		.then((dbSettings) => {
 			for (let setting in newSettings) {
-				expect(newSettings[setting]).to.equal(dbSettings.data.General[setting]);
-			  }
+				expect(newSettings[setting]).to.equal(
+					dbSettings.data.General[setting]
+				);
+			}
 		});
+});
+
+Cypress.Commands.add("getSettingsFromDB", (settings) => {
+	return fetch("http://mapp_e2e_wpcli:8000?command=get_settings").then((db) =>
+		db.json()
+	);
 });

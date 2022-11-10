@@ -19,7 +19,7 @@ services:
 
   wordpress-mapp:
     image: wordpress:latest
-    container_name: wordpress-mapp
+    container_name: mapp_e2e_wp.test
     depends_on:
       - db
     ports:

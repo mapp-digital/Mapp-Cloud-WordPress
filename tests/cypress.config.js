@@ -22,6 +22,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     },
-    baseUrl: 'http://wordpress-mapp',
+    baseUrl: 'http://mapp_e2e_wp.test',
   },
 })

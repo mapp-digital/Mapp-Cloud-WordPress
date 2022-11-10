@@ -29,7 +29,7 @@
 						errorMessage={t.error.ti_id}
 					/>
 					<Text
-						id="mapp_tidomain"
+						id="mapp_ti_domain"
 						label={t.header.ti_domain}
 						hint={t.hints.ti_domain}
 						configStore={tiDomain}
