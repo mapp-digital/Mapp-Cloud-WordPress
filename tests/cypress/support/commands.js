@@ -23,18 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add("interceptTracking", () => {
+	cy.intercept("*/*wt-eu02.net/136699033798929/wt?p=*").as("trackRequest");
+});
 
 Cypress.Commands.add(
     'testTrackRequest',
     {
         prevSubject: false,
     },
-    (interceptor) => {
-        return cy.wait(interceptor).then((interception) => {
+    () => {
+        return cy.wait("@trackRequest").then((interception) => {
             const url =interception.request.url;
             const urlSearchParams = new URLSearchParams(url);
             const isSmartpixel = /136699033798929\/wt\?p=6/.test(interception.request.url);
-            return {params: Object.fromEntries(urlSearchParams.entries()), version: isSmartpixel ? '6' : '5'};
+            const pageName = decodeURIComponent(/136699033798929\/wt\?p=\d{3},(.+?),/.exec(interception.request.url)[1]);
+            return {params: Object.fromEntries(urlSearchParams.entries()), version: isSmartpixel ? '6' : '5', pageName};
         });
     }
 );

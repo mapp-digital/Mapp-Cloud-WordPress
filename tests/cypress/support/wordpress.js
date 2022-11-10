@@ -35,3 +35,36 @@ Cypress.Commands.add("getSettingsFromDB", (settings) => {
 		db.json()
 	);
 });
+
+Cypress.Commands.add("activateTI", () => {
+	cy.setSettings({
+		v: 5,
+		tiId: "136699033798929",
+		tiDomain: "responder.wt-safetag.com",
+		filterKeys: "",
+		excludeWpUser: false,
+	});
+});
+
+Cypress.Commands.add("activateGTM", () => {
+	cy.setSettings({
+		v: 6,
+		gtmId: "GTM-N2FH826",
+		filterKeys: "",
+		excludeWpUser: false,
+	});
+});
+
+Cypress.Commands.add("getGtmDataLayer", () => {
+	return cy.window().then((win) => {
+		return win.dataLayer
+			.filter((d) => d.event === "mapp.load")
+			.map((dl) => dl.mapp)[0];
+	});
+});
+
+Cypress.Commands.add("getTiDataLayer", () => {
+	return cy.window().then((win) => {
+		return win._ti;
+	});
+});
