@@ -49,7 +49,7 @@ class SettingsMenu
 	{
 		wp_register_script(
 			Helper::$slug,
-			$this->assets_url . "admin-menu/dist/assets/index.10521eb5.js",
+			$this->assets_url . "admin-menu/dist/assets/index.3048c75e.js",
 			[]
 		);
 		wp_localize_script("admin-bar", "_mappConfig", [

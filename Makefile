@@ -6,7 +6,11 @@ GROUP_ID := $(shell id -g)
 USER_GROUP = $(USER_ID):$(GROUP_ID)
 
 wp=latest
-woo=7.0.1
+woo=7.1.0
+
+
+
+
 
 export USER_ID
 export GROUP_ID
@@ -48,6 +52,10 @@ set-version:
 
 set-tested-version:
 	@node ./bin/set-tested-version.js
+
+get-latest-woo-version-number:
+	@git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/woocommerce/woocommerce '*.*.*'  |  cut --delimiter='/' --fields=3 | grep -o "^[0-9]\.[0-9]\.[0-9]$\" |  tail --lines=1
+
 
 release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release

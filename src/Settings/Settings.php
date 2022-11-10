@@ -21,7 +21,6 @@ class Settings
 	{
 		$saved = get_option(self::$option_key);
 		if ($saved) {
-			$saved = stripslashes($saved);
 			$saved = json_decode($saved, true);
 		}
 		return wp_parse_args($saved, self::$defaults);

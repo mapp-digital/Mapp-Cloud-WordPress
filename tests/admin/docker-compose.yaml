@@ -3,6 +3,7 @@ version: "3.3"
 services:
   db:
     image: mariadb:10.5
+    container_name: mapp_e2e_wp_db
     restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: root

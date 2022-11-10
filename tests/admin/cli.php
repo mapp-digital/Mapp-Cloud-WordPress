@@ -20,10 +20,10 @@ if (isset($_GET["command"])) {
 	if (function_exists($_GET["command"])) {
 		call_user_func($_GET["command"]);
 	} else {
-		return_message("Error: Command not known");
+		respond("Error: Command not known");
 	}
 } else {
-	return_message(
+	respond(
 		"Error: No command given! Please add a command query parameter to your request!"
 	);
 }
@@ -31,16 +31,16 @@ if (isset($_GET["command"])) {
 function deactivate_woo()
 {
 	shell_exec("wp plugin deactivate woocommerce");
-	return_message("Woocommerce deactivated!");
+	respond("Woocommerce deactivated!");
 }
 
 function activate_woo()
 {
 	shell_exec("wp plugin activate woocommerce");
-	return_message("Woocommerce activated!");
+	respond("Woocommerce activated!");
 }
 
-function set_option()
+function set_settings()
 {
 	if (isset($_GET["json"])) {
 		$newConfig = json_decode(html_entity_decode($_GET["json"]), true);
@@ -53,18 +53,23 @@ function set_option()
 		];
 
 		shell_exec("wp option set MappIntelligence_mappConfig '" . json_encode($newOptions) . "'");
-		return_message("settings", $newOptions);
+		get_settings();
 	} else {
-		return_message(
+		respond(
 			"Error: you need to add a 'json' query parameter to your request"
 		);
 	}
 }
 
-function return_message($msg, $data = false)
+function get_settings() {
+	$settings = trim(shell_exec("wp option get MappIntelligence_mappConfig"));
+	respond("Current settings", $settings);
+}
+
+function respond($msg, $data = false)
 {
 	if ($data) {
-		echo '{"message": "' . $msg . '", "data":' . json_encode($data) . '}';
+		echo '{"message": "' . $msg . '", "data":' . $data . '}';
 	} else {
 		echo '{"message": "' . $msg . '"}';
 	}

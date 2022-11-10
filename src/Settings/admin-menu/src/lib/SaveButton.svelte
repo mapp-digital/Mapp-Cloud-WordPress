@@ -8,7 +8,7 @@
 	$: label = $saveState === '' ? t.save_changes : $saveState;
 </script>
 
-<button type="submit" {disabled} class="button-primary" on:click={saveSettings}>{label}</button>
+<button type="submit" id="mapp_save" {disabled} class="button-primary" on:click={saveSettings}>{label}</button>
 {#if !validated}
 	<p>Please enter a valid value for: {$wrongSettings}</p>
 {/if}
