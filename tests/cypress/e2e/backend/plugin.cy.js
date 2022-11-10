@@ -9,7 +9,7 @@ describe("Plugin", () => {
 	});
 
 	it("in overview", () => {
-		cy.adminLogin("/wp-admin/plugins.php");
+		cy.wpLogin("/wp-admin/plugins.php");
 		cy.contains("Mapp Cloud Integration");
 	});
 
@@ -316,7 +316,7 @@ describe("Plugin", () => {
 					filterKeys: "",
 					excludeWpUser: true,
 				});
-				cy.adminLogin("/");
+				cy.wpLogin("/");
 				cy.contains("Mapp Cloud WordPress/Woocommerce E2E");
 				cy.window().then((win) => {
 					expect(win._ti).to.not.exist;
@@ -333,7 +333,7 @@ describe("Plugin", () => {
 					gtmId: "GTM-N2FH826",
 					excludeWpUser: true,
 				});
-				cy.adminLogin("/");
+				cy.wpLogin("/");
 				cy.contains("Mapp Cloud WordPress/Woocommerce E2E");
 				cy.window().then((win) => {
 					expect(win.dataLayer).to.not.exist;

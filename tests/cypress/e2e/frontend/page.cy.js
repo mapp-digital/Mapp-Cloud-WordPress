@@ -2,10 +2,8 @@
 
 describe("Page", () => {
 	describe("Google Tag Manager", () => {
-		beforeEach(() => {
-			cy.activateGTM();
-			cy.interceptTracking();
-		});
+        before(cy.activateGTM);
+		beforeEach(cy.interceptTracking);
 
 		it("Home", () => {
 			cy.visit("/");
@@ -139,10 +137,8 @@ describe("Page", () => {
 	});
 
 	describe("Tag Integration", () => {
-		beforeEach(() => {
-			cy.activateTI();
-			cy.interceptTracking();
-		});
+        before(cy.activateTI);
+		beforeEach(cy.interceptTracking);
 
 		it("Home", () => {
 			cy.visit("/");

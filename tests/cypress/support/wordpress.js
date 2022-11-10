@@ -1,9 +1,9 @@
-Cypress.Commands.add("adminLogin", (nextPage = "/wp-admin/") => {
+Cypress.Commands.add("wpLogin", (nextPage = "/wp-admin/", name = "admin") => {
 	cy.visit({
 		url: "/wp-login.php",
 		method: "POST",
 		body: {
-			log: "admin",
+			log: name,
 			pwd: "password",
 			"wp-submit": "Log In",
 			redirect_to: Cypress.config().baseUrl + nextPage,
@@ -12,7 +12,7 @@ Cypress.Commands.add("adminLogin", (nextPage = "/wp-admin/") => {
 });
 
 Cypress.Commands.add("goToSettings", () => {
-	cy.adminLogin("/wp-admin/plugins.php?page=mapp-intelligence");
+	cy.wpLogin("/wp-admin/plugins.php?page=mapp-intelligence");
 });
 
 Cypress.Commands.add("setSettings", (newSettings) => {
@@ -68,3 +68,5 @@ Cypress.Commands.add("getTiDataLayer", () => {
 		return win._ti;
 	});
 });
+
+
