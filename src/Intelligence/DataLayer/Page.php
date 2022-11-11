@@ -4,10 +4,9 @@ namespace MappCloud\Intelligence\DataLayer;
 
 use MappCloud\Intelligence\Helper;
 
-
 trait Page
 {
-    	/**
+	/**
 	 * Writes page information to dataLayer
 	 */
 	public function get_page_info()
@@ -16,10 +15,14 @@ trait Page
 		$post_type = get_post_type();
 		$this->datalayer["customFields"] = get_post_custom($post_id);
 		$this->datalayer["language"] = get_locale();
+		$this->datalayer["pageTitle"] = preg_replace(
+			'/\W\|\W$/',
+			"",
+			strip_tags(wp_title("|", false, "right"))
+		);
 
 		// Pages with single content (post, product, page etc.)
 		if (is_singular()) {
-			$this->datalayer["pageTitle"] = get_the_title($post_id);
 			$this->datalayer["contentCategory"] = $post_type;
 			$this->datalayer["contentSubcategory"] = "single-" . $post_type;
 
@@ -28,17 +31,14 @@ trait Page
 
 			// Archive pages
 		} elseif (is_archive() || is_post_type_archive()) {
-			$this->datalayer["pageTitle"] = preg_replace(
-				'/\W\|\W$/',
-				"",
-				strip_tags(wp_title("|", false, "right"))
-			);
 			$pageNumber = get_query_var("paged");
 			$this->datalayer["pageNumber"] =
 				$pageNumber > 0 ? strval($pageNumber) : "1";
-			$orderBy = get_query_var("orderby");
+			$orderBy = get_query_var("orderby", "");
 			$this->datalayer["orderBy"] =
-				$orderBy !== "" ? $orderBy : "default";
+				$orderBy !== "menu_order title"
+					? $orderBy
+					: "default";
 			// loop through the different types of archives
 			$f = [
 				"category",
@@ -71,6 +71,7 @@ trait Page
 		// contentCategory for special pages:
 		if (is_front_page()) {
 			$this->datalayer["contentCategory"] = "home";
+			$this->datalayer["pageTitle"] = get_bloginfo("name");
 		} elseif (is_search()) {
 			$this->datalayer["contentCategory"] = "internal search";
 		} elseif ($this->woocommerce_enabled) {
@@ -106,6 +107,7 @@ trait Page
 	public function get_404_info()
 	{
 		if (is_404()) {
+			$this->datalayer["pageTitle"] = "404";
 			$this->datalayer["errorCode"] = "404";
 			$this->datalayer["errorMessage"] = "page not found";
 		}

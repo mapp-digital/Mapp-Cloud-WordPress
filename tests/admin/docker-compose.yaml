@@ -18,12 +18,7 @@ services:
       - mapp
 
   wordpress-mapp:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.wordpress
-      args:
-          USER_ID: ${USER_ID}
-          GROUP_ID: ${GROUP_ID}  
+    image: wordpress:latest
     container_name: mapp_e2e_wp.test
     depends_on:
       - db
