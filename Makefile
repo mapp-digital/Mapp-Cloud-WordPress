@@ -17,6 +17,9 @@ export GROUP_ID
 
 start-e2e:
 	cd ./tests/admin && docker-compose up -d
+
+build-e2e:
+	cd ./tests/admin && docker-compose up --build -d 
 stop-e2e: 
 	cd ./tests/admin && docker-compose down
 

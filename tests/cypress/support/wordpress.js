@@ -30,7 +30,7 @@ Cypress.Commands.add("setSettings", (newSettings) => {
 		});
 });
 
-Cypress.Commands.add("getSettingsFromDB", (settings) => {
+Cypress.Commands.add("getSettingsFromDB", () => {
 	return fetch("http://mapp_e2e_wpcli:8000?command=get_settings").then((db) =>
 		db.json()
 	);
