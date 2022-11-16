@@ -41,5 +41,26 @@ describe("Product", () => {
 				expect(dataLayer.orderBy).to.equal("default");
 			});
 		});
+
+		describe('view', () => {
+            it('sale product', () => {
+				cy.visit("/product/beanie-with-logo/");
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/product/beanie-with-logo/");
+					expect(track.param.ba).to.equal("27");
+					expect(track.param.ca1).to.equal("Accessories");
+					expect(track.param.ca3).to.equal("Beanie with Logo");
+					expect(track.param.cd).to.equal("7315becdd0d512ca85a61ac53b899bb7");
+					expect(track.param.cg1).to.equal("product");
+					expect(track.param.cg2).to.equal("single-product");
+					expect(track.param.co).to.equal("18");
+					expect(track.param.cr).to.equal("EUR");
+					expect(track.param.cs802).to.equal("5136");
+					expect(track.param.pu).to.equal("http://mapp_e2e_wp.test/product/beanie-with-logo/");
+					expect(track.param.qn).to.equal("1");
+					expect(track.param.st).to.equal("view");
+				});
+			})
+		});
     });
 });
