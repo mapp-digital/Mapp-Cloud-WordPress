@@ -59,7 +59,7 @@ Cypress.Commands.add("getGtmDataLayer", () => {
 	return cy.window().then((win) => {
 		return win.dataLayer
 			.filter((d) => d.event === "mapp.load")
-			.map((dl) => dl.mapp)[0];
+			.map((dl) => dl.mapp);
 	});
 });
 

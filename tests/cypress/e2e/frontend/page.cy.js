@@ -13,9 +13,9 @@ describe("Page", () => {
 				expect(track.params.cg1).to.equal("home");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal("mapp_e2e_wp.test/");
-				expect(dataLayer.contentCategory).to.equal("home");
-				expect(dataLayer.contentSubcategory).to.not.exist;
+				expect(dataLayer[0].pageName).to.equal("mapp_e2e_wp.test/");
+				expect(dataLayer[0].contentCategory).to.equal("home");
+				expect(dataLayer[0].contentSubcategory).to.not.exist;
 			});
 		});
 
@@ -30,12 +30,12 @@ describe("Page", () => {
 				expect(track.params.cg2).to.equal("single-page");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal(
+				expect(dataLayer[0].pageName).to.equal(
 					"mapp_e2e_wp.test/privacy-policy/"
 				);
-				expect(dataLayer.contentCategory).to.equal("page");
-				expect(dataLayer.contentSubcategory).to.equal("single-page");
-				expect(dataLayer.pageTitle).to.equal("Privacy Policy");
+				expect(dataLayer[0].contentCategory).to.equal("page");
+				expect(dataLayer[0].contentSubcategory).to.equal("single-page");
+				expect(dataLayer[0].pageTitle).to.equal("Privacy Policy");
 			});
 		});
 
@@ -50,12 +50,12 @@ describe("Page", () => {
 				expect(track.params.cg2).to.equal("single-page");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal(
+				expect(dataLayer[0].pageName).to.equal(
 					"mapp_e2e_wp.test/sample-page/"
 				);
-				expect(dataLayer.contentCategory).to.equal("page");
-				expect(dataLayer.contentSubcategory).to.equal("single-page");
-				expect(dataLayer.pageTitle).to.equal("Sample Page");
+				expect(dataLayer[0].contentCategory).to.equal("page");
+				expect(dataLayer[0].contentSubcategory).to.equal("single-page");
+				expect(dataLayer[0].pageTitle).to.equal("Sample Page");
 			});
 		});
 
@@ -70,13 +70,13 @@ describe("Page", () => {
 				expect(track.params.cg2).to.equal("category-post");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal(
+				expect(dataLayer[0].pageName).to.equal(
 					"mapp_e2e_wp.test/category/uncategorized/"
 				);
-				expect(dataLayer.contentCategory).to.equal("archive");
-				expect(dataLayer.contentSubcategory).to.equal("category-post");
-				expect(dataLayer.pageTitle).to.equal("Uncategorized");
-				expect(dataLayer.pageNumber).to.equal("1");
+				expect(dataLayer[0].contentCategory).to.equal("archive");
+				expect(dataLayer[0].contentSubcategory).to.equal("category-post");
+				expect(dataLayer[0].pageTitle).to.equal("Uncategorized");
+				expect(dataLayer[0].pageNumber).to.equal("1");
 			});
 		});
 
@@ -89,11 +89,11 @@ describe("Page", () => {
 				expect(track.params.cg2).to.not.exist;
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal("mapp_e2e_wp.test/");
-				expect(dataLayer.contentCategory).to.equal("internal search");
-				expect(dataLayer.contentSubcategory).to.not.exist;
-				expect(dataLayer.numberSearchResults).to.equal("4");
-				expect(dataLayer.pageTitle).to.equal(" hoodie | Search Results ");
+				expect(dataLayer[0].pageName).to.equal("mapp_e2e_wp.test/");
+				expect(dataLayer[0].contentCategory).to.equal("internal search");
+				expect(dataLayer[0].contentSubcategory).to.not.exist;
+				expect(dataLayer[0].numberSearchResults).to.equal("4");
+				expect(dataLayer[0].pageTitle).to.equal(" hoodie | Search Results ");
 			});
 		});
 
@@ -108,12 +108,12 @@ describe("Page", () => {
 				expect(track.params.cg2).to.equal("single-post");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal(
+				expect(dataLayer[0].pageName).to.equal(
 					"mapp_e2e_wp.test/uncategorized/mapp-cloud-wordpress-woocommerce-e2e/"
 				);
-				expect(dataLayer.contentCategory).to.equal("post");
-				expect(dataLayer.contentSubcategory).to.equal("single-post");
-				expect(dataLayer.pageTitle).to.equal(
+				expect(dataLayer[0].contentCategory).to.equal("post");
+				expect(dataLayer[0].contentSubcategory).to.equal("single-post");
+				expect(dataLayer[0].pageTitle).to.equal(
 					"Mapp Cloud WordPress/Woocommerce E2E"
 				);
 			});
@@ -128,12 +128,12 @@ describe("Page", () => {
 				);
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer.pageName).to.equal(
+				expect(dataLayer[0].pageName).to.equal(
 					"mapp_e2e_wp.test/doesnt-exist/"
 				);
-				expect(dataLayer.pageTitle).to.equal("Page not found");
-				expect(dataLayer.errorCode).to.equal("404");
-				expect(dataLayer.errorMessage).to.equal("page not found");
+				expect(dataLayer[0].pageTitle).to.equal("Page not found");
+				expect(dataLayer[0].errorCode).to.equal("404");
+				expect(dataLayer[0].errorMessage).to.equal("page not found");
 			});
 		});
 	});
