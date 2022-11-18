@@ -41,7 +41,7 @@ Cypress.Commands.add("activateTI", () => {
 		v: 5,
 		tiId: "136699033798929",
 		tiDomain: "responder.wt-safetag.com",
-		filterKeys: "",
+		filterKeys: "customFields",
 		excludeWpUser: false,
 	});
 });
@@ -50,7 +50,7 @@ Cypress.Commands.add("activateGTM", () => {
 	cy.setSettings({
 		v: 6,
 		gtmId: "GTM-N2FH826",
-		filterKeys: "",
+		filterKeys: "customFields",
 		excludeWpUser: false,
 	});
 });
@@ -69,4 +69,21 @@ Cypress.Commands.add("getTiDataLayer", () => {
 	});
 });
 
-
+Cypress.Commands.add("spyOnGtmDataLayer", (log = false) => {
+	const dl = [];
+	return cy.window().then((win) => {
+		win.dataLayer = win.dataLayer || [];
+		const original = win.dataLayer.push;
+		win.dataLayer.push = (args) => {
+			if (args.event && args.event.includes("mapp.")) {
+				const copy = JSON.parse(JSON.stringify(args));
+				if (log) {
+					console.log(copy);
+				}
+				dl.push(copy);
+			}
+			original(args);
+		};
+		return dl;
+	});
+});
