@@ -87,3 +87,23 @@ Cypress.Commands.add("spyOnGtmDataLayer", (log = false) => {
 		return dl;
 	});
 });
+
+Cypress.Commands.add("spyOnTiDataLayer", (log = false) => {
+	const dl = [];
+	return cy.window().then((win) => {
+		win.wts = win.wts || [];
+		const original = win.wts.push;
+		win.wts.push = (args) => {
+			
+			if(args[0] === 'send' && args[1] === 'pageupdate') {
+				const copy = JSON.parse(JSON.stringify(win._ti));
+				dl.push(copy);
+				if (log) {
+					console.log(copy);
+				}
+			}
+			original(args);
+		};
+		return dl;
+	});
+});

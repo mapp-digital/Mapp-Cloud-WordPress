@@ -22,194 +22,534 @@ describe("Product", () => {
 				expect(dataLayer[0].products[0].productName).to.equal("Album");
 				expect(dataLayer[0].products[0].productCost).to.equal("15");
 				expect(dataLayer[0].products[0].productId).to.equal("18");
-				expect(dataLayer[0].products[0].productSKU).to.equal("woo-album");
+				expect(dataLayer[0].products[0].productSKU).to.equal(
+					"woo-album"
+				);
 				expect(dataLayer[0].products[0].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[0].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[0].taxonomies.product_cat[0]).to.equal("Music");
-				expect(dataLayer[0].products[0].productCategories[0]).to.equal("Music");
-				expect(dataLayer[0].products[0].productCategory).to.equal("Music");
+				expect(
+					dataLayer[0].products[0].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[0].taxonomies.product_cat[0]
+				).to.equal("Music");
+				expect(dataLayer[0].products[0].productCategories[0]).to.equal(
+					"Music"
+				);
+				expect(dataLayer[0].products[0].productCategory).to.equal(
+					"Music"
+				);
 				expect(dataLayer[0].products[1].productName).to.equal("Beanie");
 				expect(dataLayer[0].products[1].productCost).to.equal("18");
 				expect(dataLayer[0].products[1].productId).to.equal("10");
-				expect(dataLayer[0].products[1].productSKU).to.equal("woo-beanie");
+				expect(dataLayer[0].products[1].productSKU).to.equal(
+					"woo-beanie"
+				);
 				expect(dataLayer[0].products[1].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[1].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[1].taxonomies.product_cat[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[1].taxonomies.pa_color[0]).to.equal("Red");
-				expect(dataLayer[0].products[1].productCategories[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[1].productCategory).to.equal("Accessories");
-				expect(dataLayer[0].products[2].productName).to.equal("Beanie with Logo");
+				expect(
+					dataLayer[0].products[1].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[1].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[1].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(dataLayer[0].products[1].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[1].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[2].productName).to.equal(
+					"Beanie with Logo"
+				);
 				expect(dataLayer[0].products[2].productCost).to.equal("18");
 				expect(dataLayer[0].products[2].productId).to.equal("27");
-				expect(dataLayer[0].products[2].productSKU).to.equal("Woo-beanie-logo");
+				expect(dataLayer[0].products[2].productSKU).to.equal(
+					"Woo-beanie-logo"
+				);
 				expect(dataLayer[0].products[2].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[2].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[2].taxonomies.product_cat[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[2].taxonomies.pa_color[0]).to.equal("Red");
-				expect(dataLayer[0].products[2].productCategories[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[2].productCategory).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[2].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[2].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[2].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(dataLayer[0].products[2].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[2].productCategory).to.equal(
+					"Accessories"
+				);
 				expect(dataLayer[0].products[3].productName).to.equal("Belt");
 				expect(dataLayer[0].products[3].productCost).to.equal("55");
 				expect(dataLayer[0].products[3].productId).to.equal("11");
-				expect(dataLayer[0].products[3].productSKU).to.equal("woo-belt");
+				expect(dataLayer[0].products[3].productSKU).to.equal(
+					"woo-belt"
+				);
 				expect(dataLayer[0].products[3].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[3].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[3].taxonomies.product_cat[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[3].productCategories[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[3].productCategory).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[3].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[3].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer[0].products[3].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[3].productCategory).to.equal(
+					"Accessories"
+				);
 				expect(dataLayer[0].products[4].productName).to.equal("Cap");
 				expect(dataLayer[0].products[4].productCost).to.equal("16");
 				expect(dataLayer[0].products[4].productId).to.equal("12");
 				expect(dataLayer[0].products[4].productSKU).to.equal("woo-cap");
 				expect(dataLayer[0].products[4].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[4].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[4].taxonomies.product_visibility[0]).to.equal("featured");
-				expect(dataLayer[0].products[4].taxonomies.product_cat[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[4].taxonomies.pa_color[0]).to.equal("Yellow");
-				expect(dataLayer[0].products[4].productCategories[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[4].productCategory).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[4].taxonomies.pa_color[0]
+				).to.equal("Yellow");
+				expect(dataLayer[0].products[4].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[4].productCategory).to.equal(
+					"Accessories"
+				);
 				expect(dataLayer[0].products[5].productName).to.equal("Hoodie");
 				expect(dataLayer[0].products[5].productCost).to.equal("42");
 				expect(dataLayer[0].products[5].productId).to.equal("7");
-				expect(dataLayer[0].products[5].productSKU).to.equal("woo-hoodie");
+				expect(dataLayer[0].products[5].productSKU).to.equal(
+					"woo-hoodie"
+				);
 				expect(dataLayer[0].products[5].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[5].taxonomies.product_type[0]).to.equal("variable");
-				expect(dataLayer[0].products[5].taxonomies.product_cat[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[5].taxonomies.pa_color[0]).to.equal("Red");
-				expect(dataLayer[0].products[5].taxonomies.pa_color[1]).to.equal("Green");
-				expect(dataLayer[0].products[5].taxonomies.pa_color[2]).to.equal("Blue");
-				expect(dataLayer[0].products[5].productCategories[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[5].productCategory).to.equal("Hoodies");
-				expect(dataLayer[0].products[6].productName).to.equal("Hoodie with Logo");
+				expect(
+					dataLayer[0].products[5].taxonomies.product_type[0]
+				).to.equal("variable");
+				expect(
+					dataLayer[0].products[5].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(
+					dataLayer[0].products[5].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(
+					dataLayer[0].products[5].taxonomies.pa_color[1]
+				).to.equal("Green");
+				expect(
+					dataLayer[0].products[5].taxonomies.pa_color[2]
+				).to.equal("Blue");
+				expect(dataLayer[0].products[5].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[5].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[6].productName).to.equal(
+					"Hoodie with Logo"
+				);
 				expect(dataLayer[0].products[6].productCost).to.equal("45");
 				expect(dataLayer[0].products[6].productId).to.equal("8");
-				expect(dataLayer[0].products[6].productSKU).to.equal("woo-hoodie-with-logo");
+				expect(dataLayer[0].products[6].productSKU).to.equal(
+					"woo-hoodie-with-logo"
+				);
 				expect(dataLayer[0].products[6].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[6].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[6].taxonomies.product_cat[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[6].taxonomies.pa_color[0]).to.equal("Blue");
-				expect(dataLayer[0].products[6].productCategories[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[6].productCategory).to.equal("Hoodies");
-				expect(dataLayer[0].products[7].productName).to.equal("Hoodie with Zipper");
+				expect(
+					dataLayer[0].products[6].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[6].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(
+					dataLayer[0].products[6].taxonomies.pa_color[0]
+				).to.equal("Blue");
+				expect(dataLayer[0].products[6].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[6].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[7].productName).to.equal(
+					"Hoodie with Zipper"
+				);
 				expect(dataLayer[0].products[7].productCost).to.equal("45");
 				expect(dataLayer[0].products[7].productId).to.equal("15");
-				expect(dataLayer[0].products[7].productSKU).to.equal("woo-hoodie-with-zipper");
+				expect(dataLayer[0].products[7].productSKU).to.equal(
+					"woo-hoodie-with-zipper"
+				);
 				expect(dataLayer[0].products[7].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[7].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[7].taxonomies.product_visibility[0]).to.equal("featured");
-				expect(dataLayer[0].products[7].taxonomies.product_cat[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[7].productCategories[0]).to.equal("Hoodies");
-				expect(dataLayer[0].products[7].productCategory).to.equal("Hoodies");
-				expect(dataLayer[0].products[8].productName).to.equal("Logo Collection");
+				expect(
+					dataLayer[0].products[7].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[7].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[7].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(dataLayer[0].products[7].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[7].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer[0].products[8].productName).to.equal(
+					"Logo Collection"
+				);
 				expect(dataLayer[0].products[8].productCost).to.equal("18");
 				expect(dataLayer[0].products[8].productId).to.equal("28");
-				expect(dataLayer[0].products[8].productSKU).to.equal("logo-collection");
+				expect(dataLayer[0].products[8].productSKU).to.equal(
+					"logo-collection"
+				);
 				expect(dataLayer[0].products[8].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[8].taxonomies.product_type[0]).to.equal("grouped");
-				expect(dataLayer[0].products[8].taxonomies.product_cat[0]).to.equal("Clothing");
-				expect(dataLayer[0].products[8].productCategories[0]).to.equal("Clothing");
-				expect(dataLayer[0].products[8].productCategory).to.equal("Clothing");
-				expect(dataLayer[0].products[9].productName).to.equal("Long Sleeve Tee");
+				expect(
+					dataLayer[0].products[8].taxonomies.product_type[0]
+				).to.equal("grouped");
+				expect(
+					dataLayer[0].products[8].taxonomies.product_cat[0]
+				).to.equal("Clothing");
+				expect(dataLayer[0].products[8].productCategories[0]).to.equal(
+					"Clothing"
+				);
+				expect(dataLayer[0].products[8].productCategory).to.equal(
+					"Clothing"
+				);
+				expect(dataLayer[0].products[9].productName).to.equal(
+					"Long Sleeve Tee"
+				);
 				expect(dataLayer[0].products[9].productCost).to.equal("25");
 				expect(dataLayer[0].products[9].productId).to.equal("16");
-				expect(dataLayer[0].products[9].productSKU).to.equal("woo-long-sleeve-tee");
+				expect(dataLayer[0].products[9].productSKU).to.equal(
+					"woo-long-sleeve-tee"
+				);
 				expect(dataLayer[0].products[9].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[9].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[9].taxonomies.product_cat[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[9].taxonomies.pa_color[0]).to.equal("Green");
-				expect(dataLayer[0].products[9].productCategories[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[9].productCategory).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[9].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[9].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[9].taxonomies.pa_color[0]
+				).to.equal("Green");
+				expect(dataLayer[0].products[9].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[9].productCategory).to.equal(
+					"Tshirts"
+				);
 				expect(dataLayer[0].products[10].productName).to.equal("Polo");
 				expect(dataLayer[0].products[10].productCost).to.equal("20");
 				expect(dataLayer[0].products[10].productId).to.equal("17");
-				expect(dataLayer[0].products[10].productSKU).to.equal("woo-polo");
+				expect(dataLayer[0].products[10].productSKU).to.equal(
+					"woo-polo"
+				);
 				expect(dataLayer[0].products[10].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[10].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[10].taxonomies.product_cat[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[10].taxonomies.pa_color[0]).to.equal("Blue");
-				expect(dataLayer[0].products[10].productCategories[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[10].productCategory).to.equal("Tshirts");
-				expect(dataLayer[0].products[11].productName).to.equal("Single");
+				expect(
+					dataLayer[0].products[10].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[10].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[10].taxonomies.pa_color[0]
+				).to.equal("Blue");
+				expect(dataLayer[0].products[10].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[10].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[11].productName).to.equal(
+					"Single"
+				);
 				expect(dataLayer[0].products[11].productCost).to.equal("2");
 				expect(dataLayer[0].products[11].productId).to.equal("19");
-				expect(dataLayer[0].products[11].productSKU).to.equal("woo-single");
+				expect(dataLayer[0].products[11].productSKU).to.equal(
+					"woo-single"
+				);
 				expect(dataLayer[0].products[11].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[11].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[11].taxonomies.product_cat[0]).to.equal("Music");
-				expect(dataLayer[0].products[11].productCategories[0]).to.equal("Music");
-				expect(dataLayer[0].products[11].productCategory).to.equal("Music");
-				expect(dataLayer[0].products[12].productName).to.equal("Sunglasses");
+				expect(
+					dataLayer[0].products[11].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[11].taxonomies.product_cat[0]
+				).to.equal("Music");
+				expect(dataLayer[0].products[11].productCategories[0]).to.equal(
+					"Music"
+				);
+				expect(dataLayer[0].products[11].productCategory).to.equal(
+					"Music"
+				);
+				expect(dataLayer[0].products[12].productName).to.equal(
+					"Sunglasses"
+				);
 				expect(dataLayer[0].products[12].productCost).to.equal("90");
 				expect(dataLayer[0].products[12].productId).to.equal("13");
-				expect(dataLayer[0].products[12].productSKU).to.equal("woo-sunglasses");
+				expect(dataLayer[0].products[12].productSKU).to.equal(
+					"woo-sunglasses"
+				);
 				expect(dataLayer[0].products[12].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[12].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[12].taxonomies.product_visibility[0]).to.equal("featured");
-				expect(dataLayer[0].products[12].taxonomies.product_cat[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[12].productCategories[0]).to.equal("Accessories");
-				expect(dataLayer[0].products[12].productCategory).to.equal("Accessories");
-				expect(dataLayer[0].products[13].productName).to.equal("T-Shirt");
+				expect(
+					dataLayer[0].products[12].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[12].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[12].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer[0].products[12].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[12].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[13].productName).to.equal(
+					"T-Shirt"
+				);
 				expect(dataLayer[0].products[13].productCost).to.equal("18");
 				expect(dataLayer[0].products[13].productId).to.equal("9");
-				expect(dataLayer[0].products[13].productSKU).to.equal("woo-tshirt");
+				expect(dataLayer[0].products[13].productSKU).to.equal(
+					"woo-tshirt"
+				);
 				expect(dataLayer[0].products[13].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[13].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[13].taxonomies.product_cat[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[13].taxonomies.pa_color[0]).to.equal("Gray");
-				expect(dataLayer[0].products[13].productCategories[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[13].productCategory).to.equal("Tshirts");
-				expect(dataLayer[0].products[14].productName).to.equal("T-Shirt with Logo");
+				expect(
+					dataLayer[0].products[13].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[13].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[13].taxonomies.pa_color[0]
+				).to.equal("Gray");
+				expect(dataLayer[0].products[13].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[13].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[14].productName).to.equal(
+					"T-Shirt with Logo"
+				);
 				expect(dataLayer[0].products[14].productCost).to.equal("18");
 				expect(dataLayer[0].products[14].productId).to.equal("26");
-				expect(dataLayer[0].products[14].productSKU).to.equal("Woo-tshirt-logo");
+				expect(dataLayer[0].products[14].productSKU).to.equal(
+					"Woo-tshirt-logo"
+				);
 				expect(dataLayer[0].products[14].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[14].taxonomies.product_type[0]).to.equal("simple");
-				expect(dataLayer[0].products[14].taxonomies.product_cat[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[14].taxonomies.pa_color[0]).to.equal("Gray");
-				expect(dataLayer[0].products[14].productCategories[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[14].productCategory).to.equal("Tshirts");
-				expect(dataLayer[0].products[15].productName).to.equal("V-Neck T-Shirt");
+				expect(
+					dataLayer[0].products[14].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[14].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[14].taxonomies.pa_color[0]
+				).to.equal("Gray");
+				expect(dataLayer[0].products[14].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[14].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[15].productName).to.equal(
+					"V-Neck T-Shirt"
+				);
 				expect(dataLayer[0].products[15].productCost).to.equal("15");
 				expect(dataLayer[0].products[15].productId).to.equal("6");
-				expect(dataLayer[0].products[15].productSKU).to.equal("woo-vneck-tee");
+				expect(dataLayer[0].products[15].productSKU).to.equal(
+					"woo-vneck-tee"
+				);
 				expect(dataLayer[0].products[15].productQuantity).to.equal("1");
-				expect(dataLayer[0].products[15].taxonomies.product_type[0]).to.equal("variable");
-				expect(dataLayer[0].products[15].taxonomies.product_visibility[0]).to.equal("featured");
-				expect(dataLayer[0].products[15].taxonomies.product_cat[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[15].taxonomies.pa_color[0]).to.equal("Red");
-				expect(dataLayer[0].products[15].taxonomies.pa_color[1]).to.equal("Green");
-				expect(dataLayer[0].products[15].taxonomies.pa_color[2]).to.equal("Blue");
-				expect(dataLayer[0].products[15].taxonomies.pa_size[0]).to.equal("Small");
-				expect(dataLayer[0].products[15].taxonomies.pa_size[1]).to.equal("Medium");
-				expect(dataLayer[0].products[15].taxonomies.pa_size[2]).to.equal("Large");
-				expect(dataLayer[0].products[15].productCategories[0]).to.equal("Tshirts");
-				expect(dataLayer[0].products[15].productCategory).to.equal("Tshirts");
-				expect(dataLayer[0].pageName).to.equal("mapp_e2e_wp.test/shop/");
+				expect(
+					dataLayer[0].products[15].taxonomies.product_type[0]
+				).to.equal("variable");
+				expect(
+					dataLayer[0].products[15].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[15].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_color[1]
+				).to.equal("Green");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_color[2]
+				).to.equal("Blue");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_size[0]
+				).to.equal("Small");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_size[1]
+				).to.equal("Medium");
+				expect(
+					dataLayer[0].products[15].taxonomies.pa_size[2]
+				).to.equal("Large");
+				expect(dataLayer[0].products[15].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].products[15].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer[0].pageName).to.equal(
+					"mapp_e2e_wp.test/shop/"
+				);
 			});
 		});
 
 		it("Category", () => {
 			cy.visit("/product-category/accessories/");
 			cy.testTrackRequest().then((track) => {
-				expect(track.version).to.equal("6");
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product-category/accessories/"
 				);
 				expect(track.params.cg1).to.equal("archive");
 				expect(track.params.cg2).to.equal("tax-product");
+				expect(track.params.cr).to.equal("EUR");
+				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.pu).to.equal(
+					"http://mapp_e2e_wp.test/product-category/accessories/"
+				);
+				expect(track.params.uc713).to.equal("1");
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
-				expect(dataLayer[0].pageName).to.equal(
-					"mapp_e2e_wp.test/product-category/accessories/"
-				);
-				expect(dataLayer[0].contentCategory).to.equal("archive");
-				expect(dataLayer[0].contentSubcategory).to.equal("tax-product");
+				expect(dataLayer[0].language).to.equal("en_US");
 				expect(dataLayer[0].pageTitle).to.equal(
 					"Accessories | Product categories"
 				);
-				expect(dataLayer[0].currency).to.equal("EUR");
-				expect(dataLayer[0].products.length).to.equal(5);
+				expect(dataLayer[0].pageNumber).to.equal("1");
 				expect(dataLayer[0].orderBy).to.equal("default");
+				expect(dataLayer[0].contentCategory).to.equal("archive");
+				expect(dataLayer[0].contentSubcategory).to.equal("tax-product");
+				expect(dataLayer[0].currency).to.equal("EUR");
+				expect(dataLayer[0].products[0].productName).to.equal("Beanie");
+				expect(dataLayer[0].products[0].productCost).to.equal("18");
+				expect(dataLayer[0].products[0].productId).to.equal("10");
+				expect(dataLayer[0].products[0].productSKU).to.equal(
+					"woo-beanie"
+				);
+				expect(dataLayer[0].products[0].productQuantity).to.equal("1");
+				expect(
+					dataLayer[0].products[0].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[0].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[0].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(dataLayer[0].products[0].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[0].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[1].productName).to.equal(
+					"Beanie with Logo"
+				);
+				expect(dataLayer[0].products[1].productCost).to.equal("18");
+				expect(dataLayer[0].products[1].productId).to.equal("27");
+				expect(dataLayer[0].products[1].productSKU).to.equal(
+					"Woo-beanie-logo"
+				);
+				expect(dataLayer[0].products[1].productQuantity).to.equal("1");
+				expect(
+					dataLayer[0].products[1].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[1].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[1].taxonomies.pa_color[0]
+				).to.equal("Red");
+				expect(dataLayer[0].products[1].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[1].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[2].productName).to.equal("Belt");
+				expect(dataLayer[0].products[2].productCost).to.equal("55");
+				expect(dataLayer[0].products[2].productId).to.equal("11");
+				expect(dataLayer[0].products[2].productSKU).to.equal(
+					"woo-belt"
+				);
+				expect(dataLayer[0].products[2].productQuantity).to.equal("1");
+				expect(
+					dataLayer[0].products[2].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[2].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer[0].products[2].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[2].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[3].productName).to.equal("Cap");
+				expect(dataLayer[0].products[3].productCost).to.equal("16");
+				expect(dataLayer[0].products[3].productId).to.equal("12");
+				expect(dataLayer[0].products[3].productSKU).to.equal("woo-cap");
+				expect(dataLayer[0].products[3].productQuantity).to.equal("1");
+				expect(
+					dataLayer[0].products[3].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[3].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[3].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(
+					dataLayer[0].products[3].taxonomies.pa_color[0]
+				).to.equal("Yellow");
+				expect(dataLayer[0].products[3].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[3].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[4].productName).to.equal(
+					"Sunglasses"
+				);
+				expect(dataLayer[0].products[4].productCost).to.equal("90");
+				expect(dataLayer[0].products[4].productId).to.equal("13");
+				expect(dataLayer[0].products[4].productSKU).to.equal(
+					"woo-sunglasses"
+				);
+				expect(dataLayer[0].products[4].productQuantity).to.equal("1");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer[0].products[4].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer[0].products[4].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].products[4].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer[0].pageName).to.equal(
+					"mapp_e2e_wp.test/product-category/accessories/"
+				);
 			});
 		});
 
@@ -1456,6 +1796,1333 @@ describe("Product", () => {
 					const restoreGtmArrayProps =
 						Object.entries(restoreGtmArray);
 					expect(restoreGtmArrayProps.length).to.equal(0);
+				});
+			});
+		});
+	});
+
+	describe("Tag Integration", () => {
+		before(cy.activateTI);
+		beforeEach(cy.interceptTracking);
+
+		it("catalog", () => {
+			cy.visit("/shop/");
+			cy.testTrackRequest().then((track) => {
+				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+				expect(track.params.cg1).to.equal("shop-startpage");
+				expect(track.params.cg20).to.equal("1");
+				expect(track.params.cr).to.equal("EUR");
+				expect(track.params.cs802).to.equal("4096");
+				expect(track.params.pu).to.equal(
+					"http://mapp_e2e_wp.test/shop/"
+				);
+			});
+
+			cy.getTiDataLayer().then((dataLayer) => {
+				expect(dataLayer.language).to.equal("en_US");
+				expect(dataLayer.pageTitle).to.equal("Products");
+				expect(dataLayer.pageNumber).to.equal("1");
+				expect(dataLayer.orderBy).to.equal("default");
+				expect(dataLayer.contentCategory).to.equal("shop-startpage");
+				expect(dataLayer.currency).to.equal("EUR");
+				expect(dataLayer.products[0].productName).to.equal("Album");
+				expect(dataLayer.products[0].productCost).to.equal("15");
+				expect(dataLayer.products[0].productId).to.equal("18");
+				expect(dataLayer.products[0].productSKU).to.equal("woo-album");
+				expect(dataLayer.products[0].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[0].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[0].taxonomies.product_cat[0]
+				).to.equal("Music");
+				expect(dataLayer.products[0].productCategories[0]).to.equal(
+					"Music"
+				);
+				expect(dataLayer.products[0].productCategory).to.equal("Music");
+				expect(dataLayer.products[1].productName).to.equal("Beanie");
+				expect(dataLayer.products[1].productCost).to.equal("18");
+				expect(dataLayer.products[1].productId).to.equal("10");
+				expect(dataLayer.products[1].productSKU).to.equal("woo-beanie");
+				expect(dataLayer.products[1].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[1].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[1].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[1].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[1].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[1].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[2].productName).to.equal(
+					"Beanie with Logo"
+				);
+				expect(dataLayer.products[2].productCost).to.equal("18");
+				expect(dataLayer.products[2].productId).to.equal("27");
+				expect(dataLayer.products[2].productSKU).to.equal(
+					"Woo-beanie-logo"
+				);
+				expect(dataLayer.products[2].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[2].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[2].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[2].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[2].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[2].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[3].productName).to.equal("Belt");
+				expect(dataLayer.products[3].productCost).to.equal("55");
+				expect(dataLayer.products[3].productId).to.equal("11");
+				expect(dataLayer.products[3].productSKU).to.equal("woo-belt");
+				expect(dataLayer.products[3].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[3].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[3].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[3].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[3].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[4].productName).to.equal("Cap");
+				expect(dataLayer.products[4].productCost).to.equal("16");
+				expect(dataLayer.products[4].productId).to.equal("12");
+				expect(dataLayer.products[4].productSKU).to.equal("woo-cap");
+				expect(dataLayer.products[4].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[4].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[4].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[4].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[4].taxonomies.pa_color[0]).to.equal(
+					"Yellow"
+				);
+				expect(dataLayer.products[4].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[4].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[5].productName).to.equal("Hoodie");
+				expect(dataLayer.products[5].productCost).to.equal("42");
+				expect(dataLayer.products[5].productId).to.equal("7");
+				expect(dataLayer.products[5].productSKU).to.equal("woo-hoodie");
+				expect(dataLayer.products[5].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[5].taxonomies.product_type[0]
+				).to.equal("variable");
+				expect(
+					dataLayer.products[5].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(dataLayer.products[5].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[5].taxonomies.pa_color[1]).to.equal(
+					"Green"
+				);
+				expect(dataLayer.products[5].taxonomies.pa_color[2]).to.equal(
+					"Blue"
+				);
+				expect(dataLayer.products[5].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[5].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[6].productName).to.equal(
+					"Hoodie with Logo"
+				);
+				expect(dataLayer.products[6].productCost).to.equal("45");
+				expect(dataLayer.products[6].productId).to.equal("8");
+				expect(dataLayer.products[6].productSKU).to.equal(
+					"woo-hoodie-with-logo"
+				);
+				expect(dataLayer.products[6].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[6].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[6].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(dataLayer.products[6].taxonomies.pa_color[0]).to.equal(
+					"Blue"
+				);
+				expect(dataLayer.products[6].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[6].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[7].productName).to.equal(
+					"Hoodie with Zipper"
+				);
+				expect(dataLayer.products[7].productCost).to.equal("45");
+				expect(dataLayer.products[7].productId).to.equal("15");
+				expect(dataLayer.products[7].productSKU).to.equal(
+					"woo-hoodie-with-zipper"
+				);
+				expect(dataLayer.products[7].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[7].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[7].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[7].taxonomies.product_cat[0]
+				).to.equal("Hoodies");
+				expect(dataLayer.products[7].productCategories[0]).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[7].productCategory).to.equal(
+					"Hoodies"
+				);
+				expect(dataLayer.products[8].productName).to.equal(
+					"Logo Collection"
+				);
+				expect(dataLayer.products[8].productCost).to.equal("18");
+				expect(dataLayer.products[8].productId).to.equal("28");
+				expect(dataLayer.products[8].productSKU).to.equal(
+					"logo-collection"
+				);
+				expect(dataLayer.products[8].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[8].taxonomies.product_type[0]
+				).to.equal("grouped");
+				expect(
+					dataLayer.products[8].taxonomies.product_cat[0]
+				).to.equal("Clothing");
+				expect(dataLayer.products[8].productCategories[0]).to.equal(
+					"Clothing"
+				);
+				expect(dataLayer.products[8].productCategory).to.equal(
+					"Clothing"
+				);
+				expect(dataLayer.products[9].productName).to.equal(
+					"Long Sleeve Tee"
+				);
+				expect(dataLayer.products[9].productCost).to.equal("25");
+				expect(dataLayer.products[9].productId).to.equal("16");
+				expect(dataLayer.products[9].productSKU).to.equal(
+					"woo-long-sleeve-tee"
+				);
+				expect(dataLayer.products[9].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[9].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[9].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(dataLayer.products[9].taxonomies.pa_color[0]).to.equal(
+					"Green"
+				);
+				expect(dataLayer.products[9].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[9].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[10].productName).to.equal("Polo");
+				expect(dataLayer.products[10].productCost).to.equal("20");
+				expect(dataLayer.products[10].productId).to.equal("17");
+				expect(dataLayer.products[10].productSKU).to.equal("woo-polo");
+				expect(dataLayer.products[10].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[10].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[10].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(dataLayer.products[10].taxonomies.pa_color[0]).to.equal(
+					"Blue"
+				);
+				expect(dataLayer.products[10].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[10].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[11].productName).to.equal("Single");
+				expect(dataLayer.products[11].productCost).to.equal("2");
+				expect(dataLayer.products[11].productId).to.equal("19");
+				expect(dataLayer.products[11].productSKU).to.equal(
+					"woo-single"
+				);
+				expect(dataLayer.products[11].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[11].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[11].taxonomies.product_cat[0]
+				).to.equal("Music");
+				expect(dataLayer.products[11].productCategories[0]).to.equal(
+					"Music"
+				);
+				expect(dataLayer.products[11].productCategory).to.equal(
+					"Music"
+				);
+				expect(dataLayer.products[12].productName).to.equal(
+					"Sunglasses"
+				);
+				expect(dataLayer.products[12].productCost).to.equal("90");
+				expect(dataLayer.products[12].productId).to.equal("13");
+				expect(dataLayer.products[12].productSKU).to.equal(
+					"woo-sunglasses"
+				);
+				expect(dataLayer.products[12].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[12].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[12].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[12].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[12].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[12].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[13].productName).to.equal("T-Shirt");
+				expect(dataLayer.products[13].productCost).to.equal("18");
+				expect(dataLayer.products[13].productId).to.equal("9");
+				expect(dataLayer.products[13].productSKU).to.equal(
+					"woo-tshirt"
+				);
+				expect(dataLayer.products[13].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[13].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[13].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(dataLayer.products[13].taxonomies.pa_color[0]).to.equal(
+					"Gray"
+				);
+				expect(dataLayer.products[13].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[13].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[14].productName).to.equal(
+					"T-Shirt with Logo"
+				);
+				expect(dataLayer.products[14].productCost).to.equal("18");
+				expect(dataLayer.products[14].productId).to.equal("26");
+				expect(dataLayer.products[14].productSKU).to.equal(
+					"Woo-tshirt-logo"
+				);
+				expect(dataLayer.products[14].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[14].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[14].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(dataLayer.products[14].taxonomies.pa_color[0]).to.equal(
+					"Gray"
+				);
+				expect(dataLayer.products[14].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[14].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[15].productName).to.equal(
+					"V-Neck T-Shirt"
+				);
+				expect(dataLayer.products[15].productCost).to.equal("15");
+				expect(dataLayer.products[15].productId).to.equal("6");
+				expect(dataLayer.products[15].productSKU).to.equal(
+					"woo-vneck-tee"
+				);
+				expect(dataLayer.products[15].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[15].taxonomies.product_type[0]
+				).to.equal("variable");
+				expect(
+					dataLayer.products[15].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[15].taxonomies.product_cat[0]
+				).to.equal("Tshirts");
+				expect(dataLayer.products[15].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[15].taxonomies.pa_color[1]).to.equal(
+					"Green"
+				);
+				expect(dataLayer.products[15].taxonomies.pa_color[2]).to.equal(
+					"Blue"
+				);
+				expect(dataLayer.products[15].taxonomies.pa_size[0]).to.equal(
+					"Small"
+				);
+				expect(dataLayer.products[15].taxonomies.pa_size[1]).to.equal(
+					"Medium"
+				);
+				expect(dataLayer.products[15].taxonomies.pa_size[2]).to.equal(
+					"Large"
+				);
+				expect(dataLayer.products[15].productCategories[0]).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.products[15].productCategory).to.equal(
+					"Tshirts"
+				);
+				expect(dataLayer.pageName).to.equal("mapp_e2e_wp.test/shop/");
+			});
+		});
+
+		it("category", () => {
+			cy.visit("/product-category/accessories/");
+			cy.testTrackRequest().then((track) => {
+				expect(track.pageName).to.equal(
+					"mapp_e2e_wp.test/product-category/accessories/"
+				);
+				expect(track.params.cg1).to.equal("archive");
+				expect(track.params.cg2).to.equal("tax-product");
+				expect(track.params.cg20).to.equal("1");
+				expect(track.params.cr).to.equal("EUR");
+				expect(track.params.cs802).to.equal("4096");
+				expect(track.params.pu).to.equal(
+					"http://mapp_e2e_wp.test/product-category/accessories/"
+				);
+			});
+			cy.getTiDataLayer().then((dataLayer) => {
+				expect(dataLayer.language).to.equal("en_US");
+				expect(dataLayer.pageTitle).to.equal(
+					"Accessories | Product categories"
+				);
+				expect(dataLayer.pageNumber).to.equal("1");
+				expect(dataLayer.orderBy).to.equal("default");
+				expect(dataLayer.contentCategory).to.equal("archive");
+				expect(dataLayer.contentSubcategory).to.equal("tax-product");
+				expect(dataLayer.currency).to.equal("EUR");
+				expect(dataLayer.products[0].productName).to.equal("Beanie");
+				expect(dataLayer.products[0].productCost).to.equal("18");
+				expect(dataLayer.products[0].productId).to.equal("10");
+				expect(dataLayer.products[0].productSKU).to.equal("woo-beanie");
+				expect(dataLayer.products[0].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[0].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[0].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[0].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[0].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[0].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[1].productName).to.equal(
+					"Beanie with Logo"
+				);
+				expect(dataLayer.products[1].productCost).to.equal("18");
+				expect(dataLayer.products[1].productId).to.equal("27");
+				expect(dataLayer.products[1].productSKU).to.equal(
+					"Woo-beanie-logo"
+				);
+				expect(dataLayer.products[1].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[1].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[1].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[1].taxonomies.pa_color[0]).to.equal(
+					"Red"
+				);
+				expect(dataLayer.products[1].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[1].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[2].productName).to.equal("Belt");
+				expect(dataLayer.products[2].productCost).to.equal("55");
+				expect(dataLayer.products[2].productId).to.equal("11");
+				expect(dataLayer.products[2].productSKU).to.equal("woo-belt");
+				expect(dataLayer.products[2].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[2].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[2].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[2].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[2].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[3].productName).to.equal("Cap");
+				expect(dataLayer.products[3].productCost).to.equal("16");
+				expect(dataLayer.products[3].productId).to.equal("12");
+				expect(dataLayer.products[3].productSKU).to.equal("woo-cap");
+				expect(dataLayer.products[3].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[3].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[3].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[3].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[3].taxonomies.pa_color[0]).to.equal(
+					"Yellow"
+				);
+				expect(dataLayer.products[3].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[3].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[4].productName).to.equal(
+					"Sunglasses"
+				);
+				expect(dataLayer.products[4].productCost).to.equal("90");
+				expect(dataLayer.products[4].productId).to.equal("13");
+				expect(dataLayer.products[4].productSKU).to.equal(
+					"woo-sunglasses"
+				);
+				expect(dataLayer.products[4].productQuantity).to.equal("1");
+				expect(
+					dataLayer.products[4].taxonomies.product_type[0]
+				).to.equal("simple");
+				expect(
+					dataLayer.products[4].taxonomies.product_visibility[0]
+				).to.equal("featured");
+				expect(
+					dataLayer.products[4].taxonomies.product_cat[0]
+				).to.equal("Accessories");
+				expect(dataLayer.products[4].productCategories[0]).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.products[4].productCategory).to.equal(
+					"Accessories"
+				);
+				expect(dataLayer.pageName).to.equal(
+					"mapp_e2e_wp.test/product-category/accessories/"
+				);
+			});
+		});
+
+		describe("view", () => {
+			it("sale product", () => {
+				cy.visit("/shop/product/beanie-with-logo/");
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+					expect(track.params.ba).to.equal("27");
+					expect(track.params.ca1).to.equal("Accessories");
+					expect(track.params.ca3).to.equal("Beanie with Logo");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("18");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.cs802).to.equal("4096");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Beanie with Logo");
+					expect(dataLayer.contentCategory).to.equal("product");
+					expect(dataLayer.contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(dataLayer.taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(dataLayer.taxonomies.product_cat[0]).to.equal(
+						"Accessories"
+					);
+					expect(dataLayer.taxonomies.pa_color[0]).to.equal("Red");
+					expect(dataLayer.productName).to.equal("Beanie with Logo");
+					expect(dataLayer.productCost).to.equal("18");
+					expect(dataLayer.productId).to.equal("27");
+					expect(dataLayer.productSKU).to.equal("Woo-beanie-logo");
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.productQuantity).to.equal("1");
+					expect(dataLayer.shoppingCartStatus).to.equal("view");
+					expect(dataLayer.productCollection).to.equal("0");
+					expect(dataLayer.productCategories[0]).to.equal(
+						"Accessories"
+					);
+					expect(dataLayer.productCategory).to.equal("Accessories");
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+				});
+			});
+
+			it("normal product", () => {
+				cy.visit("/product/long-sleeve-tee/");
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+					expect(track.params.ba).to.equal("16");
+					expect(track.params.ca1).to.equal("Tshirts");
+					expect(track.params.ca3).to.equal("Long Sleeve Tee");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("25");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.cs802).to.equal("4096");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Long Sleeve Tee");
+					expect(dataLayer.contentCategory).to.equal("product");
+					expect(dataLayer.contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(dataLayer.taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(dataLayer.taxonomies.product_cat[0]).to.equal(
+						"Tshirts"
+					);
+					expect(dataLayer.taxonomies.pa_color[0]).to.equal("Green");
+					expect(dataLayer.productName).to.equal("Long Sleeve Tee");
+					expect(dataLayer.productCost).to.equal("25");
+					expect(dataLayer.productId).to.equal("16");
+					expect(dataLayer.productSKU).to.equal(
+						"woo-long-sleeve-tee"
+					);
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.productQuantity).to.equal("1");
+					expect(dataLayer.shoppingCartStatus).to.equal("view");
+					expect(dataLayer.productCollection).to.equal("0");
+					expect(dataLayer.productCategories[0]).to.equal("Tshirts");
+					expect(dataLayer.productCategory).to.equal("Tshirts");
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+				});
+			});
+
+			it("product collection", () => {
+				cy.visit("/product/logo-collection/");
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/logo-collection/"
+					);
+					expect(track.params.ba).to.equal("28;8;9;10");
+					expect(track.params.ca1).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(track.params.ca3).to.equal(
+						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+					);
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("81;45;18;18");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.cs802).to.equal("4096");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/logo-collection/"
+					);
+					expect(track.params.qn).to.equal("1;1;1;1");
+					expect(track.params.st).to.equal("view");
+				});
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Logo Collection");
+					expect(dataLayer.contentCategory).to.equal("product");
+					expect(dataLayer.contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(dataLayer.taxonomies.product_type[0]).to.equal(
+						"grouped;simple;simple;simple"
+					);
+					expect(dataLayer.taxonomies.product_cat[0]).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(dataLayer.taxonomies.pa_color[0]).to.equal(
+						";Blue;Gray;Red"
+					);
+					expect(dataLayer.productName).to.equal(
+						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+					);
+					expect(dataLayer.productCost).to.equal("81;45;18;18");
+					expect(dataLayer.productId).to.equal("28;8;9;10");
+					expect(dataLayer.productSKU).to.equal(
+						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
+					);
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.productQuantity).to.equal("1;1;1;1");
+					expect(dataLayer.shoppingCartStatus).to.equal("view");
+					expect(dataLayer.productCollection).to.equal("1;0;0;0");
+					expect(dataLayer.productCategories[0]).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(dataLayer.productCategory).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/product/logo-collection/"
+					);
+				});
+			});
+			it("product variation", () => {
+				cy.visit("/product/hoodie/");
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.ba).to.equal("7");
+					expect(track.params.ca1).to.equal("Hoodies");
+					expect(track.params.ca3).to.equal("Hoodie");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("42");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.cs802).to.equal("4096");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Hoodie");
+					expect(dataLayer.contentCategory).to.equal("product");
+					expect(dataLayer.contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(dataLayer.taxonomies.product_type[0]).to.equal(
+						"variable"
+					);
+					expect(dataLayer.taxonomies.product_cat[0]).to.equal(
+						"Hoodies"
+					);
+					expect(dataLayer.taxonomies.pa_color[0]).to.equal("Red");
+					expect(dataLayer.taxonomies.pa_color[1]).to.equal("Green");
+					expect(dataLayer.taxonomies.pa_color[2]).to.equal("Blue");
+					expect(dataLayer.productName).to.equal("Hoodie");
+					expect(dataLayer.productCost).to.equal("42");
+					expect(dataLayer.productId).to.equal("7");
+					expect(dataLayer.productSKU).to.equal("woo-hoodie");
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.productQuantity).to.equal("1");
+					expect(dataLayer.shoppingCartStatus).to.equal("view");
+					expect(dataLayer.productCollection).to.equal("0");
+					expect(dataLayer.productCategories[0]).to.equal("Hoodies");
+					expect(dataLayer.productCategory).to.equal("Hoodies");
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+				});
+			});
+		});
+
+		describe("add", () => {
+			let tiDataLayer;
+			it("sale product", () => {
+				cy.visit("/product/beanie-with-logo/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+				});
+				cy.get('[name="add-to-cart"]').click();
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+					expect(track.params.ba).to.equal("27");
+					expect(track.params.ca1).to.equal("Accessories");
+					expect(track.params.ca3).to.equal("Beanie with Logo");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("18");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("add");
+
+					expect(tiDataLayer[0].language).to.equal("en_US");
+					expect(tiDataLayer[0].pageTitle).to.equal(
+						"Beanie with Logo"
+					);
+					expect(tiDataLayer[0].contentCategory).to.equal("product");
+					expect(tiDataLayer[0].contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+						"Red"
+					);
+					expect(tiDataLayer[0].productName).to.equal(
+						"Beanie with Logo"
+					);
+					expect(tiDataLayer[0].productCost).to.equal(18);
+					expect(tiDataLayer[0].productId).to.equal("27");
+					expect(tiDataLayer[0].productSKU).to.equal(
+						"Woo-beanie-logo"
+					);
+					expect(tiDataLayer[0].currency).to.equal("EUR");
+					expect(tiDataLayer[0].productQuantity).to.equal("1");
+					expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
+					expect(tiDataLayer[0].productCollection).to.equal("0");
+					expect(tiDataLayer[0].productCategories[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].productCategory).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].pageName).to.equal(
+						"mapp_e2e_wp.test/product/beanie-with-logo/"
+					);
+				});
+			});
+
+			it("normal product", () => {
+				cy.visit("/product/long-sleeve-tee/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+				});
+				cy.get('[name="add-to-cart"]').click();
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+					expect(track.params.ba).to.equal("16");
+					expect(track.params.ca1).to.equal("Tshirts");
+					expect(track.params.ca3).to.equal("Long Sleeve Tee");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("25");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("add");
+
+					expect(tiDataLayer[0].language).to.equal("en_US");
+					expect(tiDataLayer[0].pageTitle).to.equal(
+						"Long Sleeve Tee"
+					);
+					expect(tiDataLayer[0].contentCategory).to.equal("product");
+					expect(tiDataLayer[0].contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+						"Tshirts"
+					);
+					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+						"Green"
+					);
+					expect(tiDataLayer[0].productName).to.equal(
+						"Long Sleeve Tee"
+					);
+					expect(tiDataLayer[0].productCost).to.equal(25);
+					expect(tiDataLayer[0].productId).to.equal("16");
+					expect(tiDataLayer[0].productSKU).to.equal(
+						"woo-long-sleeve-tee"
+					);
+					expect(tiDataLayer[0].currency).to.equal("EUR");
+					expect(tiDataLayer[0].productQuantity).to.equal("1");
+					expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
+					expect(tiDataLayer[0].productCollection).to.equal("0");
+					expect(tiDataLayer[0].productCategories[0]).to.equal(
+						"Tshirts"
+					);
+					expect(tiDataLayer[0].productCategory).to.equal("Tshirts");
+					expect(tiDataLayer[0].pageName).to.equal(
+						"mapp_e2e_wp.test/product/long-sleeve-tee/"
+					);
+				});
+			});
+
+			it("product variation", () => {
+				cy.visit("/product/hoodie/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+				});
+				cy.get("#pa_color").select("green");
+				cy.get("#logo").select("No");
+
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.ba).to.equal("24");
+					expect(track.params.ca1).to.equal("Hoodies");
+					expect(track.params.ca3).to.equal("Hoodie");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("45");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+				cy.get(".single_add_to_cart_button").click();
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.ba).to.equal("24");
+					expect(track.params.ca1).to.equal("Hoodies");
+					expect(track.params.ca3).to.equal("Hoodie");
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("45");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("add");
+
+					expect(tiDataLayer[0].language).to.equal("en_US");
+					expect(tiDataLayer[0].pageTitle).to.equal("Hoodie");
+					expect(tiDataLayer[0].contentCategory).to.equal("product");
+					expect(tiDataLayer[0].contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+						"variable"
+					);
+					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+						"Hoodies"
+					);
+					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+						"green"
+					);
+					expect(tiDataLayer[0].taxonomies.logo[0]).to.equal("No");
+					expect(tiDataLayer[0].productName).to.equal("Hoodie");
+					expect(tiDataLayer[0].productCost).to.equal("45");
+					expect(tiDataLayer[0].productId).to.equal("24");
+					expect(tiDataLayer[0].productSKU).to.equal(
+						"woo-hoodie-green"
+					);
+					expect(tiDataLayer[0].currency).to.equal("EUR");
+					expect(tiDataLayer[0].productQuantity).to.equal("1");
+					expect(tiDataLayer[0].shoppingCartStatus).to.equal("view");
+					expect(tiDataLayer[0].productCollection).to.equal("0");
+					expect(tiDataLayer[0].productCategories[0]).to.equal(
+						"Hoodies"
+					);
+					expect(tiDataLayer[0].productCategory).to.equal("Hoodies");
+					expect(tiDataLayer[0].pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+					expect(tiDataLayer[1].language).to.equal("en_US");
+					expect(tiDataLayer[1].pageTitle).to.equal("Hoodie");
+					expect(tiDataLayer[1].contentCategory).to.equal("product");
+					expect(tiDataLayer[1].contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(tiDataLayer[1].taxonomies.product_type[0]).to.equal(
+						"variable"
+					);
+					expect(tiDataLayer[1].taxonomies.product_cat[0]).to.equal(
+						"Hoodies"
+					);
+					expect(tiDataLayer[1].taxonomies.pa_color[0]).to.equal(
+						"green"
+					);
+					expect(tiDataLayer[1].taxonomies.logo[0]).to.equal("No");
+					expect(tiDataLayer[1].productName).to.equal("Hoodie");
+					expect(tiDataLayer[1].productCost).to.equal(45);
+					expect(tiDataLayer[1].productId).to.equal("24");
+					expect(tiDataLayer[1].productSKU).to.equal(
+						"woo-hoodie-green"
+					);
+					expect(tiDataLayer[1].currency).to.equal("EUR");
+					expect(tiDataLayer[1].productQuantity).to.equal("1");
+					expect(tiDataLayer[1].shoppingCartStatus).to.equal("add");
+					expect(tiDataLayer[1].productCollection).to.equal("0");
+					expect(tiDataLayer[1].productCategories[0]).to.equal(
+						"Hoodies"
+					);
+					expect(tiDataLayer[1].productCategory).to.equal("Hoodies");
+					expect(tiDataLayer[1].pageName).to.equal(
+						"mapp_e2e_wp.test/product/hoodie/"
+					);
+				});
+			});
+
+			it("product collection", () => {
+				cy.visit("/product/logo-collection/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/logo-collection/"
+					);
+				});
+				cy.get(".quantity > input").eq(0).clear().type("1");
+				cy.get(".quantity > input").eq(1).clear().type("1");
+				cy.get(".quantity > input").eq(2).clear().type("1");
+				cy.get(".single_add_to_cart_button").click();
+
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal(
+						"mapp_e2e_wp.test/product/logo-collection/"
+					);
+					expect(track.params.ba).to.equal("28;8;9;10");
+					expect(track.params.ca1).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(track.params.ca3).to.equal(
+						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+					);
+					expect(track.params.cg1).to.equal("product");
+					expect(track.params.cg2).to.equal("single-product");
+					expect(track.params.co).to.equal("81;45;18;18");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/product/logo-collection/"
+					);
+					expect(track.params.qn).to.equal("1;1;1;1");
+					expect(track.params.st).to.equal("add");
+
+					expect(tiDataLayer[0].language).to.equal("en_US");
+					expect(tiDataLayer[0].pageTitle).to.equal(
+						"Logo Collection"
+					);
+					expect(tiDataLayer[0].contentCategory).to.equal("product");
+					expect(tiDataLayer[0].contentSubcategory).to.equal(
+						"single-product"
+					);
+					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+						"grouped;simple;simple;simple"
+					);
+					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+						";Blue;Gray;Red"
+					);
+					expect(tiDataLayer[0].productName).to.equal(
+						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+					);
+					expect(tiDataLayer[0].productCost).to.equal("81;45;18;18");
+					expect(tiDataLayer[0].productId).to.equal("28;8;9;10");
+					expect(tiDataLayer[0].productSKU).to.equal(
+						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
+					);
+					expect(tiDataLayer[0].currency).to.equal("EUR");
+					expect(tiDataLayer[0].productQuantity).to.equal("1;1;1;1");
+					expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
+					expect(tiDataLayer[0].productCollection).to.equal(
+						"1;0;0;0"
+					);
+					expect(tiDataLayer[0].productCategories[0]).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(tiDataLayer[0].productCategory).to.equal(
+						"Clothing;Hoodies;Tshirts;Accessories"
+					);
+					expect(tiDataLayer[0].pageName).to.equal(
+						"mapp_e2e_wp.test/product/logo-collection/"
+					);
+				});
+			});
+		});
+
+		describe("fast add", () => {
+			let tiDataLayer;
+
+			it("sale product", () => {
+				cy.visit("/shop/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+				});
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Products");
+					expect(dataLayer.pageNumber).to.equal("1");
+					expect(dataLayer.orderBy).to.equal("default");
+					expect(dataLayer.contentCategory).to.equal(
+						"shop-startpage"
+					);
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/shop/"
+					);
+				});
+				cy.get('[href="?add-to-cart=12"]').click();
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+				});
+
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ba).to.equal("12");
+					expect(track.params.ca1).to.equal("Accessories");
+					expect(track.params.ca3).to.equal("Cap");
+					expect(track.params.cg1).to.equal("shop-startpage");
+					expect(track.params.cg20).to.equal("1");
+					expect(track.params.co).to.equal("16");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ba).to.equal("12");
+					expect(track.params.ca1).to.equal("Accessories");
+					expect(track.params.ca3).to.equal("Cap");
+					expect(track.params.cg1).to.equal("shop-startpage");
+					expect(track.params.cg20).to.equal("1");
+					expect(track.params.co).to.equal("16");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("add");
+
+					expect(tiDataLayer[0].language).to.equal("en_US");
+					expect(tiDataLayer[0].pageTitle).to.equal("Products");
+					expect(tiDataLayer[0].pageNumber).to.equal("1");
+					expect(tiDataLayer[0].orderBy).to.equal("default");
+					expect(tiDataLayer[0].contentCategory).to.equal(
+						"shop-startpage"
+					);
+					expect(tiDataLayer[0].currency).to.equal("EUR");
+					expect(tiDataLayer[0].pageName).to.equal(
+						"mapp_e2e_wp.test/shop/"
+					);
+					expect(tiDataLayer[0].productName).to.equal("Cap");
+					expect(tiDataLayer[0].productCost).to.equal("16");
+					expect(tiDataLayer[0].productId).to.equal("12");
+					expect(tiDataLayer[0].productSKU).to.equal("woo-cap");
+					expect(tiDataLayer[0].productQuantity).to.equal("1");
+					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(
+						tiDataLayer[0].taxonomies.product_visibility[0]
+					).to.equal("featured");
+					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+						"Yellow"
+					);
+					expect(tiDataLayer[0].productCategories[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].productCategory).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[0].productValue).to.equal(16);
+					expect(tiDataLayer[0].shoppingCartStatus).to.equal("view");
+					expect(tiDataLayer[0].pageRequestType).to.equal("virtual");
+					expect(tiDataLayer[1].language).to.equal("en_US");
+					expect(tiDataLayer[1].pageTitle).to.equal("Products");
+					expect(tiDataLayer[1].pageNumber).to.equal("1");
+					expect(tiDataLayer[1].orderBy).to.equal("default");
+					expect(tiDataLayer[1].contentCategory).to.equal(
+						"shop-startpage"
+					);
+					expect(tiDataLayer[1].currency).to.equal("EUR");
+					expect(tiDataLayer[1].pageName).to.equal(
+						"mapp_e2e_wp.test/shop/"
+					);
+					expect(tiDataLayer[1].productName).to.equal("Cap");
+					expect(tiDataLayer[1].productCost).to.equal("16");
+					expect(tiDataLayer[1].productId).to.equal("12");
+					expect(tiDataLayer[1].productSKU).to.equal("woo-cap");
+					expect(tiDataLayer[1].productQuantity).to.equal("1");
+					expect(tiDataLayer[1].taxonomies.product_type[0]).to.equal(
+						"simple"
+					);
+					expect(
+						tiDataLayer[1].taxonomies.product_visibility[0]
+					).to.equal("featured");
+					expect(tiDataLayer[1].taxonomies.product_cat[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[1].taxonomies.pa_color[0]).to.equal(
+						"Yellow"
+					);
+					expect(tiDataLayer[1].productCategories[0]).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[1].productCategory).to.equal(
+						"Accessories"
+					);
+					expect(tiDataLayer[1].productValue).to.equal(16);
+					expect(tiDataLayer[1].shoppingCartStatus).to.equal("add");
+					expect(tiDataLayer[1].pageRequestType).to.equal("virtual");
+				});
+			});
+
+			it("normal product", () => {
+				cy.visit("/shop/");
+				cy.testTrackRequest().then((track) => {
+					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+				});
+				cy.getTiDataLayer().then((dataLayer) => {
+					expect(dataLayer.language).to.equal("en_US");
+					expect(dataLayer.pageTitle).to.equal("Products");
+					expect(dataLayer.pageNumber).to.equal("1");
+					expect(dataLayer.orderBy).to.equal("default");
+					expect(dataLayer.contentCategory).to.equal(
+						"shop-startpage"
+					);
+					expect(dataLayer.currency).to.equal("EUR");
+					expect(dataLayer.pageName).to.equal(
+						"mapp_e2e_wp.test/shop/"
+					);
+				});
+				cy.get('[href="?add-to-cart=17"]').click();
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+				});
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ba).to.equal("17");
+					expect(track.params.ca1).to.equal("Tshirts");
+					expect(track.params.ca3).to.equal("Polo");
+					expect(track.params.cg1).to.equal("shop-startpage");
+					expect(track.params.cg20).to.equal("1");
+					expect(track.params.co).to.equal("20");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("view");
+				});
+				cy.testTrackRequest().then((track) => {
+					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(track.params.ba).to.equal("17");
+					expect(track.params.ca1).to.equal("Tshirts");
+					expect(track.params.ca3).to.equal("Polo");
+					expect(track.params.cg1).to.equal("shop-startpage");
+					expect(track.params.cg20).to.equal("1");
+					expect(track.params.co).to.equal("20");
+					expect(track.params.cr).to.equal("EUR");
+					expect(track.params.pu).to.equal(
+						"http://mapp_e2e_wp.test/shop/"
+					);
+					expect(track.params.qn).to.equal("1");
+					expect(track.params.st).to.equal("add");
+
+					const view = tiDataLayer[0];
+					const add = tiDataLayer[1];
+					expect(view.language).to.equal("en_US");
+					expect(view.pageTitle).to.equal("Products");
+					expect(view.pageNumber).to.equal("1");
+					expect(view.orderBy).to.equal("default");
+					expect(view.contentCategory).to.equal("shop-startpage");
+					expect(view.currency).to.equal("EUR");
+					expect(view.pageName).to.equal("mapp_e2e_wp.test/shop/");
+					expect(view.productName).to.equal("Polo");
+					expect(view.productCost).to.equal("20");
+					expect(view.productId).to.equal("17");
+					expect(view.productSKU).to.equal("woo-polo");
+					expect(view.productQuantity).to.equal("1");
+					expect(view.taxonomies.product_type[0]).to.equal("simple");
+					expect(view.taxonomies.product_cat[0]).to.equal("Tshirts");
+					expect(view.taxonomies.pa_color[0]).to.equal("Blue");
+					expect(view.productCategories[0]).to.equal("Tshirts");
+					expect(view.productCategory).to.equal("Tshirts");
+					expect(view.productValue).to.equal(20);
+					expect(view.shoppingCartStatus).to.equal("view");
+					expect(view.pageRequestType).to.equal("virtual");
+					expect(add.language).to.equal("en_US");
+					expect(add.pageTitle).to.equal("Products");
+					expect(add.pageNumber).to.equal("1");
+					expect(add.orderBy).to.equal("default");
+					expect(add.contentCategory).to.equal("shop-startpage");
+					expect(add.currency).to.equal("EUR");
+					expect(add.productName).to.equal("Polo");
+					expect(add.productCost).to.equal("20");
+					expect(add.productId).to.equal("17");
+					expect(add.productSKU).to.equal("woo-polo");
+					expect(add.productQuantity).to.equal("1");
+					expect(add.taxonomies.product_type[0]).to.equal("simple");
+					expect(add.taxonomies.product_cat[0]).to.equal("Tshirts");
+					expect(add.taxonomies.pa_color[0]).to.equal("Blue");
+					expect(add.productCategories[0]).to.equal("Tshirts");
+					expect(add.productCategory).to.equal("Tshirts");
+					expect(add.productValue).to.equal(20);
+					expect(add.shoppingCartStatus).to.equal("add");
+					expect(add.pageRequestType).to.equal("virtual");
 				});
 			});
 		});
