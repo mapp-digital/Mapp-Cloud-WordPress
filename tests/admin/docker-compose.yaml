@@ -94,3 +94,4 @@ volumes:
 
 networks:
     mapp:
+      name: mapp_e2e_wp

@@ -30,6 +30,14 @@ Cypress.Commands.add("setSettings", (newSettings) => {
 		});
 });
 
+Cypress.Commands.add("activateWoocommerce", () => {
+	return fetch("http://mapp_e2e_wpcli:8000?command=activate_woo");
+});
+
+Cypress.Commands.add("deactivateWoocommerce", () => {
+	return fetch("http://mapp_e2e_wpcli:8000?command=deactivate_woo");
+});
+
 Cypress.Commands.add("getSettingsFromDB", () => {
 	return fetch("http://mapp_e2e_wpcli:8000?command=get_settings").then((db) =>
 		db.json()
@@ -94,8 +102,7 @@ Cypress.Commands.add("spyOnTiDataLayer", (log = false) => {
 		win.wts = win.wts || [];
 		const original = win.wts.push;
 		win.wts.push = (args) => {
-			
-			if(args[0] === 'send' && args[1] === 'pageupdate') {
+			if (args[0] === "send" && args[1] === "pageupdate") {
 				const copy = JSON.parse(JSON.stringify(win._ti));
 				dl.push(copy);
 				if (log) {
