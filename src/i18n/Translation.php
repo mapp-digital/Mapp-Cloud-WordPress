@@ -11,7 +11,7 @@ class Translation
 		load_plugin_textdomain(
 			Helper::$slug,
 			false,
-			dirname(plugin_basename(__FILE__)) . "/i18n"
+			dirname(plugin_basename(__FILE__))
 		);
 	}
 
