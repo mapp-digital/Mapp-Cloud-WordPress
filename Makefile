@@ -49,15 +49,18 @@ set-tested-version:
 build-settings-frontend:
 	cd ./src/Settings/admin-menu && if [ ! -d "./node_modules" ];then npm install;fi && npm run build
 
-release:
+prepare-release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release
+	rm -rf ./release/trunk/*
 	cp ./*.php ./release/trunk/
-	cp ./js/*.js ./release/trunk/js/
-	cp ./src/*.php ./release/trunk/src/
+	cp -r ./js/ ./release/trunk/
+	rsync -r --exclude="admin-menu" ./src ./release/trunk
+	mkdir ./release/trunk/src/Settings/admin-menu/
+	cp -r ./src/Settings/admin-menu/dist ./release/trunk/src/Settings/admin-menu/
+	cp -r ./vendor ./release/trunk/
 	cp ./readme.txt ./release/trunk/
 	cp ./assets/* ./release/assets/
-	cp ./frontend/public/build/bundle.js ./release/trunk/frontend/public/build/
-	cp ./frontend/public/build/bundle.css ./release/trunk/frontend/public/build/
+
 	$(info ----------------  INFO  ----------------------)
 	$(info write new version into readme.txt and mapp_intelligence.php header, add changelog to readme.txt)
 	$(info now run: cd release && svn copy ./trunk ./tags/1.x.x && svn ci -m"MESSAGE" --username mappdigital --password PW)

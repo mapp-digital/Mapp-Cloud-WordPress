@@ -60,6 +60,7 @@ services:
       - 8000:8000
     volumes:
       - "../../:/var/www/html/wp-content/plugins/mapp_intelligence"
+      # - "../../release/trunk:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
       - ./cli.php:/cli.php
       - "./init-wp.sh:/init-wp.sh"
