@@ -114,3 +114,19 @@ Cypress.Commands.add("spyOnTiDataLayer", (log = false) => {
 		return dl;
 	});
 });
+
+Cypress.Commands.add("delayAddResponse", () => {
+	cy.intercept(
+		{
+			method: "POST",
+			url: "http://mapp_e2e_wp.test/product/**",
+			middleware: true,
+		},
+		(req) => {
+			req.on("response", (res) => {
+				// Wait for delay in milliseconds before sending the response to the client.
+				res.setDelay(500);
+			});
+		}
+	);
+});

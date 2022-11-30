@@ -897,7 +897,10 @@ describe("Product", () => {
 
 		describe("add", () => {
 			let gtmDataLayer;
-			beforeEach(cy.interceptAddRequest);
+			beforeEach(() => {
+				cy.interceptAddRequest();
+				cy.delayAddResponse();
+			});
 			it("sale product", () => {
 				cy.visit("/product/beanie-with-logo/");
 				cy.testTrackRequest().then((track) => {
@@ -2561,7 +2564,10 @@ describe("Product", () => {
 		});
 
 		describe("add", () => {
-			beforeEach(cy.interceptAddRequest);
+			beforeEach(() => {
+				cy.interceptAddRequest();
+				cy.delayAddResponse();
+			});
 			let tiDataLayer;
 			it("sale product", () => {
 				cy.visit("/product/beanie-with-logo/");
@@ -2571,64 +2577,76 @@ describe("Product", () => {
 						"mapp_e2e_wp.test/product/beanie-with-logo/"
 					);
 				});
-				cy.get('[name="add-to-cart"]').click().then(() =>{
-					cy.testAddTrackRequest().then((track) => {
-						expect(track.pageName).to.equal(
-							"mapp_e2e_wp.test/product/beanie-with-logo/"
-						);
-						expect(track.params.ba).to.equal("27");
-						expect(track.params.ca1).to.equal("Accessories");
-						expect(track.params.ca3).to.equal("Beanie with Logo");
-						expect(track.params.cg1).to.equal("product");
-						expect(track.params.cg2).to.equal("single-product");
-						expect(track.params.co).to.equal("18");
-						expect(track.params.cr).to.equal("EUR");
-						expect(track.params.pu).to.equal(
-							"http://mapp_e2e_wp.test/product/beanie-with-logo/"
-						);
-						expect(track.params.qn).to.equal("1");
-						expect(track.params.st).to.equal("add");
-	
-						expect(tiDataLayer[0].language).to.equal("en_US");
-						expect(tiDataLayer[0].pageTitle).to.equal(
-							"Beanie with Logo"
-						);
-						expect(tiDataLayer[0].contentCategory).to.equal("product");
-						expect(tiDataLayer[0].contentSubcategory).to.equal(
-							"single-product"
-						);
-						expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
-							"simple"
-						);
-						expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
-							"Accessories"
-						);
-						expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
-							"Red"
-						);
-						expect(tiDataLayer[0].productName).to.equal(
-							"Beanie with Logo"
-						);
-						expect(tiDataLayer[0].productCost).to.equal(18);
-						expect(tiDataLayer[0].productId).to.equal("27");
-						expect(tiDataLayer[0].productSKU).to.equal(
-							"Woo-beanie-logo"
-						);
-						expect(tiDataLayer[0].currency).to.equal("EUR");
-						expect(tiDataLayer[0].productQuantity).to.equal("1");
-						expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
-						expect(tiDataLayer[0].productCollection).to.equal("0");
-						expect(tiDataLayer[0].productCategories[0]).to.equal(
-							"Accessories"
-						);
-						expect(tiDataLayer[0].productCategory).to.equal(
-							"Accessories"
-						);
-						expect(tiDataLayer[0].pageName).to.equal(
-							"mapp_e2e_wp.test/product/beanie-with-logo/"
-						);
+				cy.get('[name="add-to-cart"]')
+					.click()
+					.then(() => {
+						cy.testAddTrackRequest().then((track) => {
+							expect(track.pageName).to.equal(
+								"mapp_e2e_wp.test/product/beanie-with-logo/"
+							);
+							expect(track.params.ba).to.equal("27");
+							expect(track.params.ca1).to.equal("Accessories");
+							expect(track.params.ca3).to.equal(
+								"Beanie with Logo"
+							);
+							expect(track.params.cg1).to.equal("product");
+							expect(track.params.cg2).to.equal("single-product");
+							expect(track.params.co).to.equal("18");
+							expect(track.params.cr).to.equal("EUR");
+							expect(track.params.pu).to.equal(
+								"http://mapp_e2e_wp.test/product/beanie-with-logo/"
+							);
+							expect(track.params.qn).to.equal("1");
+							expect(track.params.st).to.equal("add");
+
+							expect(tiDataLayer[0].language).to.equal("en_US");
+							expect(tiDataLayer[0].pageTitle).to.equal(
+								"Beanie with Logo"
+							);
+							expect(tiDataLayer[0].contentCategory).to.equal(
+								"product"
+							);
+							expect(tiDataLayer[0].contentSubcategory).to.equal(
+								"single-product"
+							);
+							expect(
+								tiDataLayer[0].taxonomies.product_type[0]
+							).to.equal("simple");
+							expect(
+								tiDataLayer[0].taxonomies.product_cat[0]
+							).to.equal("Accessories");
+							expect(
+								tiDataLayer[0].taxonomies.pa_color[0]
+							).to.equal("Red");
+							expect(tiDataLayer[0].productName).to.equal(
+								"Beanie with Logo"
+							);
+							expect(tiDataLayer[0].productCost).to.equal(18);
+							expect(tiDataLayer[0].productId).to.equal("27");
+							expect(tiDataLayer[0].productSKU).to.equal(
+								"Woo-beanie-logo"
+							);
+							expect(tiDataLayer[0].currency).to.equal("EUR");
+							expect(tiDataLayer[0].productQuantity).to.equal(
+								"1"
+							);
+							expect(tiDataLayer[0].shoppingCartStatus).to.equal(
+								"add"
+							);
+							expect(tiDataLayer[0].productCollection).to.equal(
+								"0"
+							);
+							expect(
+								tiDataLayer[0].productCategories[0]
+							).to.equal("Accessories");
+							expect(tiDataLayer[0].productCategory).to.equal(
+								"Accessories"
+							);
+							expect(tiDataLayer[0].pageName).to.equal(
+								"mapp_e2e_wp.test/product/beanie-with-logo/"
+							);
+						});
 					});
-				});
 			});
 
 			it("normal product", () => {
@@ -2639,62 +2657,76 @@ describe("Product", () => {
 						"mapp_e2e_wp.test/product/long-sleeve-tee/"
 					);
 				});
-				cy.get('[name="add-to-cart"]').click().then(()=>{
-					cy.testAddTrackRequest().then((track) => {
-						expect(track.pageName).to.equal(
-							"mapp_e2e_wp.test/product/long-sleeve-tee/"
-						);
-						expect(track.params.ba).to.equal("16");
-						expect(track.params.ca1).to.equal("Tshirts");
-						expect(track.params.ca3).to.equal("Long Sleeve Tee");
-						expect(track.params.cg1).to.equal("product");
-						expect(track.params.cg2).to.equal("single-product");
-						expect(track.params.co).to.equal("25");
-						expect(track.params.cr).to.equal("EUR");
-						expect(track.params.pu).to.equal(
-							"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
-						);
-						expect(track.params.qn).to.equal("1");
-						expect(track.params.st).to.equal("add");
-	
-						expect(tiDataLayer[0].language).to.equal("en_US");
-						expect(tiDataLayer[0].pageTitle).to.equal(
-							"Long Sleeve Tee"
-						);
-						expect(tiDataLayer[0].contentCategory).to.equal("product");
-						expect(tiDataLayer[0].contentSubcategory).to.equal(
-							"single-product"
-						);
-						expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
-							"simple"
-						);
-						expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
-							"Tshirts"
-						);
-						expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
-							"Green"
-						);
-						expect(tiDataLayer[0].productName).to.equal(
-							"Long Sleeve Tee"
-						);
-						expect(tiDataLayer[0].productCost).to.equal(25);
-						expect(tiDataLayer[0].productId).to.equal("16");
-						expect(tiDataLayer[0].productSKU).to.equal(
-							"woo-long-sleeve-tee"
-						);
-						expect(tiDataLayer[0].currency).to.equal("EUR");
-						expect(tiDataLayer[0].productQuantity).to.equal("1");
-						expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
-						expect(tiDataLayer[0].productCollection).to.equal("0");
-						expect(tiDataLayer[0].productCategories[0]).to.equal(
-							"Tshirts"
-						);
-						expect(tiDataLayer[0].productCategory).to.equal("Tshirts");
-						expect(tiDataLayer[0].pageName).to.equal(
-							"mapp_e2e_wp.test/product/long-sleeve-tee/"
-						);
+				cy.get('[name="add-to-cart"]')
+					.click()
+					.then(() => {
+						cy.testAddTrackRequest().then((track) => {
+							expect(track.pageName).to.equal(
+								"mapp_e2e_wp.test/product/long-sleeve-tee/"
+							);
+							expect(track.params.ba).to.equal("16");
+							expect(track.params.ca1).to.equal("Tshirts");
+							expect(track.params.ca3).to.equal(
+								"Long Sleeve Tee"
+							);
+							expect(track.params.cg1).to.equal("product");
+							expect(track.params.cg2).to.equal("single-product");
+							expect(track.params.co).to.equal("25");
+							expect(track.params.cr).to.equal("EUR");
+							expect(track.params.pu).to.equal(
+								"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
+							);
+							expect(track.params.qn).to.equal("1");
+							expect(track.params.st).to.equal("add");
+
+							expect(tiDataLayer[0].language).to.equal("en_US");
+							expect(tiDataLayer[0].pageTitle).to.equal(
+								"Long Sleeve Tee"
+							);
+							expect(tiDataLayer[0].contentCategory).to.equal(
+								"product"
+							);
+							expect(tiDataLayer[0].contentSubcategory).to.equal(
+								"single-product"
+							);
+							expect(
+								tiDataLayer[0].taxonomies.product_type[0]
+							).to.equal("simple");
+							expect(
+								tiDataLayer[0].taxonomies.product_cat[0]
+							).to.equal("Tshirts");
+							expect(
+								tiDataLayer[0].taxonomies.pa_color[0]
+							).to.equal("Green");
+							expect(tiDataLayer[0].productName).to.equal(
+								"Long Sleeve Tee"
+							);
+							expect(tiDataLayer[0].productCost).to.equal(25);
+							expect(tiDataLayer[0].productId).to.equal("16");
+							expect(tiDataLayer[0].productSKU).to.equal(
+								"woo-long-sleeve-tee"
+							);
+							expect(tiDataLayer[0].currency).to.equal("EUR");
+							expect(tiDataLayer[0].productQuantity).to.equal(
+								"1"
+							);
+							expect(tiDataLayer[0].shoppingCartStatus).to.equal(
+								"add"
+							);
+							expect(tiDataLayer[0].productCollection).to.equal(
+								"0"
+							);
+							expect(
+								tiDataLayer[0].productCategories[0]
+							).to.equal("Tshirts");
+							expect(tiDataLayer[0].productCategory).to.equal(
+								"Tshirts"
+							);
+							expect(tiDataLayer[0].pageName).to.equal(
+								"mapp_e2e_wp.test/product/long-sleeve-tee/"
+							);
+						});
 					});
-				});
 			});
 
 			it("product variation", () => {
@@ -2892,7 +2924,7 @@ describe("Product", () => {
 
 		describe("fast add", () => {
 			let tiDataLayer;
-			beforeEach( () => {
+			beforeEach(() => {
 				cy.visit("/shop/");
 				cy.testTrackRequest().then((track) => {
 					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
@@ -2912,7 +2944,7 @@ describe("Product", () => {
 					);
 				});
 				cy.wait(2000);
-			}); 
+			});
 			it("sale product", () => {
 				cy.get('[href="?add-to-cart=12"]').click();
 				cy.testTrackRequest().then((track) => {
