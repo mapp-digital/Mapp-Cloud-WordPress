@@ -73,6 +73,8 @@ wp core install --url=http://mapp_e2e_wp.test --title="Mapp Intelligence E2E Tes
 
 wp language core install de_DE
 
+rm -rf /var/www/html/wp-content/plugins/woocommerce/
+
 if [ "$WOOCOMMERCE_VERSION" != "" ]; then
   wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION" --activate
 else

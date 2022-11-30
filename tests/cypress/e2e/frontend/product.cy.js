@@ -897,6 +897,7 @@ describe("Product", () => {
 
 		describe("add", () => {
 			let gtmDataLayer;
+			beforeEach(cy.interceptAddRequest);
 			it("sale product", () => {
 				cy.visit("/product/beanie-with-logo/");
 				cy.testTrackRequest().then((track) => {
@@ -906,7 +907,7 @@ describe("Product", () => {
 					);
 				});
 				cy.get('[name="add-to-cart"]').click();
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					const add = gtmDataLayer[0];
 					const restore = gtmDataLayer[1];
 					const addGtmArray = add.mapp.gtmProductArray[0];
@@ -1030,7 +1031,7 @@ describe("Product", () => {
 					);
 				});
 				cy.get('[name="add-to-cart"]').click();
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/long-sleeve-tee/"
 					);
@@ -1178,7 +1179,7 @@ describe("Product", () => {
 				});
 				cy.get(".single_add_to_cart_button").click();
 
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/hoodie/"
 					);
@@ -1338,7 +1339,7 @@ describe("Product", () => {
 				cy.get(".quantity > input").eq(2).clear().type("1");
 				cy.get(".single_add_to_cart_button").click();
 
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/logo-collection/"
 					);
@@ -2560,6 +2561,7 @@ describe("Product", () => {
 		});
 
 		describe("add", () => {
+			beforeEach(cy.interceptAddRequest);
 			let tiDataLayer;
 			it("sale product", () => {
 				cy.visit("/product/beanie-with-logo/");
@@ -2570,7 +2572,7 @@ describe("Product", () => {
 					);
 				});
 				cy.get('[name="add-to-cart"]').click().then(() =>{
-					cy.testTrackRequest().then((track) => {
+					cy.testAddTrackRequest().then((track) => {
 						expect(track.pageName).to.equal(
 							"mapp_e2e_wp.test/product/beanie-with-logo/"
 						);
@@ -2638,7 +2640,7 @@ describe("Product", () => {
 					);
 				});
 				cy.get('[name="add-to-cart"]').click().then(()=>{
-					cy.testTrackRequest().then((track) => {
+					cy.testAddTrackRequest().then((track) => {
 						expect(track.pageName).to.equal(
 							"mapp_e2e_wp.test/product/long-sleeve-tee/"
 						);
@@ -2724,7 +2726,7 @@ describe("Product", () => {
 					expect(track.params.st).to.equal("view");
 				});
 				cy.get(".single_add_to_cart_button").click();
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/hoodie/"
 					);
@@ -2823,7 +2825,7 @@ describe("Product", () => {
 				cy.get(".quantity > input").eq(2).clear().type("1");
 				cy.get(".single_add_to_cart_button").click();
 
-				cy.testTrackRequest().then((track) => {
+				cy.testAddTrackRequest().then((track) => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/logo-collection/"
 					);
@@ -2890,8 +2892,7 @@ describe("Product", () => {
 
 		describe("fast add", () => {
 			let tiDataLayer;
-
-			it("sale product", () => {
+			beforeEach( () => {
 				cy.visit("/shop/");
 				cy.testTrackRequest().then((track) => {
 					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
@@ -2910,6 +2911,9 @@ describe("Product", () => {
 						"mapp_e2e_wp.test/shop/"
 					);
 				});
+				cy.wait(2000);
+			}); 
+			it("sale product", () => {
 				cy.get('[href="?add-to-cart=12"]').click();
 				cy.testTrackRequest().then((track) => {
 					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
@@ -3028,24 +3032,6 @@ describe("Product", () => {
 			});
 
 			it("normal product", () => {
-				cy.visit("/shop/");
-				cy.testTrackRequest().then((track) => {
-					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
-					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				});
-				cy.getTiDataLayer().then((dataLayer) => {
-					expect(dataLayer.language).to.equal("en_US");
-					expect(dataLayer.pageTitle).to.equal("Products");
-					expect(dataLayer.pageNumber).to.equal("1");
-					expect(dataLayer.orderBy).to.equal("default");
-					expect(dataLayer.contentCategory).to.equal(
-						"shop-startpage"
-					);
-					expect(dataLayer.currency).to.equal("EUR");
-					expect(dataLayer.pageName).to.equal(
-						"mapp_e2e_wp.test/shop/"
-					);
-				});
 				cy.get('[href="?add-to-cart=17"]').click();
 				cy.testTrackRequest().then((track) => {
 					expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
