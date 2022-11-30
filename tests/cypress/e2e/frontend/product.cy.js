@@ -2848,9 +2848,6 @@ describe("Product", () => {
 				cy.visit("/product/logo-collection/");
 				cy.testTrackRequest().then((track) => {
 					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
-					expect(track.pageName).to.equal(
-						"mapp_e2e_wp.test/product/logo-collection/"
-					);
 				});
 				cy.get(".quantity > input").eq(0).clear().type("1");
 				cy.get(".quantity > input").eq(1).clear().type("1");
