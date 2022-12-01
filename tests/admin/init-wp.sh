@@ -76,10 +76,14 @@ wp language core install de_DE
 rm -rf /var/www/html/wp-content/plugins/woocommerce/
 
 if [ "$WOOCOMMERCE_VERSION" != "" ]; then
-  wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION" --activate
+  wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION"
 else
-  wp plugin install woocommerce --activate
+  wp plugin install woocommerce
 fi
+
+sleep 1
+
+wp plugin activate woocommerce
 
 wp plugin install wordpress-importer --activate
 wp plugin activate mapp_intelligence
