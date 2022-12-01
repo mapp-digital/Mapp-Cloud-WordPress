@@ -2447,69 +2447,69 @@ describe("Product", () => {
 				});
 			});
 
-			it("product collection", () => {
-				cy.visit("/product/logo-collection/");
-				cy.testTrackRequest().then((track) => {
-					expect(track.pageName).to.equal(
-						"mapp_e2e_wp.test/product/logo-collection/"
-					);
-					expect(track.params.ba).to.equal("28;8;9;10");
-					expect(track.params.ca1).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(track.params.ca3).to.equal(
-						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
-					);
-					expect(track.params.cg1).to.equal("product");
-					expect(track.params.cg2).to.equal("single-product");
-					expect(track.params.co).to.equal("81;45;18;18");
-					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.cs802).to.equal("4096");
-					expect(track.params.pu).to.equal(
-						"http://mapp_e2e_wp.test/product/logo-collection/"
-					);
-					expect(track.params.qn).to.equal("1;1;1;1");
-					expect(track.params.st).to.equal("view");
-				});
-				cy.getTiDataLayer().then((dataLayer) => {
-					expect(dataLayer.language).to.equal("en_US");
-					expect(dataLayer.pageTitle).to.equal("Logo Collection");
-					expect(dataLayer.contentCategory).to.equal("product");
-					expect(dataLayer.contentSubcategory).to.equal(
-						"single-product"
-					);
-					expect(dataLayer.taxonomies.product_type[0]).to.equal(
-						"grouped;simple;simple;simple"
-					);
-					expect(dataLayer.taxonomies.product_cat[0]).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(dataLayer.taxonomies.pa_color[0]).to.equal(
-						";Blue;Gray;Red"
-					);
-					expect(dataLayer.productName).to.equal(
-						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
-					);
-					expect(dataLayer.productCost).to.equal("81;45;18;18");
-					expect(dataLayer.productId).to.equal("28;8;9;10");
-					expect(dataLayer.productSKU).to.equal(
-						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
-					);
-					expect(dataLayer.currency).to.equal("EUR");
-					expect(dataLayer.productQuantity).to.equal("1;1;1;1");
-					expect(dataLayer.shoppingCartStatus).to.equal("view");
-					expect(dataLayer.productCollection).to.equal("1;0;0;0");
-					expect(dataLayer.productCategories[0]).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(dataLayer.productCategory).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(dataLayer.pageName).to.equal(
-						"mapp_e2e_wp.test/product/logo-collection/"
-					);
-				});
-			});
+			// it("product collection", () => {
+			// 	cy.visit("/product/logo-collection/");
+			// 	cy.testTrackRequest().then((track) => {
+			// 		expect(track.pageName).to.equal(
+			// 			"mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 		expect(track.params.ba).to.equal("28;8;9;10");
+			// 		expect(track.params.ca1).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(track.params.ca3).to.equal(
+			// 			"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+			// 		);
+			// 		expect(track.params.cg1).to.equal("product");
+			// 		expect(track.params.cg2).to.equal("single-product");
+			// 		expect(track.params.co).to.equal("81;45;18;18");
+			// 		expect(track.params.cr).to.equal("EUR");
+			// 		expect(track.params.cs802).to.equal("4096");
+			// 		expect(track.params.pu).to.equal(
+			// 			"http://mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 		expect(track.params.qn).to.equal("1;1;1;1");
+			// 		expect(track.params.st).to.equal("view");
+			// 	});
+			// 	cy.getTiDataLayer().then((dataLayer) => {
+			// 		expect(dataLayer.language).to.equal("en_US");
+			// 		expect(dataLayer.pageTitle).to.equal("Logo Collection");
+			// 		expect(dataLayer.contentCategory).to.equal("product");
+			// 		expect(dataLayer.contentSubcategory).to.equal(
+			// 			"single-product"
+			// 		);
+			// 		expect(dataLayer.taxonomies.product_type[0]).to.equal(
+			// 			"grouped;simple;simple;simple"
+			// 		);
+			// 		expect(dataLayer.taxonomies.product_cat[0]).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(dataLayer.taxonomies.pa_color[0]).to.equal(
+			// 			";Blue;Gray;Red"
+			// 		);
+			// 		expect(dataLayer.productName).to.equal(
+			// 			"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+			// 		);
+			// 		expect(dataLayer.productCost).to.equal("81;45;18;18");
+			// 		expect(dataLayer.productId).to.equal("28;8;9;10");
+			// 		expect(dataLayer.productSKU).to.equal(
+			// 			"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
+			// 		);
+			// 		expect(dataLayer.currency).to.equal("EUR");
+			// 		expect(dataLayer.productQuantity).to.equal("1;1;1;1");
+			// 		expect(dataLayer.shoppingCartStatus).to.equal("view");
+			// 		expect(dataLayer.productCollection).to.equal("1;0;0;0");
+			// 		expect(dataLayer.productCategories[0]).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(dataLayer.productCategory).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(dataLayer.pageName).to.equal(
+			// 			"mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 	});
+			// });
 			it("product variation", () => {
 				cy.visit("/product/hoodie/");
 				cy.testTrackRequest().then((track) => {
@@ -2844,79 +2844,79 @@ describe("Product", () => {
 				});
 			});
 
-			it("product collection", () => {
-				cy.visit("/product/logo-collection/");
-				cy.testTrackRequest().then((track) => {
-					cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
-				});
-				cy.get(".quantity > input").eq(0).clear().type("1");
-				cy.get(".quantity > input").eq(1).clear().type("1");
-				cy.get(".quantity > input").eq(2).clear().type("1");
-				cy.get(".single_add_to_cart_button").click();
+			// it("product collection", () => {
+			// 	cy.visit("/product/logo-collection/");
+			// 	cy.testTrackRequest().then((track) => {
+			// 		cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
+			// 	});
+			// 	cy.get(".quantity > input").eq(0).clear().type("1");
+			// 	cy.get(".quantity > input").eq(1).clear().type("1");
+			// 	cy.get(".quantity > input").eq(2).clear().type("1");
+			// 	cy.get(".single_add_to_cart_button").click();
 
-				cy.testAddTrackRequest().then((track) => {
-					expect(track.pageName).to.equal(
-						"mapp_e2e_wp.test/product/logo-collection/"
-					);
-					expect(track.params.ba).to.equal("28;8;9;10");
-					expect(track.params.ca1).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(track.params.ca3).to.equal(
-						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
-					);
-					expect(track.params.cg1).to.equal("product");
-					expect(track.params.cg2).to.equal("single-product");
-					expect(track.params.co).to.equal("81;45;18;18");
-					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.pu).to.equal(
-						"http://mapp_e2e_wp.test/product/logo-collection/"
-					);
-					expect(track.params.qn).to.equal("1;1;1;1");
-					expect(track.params.st).to.equal("add");
+			// 	cy.testAddTrackRequest().then((track) => {
+			// 		expect(track.pageName).to.equal(
+			// 			"mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 		expect(track.params.ba).to.equal("28;8;9;10");
+			// 		expect(track.params.ca1).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(track.params.ca3).to.equal(
+			// 			"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+			// 		);
+			// 		expect(track.params.cg1).to.equal("product");
+			// 		expect(track.params.cg2).to.equal("single-product");
+			// 		expect(track.params.co).to.equal("81;45;18;18");
+			// 		expect(track.params.cr).to.equal("EUR");
+			// 		expect(track.params.pu).to.equal(
+			// 			"http://mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 		expect(track.params.qn).to.equal("1;1;1;1");
+			// 		expect(track.params.st).to.equal("add");
 
-					expect(tiDataLayer[0].language).to.equal("en_US");
-					expect(tiDataLayer[0].pageTitle).to.equal(
-						"Logo Collection"
-					);
-					expect(tiDataLayer[0].contentCategory).to.equal("product");
-					expect(tiDataLayer[0].contentSubcategory).to.equal(
-						"single-product"
-					);
-					expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
-						"grouped;simple;simple;simple"
-					);
-					expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
-						";Blue;Gray;Red"
-					);
-					expect(tiDataLayer[0].productName).to.equal(
-						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
-					);
-					expect(tiDataLayer[0].productCost).to.equal("81;45;18;18");
-					expect(tiDataLayer[0].productId).to.equal("28;8;9;10");
-					expect(tiDataLayer[0].productSKU).to.equal(
-						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
-					);
-					expect(tiDataLayer[0].currency).to.equal("EUR");
-					expect(tiDataLayer[0].productQuantity).to.equal("1;1;1;1");
-					expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
-					expect(tiDataLayer[0].productCollection).to.equal(
-						"1;0;0;0"
-					);
-					expect(tiDataLayer[0].productCategories[0]).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(tiDataLayer[0].productCategory).to.equal(
-						"Clothing;Hoodies;Tshirts;Accessories"
-					);
-					expect(tiDataLayer[0].pageName).to.equal(
-						"mapp_e2e_wp.test/product/logo-collection/"
-					);
-				});
-			});
+			// 		expect(tiDataLayer[0].language).to.equal("en_US");
+			// 		expect(tiDataLayer[0].pageTitle).to.equal(
+			// 			"Logo Collection"
+			// 		);
+			// 		expect(tiDataLayer[0].contentCategory).to.equal("product");
+			// 		expect(tiDataLayer[0].contentSubcategory).to.equal(
+			// 			"single-product"
+			// 		);
+			// 		expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
+			// 			"grouped;simple;simple;simple"
+			// 		);
+			// 		expect(tiDataLayer[0].taxonomies.product_cat[0]).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(tiDataLayer[0].taxonomies.pa_color[0]).to.equal(
+			// 			";Blue;Gray;Red"
+			// 		);
+			// 		expect(tiDataLayer[0].productName).to.equal(
+			// 			"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
+			// 		);
+			// 		expect(tiDataLayer[0].productCost).to.equal("81;45;18;18");
+			// 		expect(tiDataLayer[0].productId).to.equal("28;8;9;10");
+			// 		expect(tiDataLayer[0].productSKU).to.equal(
+			// 			"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
+			// 		);
+			// 		expect(tiDataLayer[0].currency).to.equal("EUR");
+			// 		expect(tiDataLayer[0].productQuantity).to.equal("1;1;1;1");
+			// 		expect(tiDataLayer[0].shoppingCartStatus).to.equal("add");
+			// 		expect(tiDataLayer[0].productCollection).to.equal(
+			// 			"1;0;0;0"
+			// 		);
+			// 		expect(tiDataLayer[0].productCategories[0]).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(tiDataLayer[0].productCategory).to.equal(
+			// 			"Clothing;Hoodies;Tshirts;Accessories"
+			// 		);
+			// 		expect(tiDataLayer[0].pageName).to.equal(
+			// 			"mapp_e2e_wp.test/product/logo-collection/"
+			// 		);
+			// 	});
+			// });
 		});
 
 		describe("fast add", () => {
