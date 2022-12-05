@@ -3,8 +3,8 @@ USER_ID := $(shell id -u)
 GROUP_ID := $(shell id -g)
 USER_GROUP = $(USER_ID):$(GROUP_ID)
 
-wp=latest
-woo=7.1.0
+WP=latest
+WOO=7.1.0
 
 export USER_ID
 export GROUP_ID
@@ -31,15 +31,15 @@ reset-wp:
 init-wp:
 	docker exec -t -u xfs mapp_e2e_wpcli bash -c "bash /init-wp.sh"
 switch-wp-version:
-	 docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp core update --version="$(wp)" --path=/var/www/html --force"
+	docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp core update --version="$(WP)" --path=/var/www/html --force"
 switch-woo-version:
-	 docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin install woocommerce --version=$(woo) --force"
+	docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin install woocommerce --version=$(WOO) --force"
 get-wordpress-version:
 	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp core version"
 get-woocommerce-version:
 	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin list --format=json" | grep -oE "woocommerce.+name" | grep -o "[0-9.]\+"
 get-latest-woo-version-number:
-	@git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/woocommerce/woocommerce '*.*.*'  |  cut --delimiter='/' --fields=3 | grep -o "^[0-9]\.[0-9]\.[0-9]$\" |  tail --lines=1
+	@git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/woocommerce/woocommerce '*.*.*' | cut --delimiter='/' --fields=3 | grep -o  "^[0-9]\.[0-9]\.[0-9]$$" |  tail --lines=1
 
 set-version:
 	@npm run set-version $(version)

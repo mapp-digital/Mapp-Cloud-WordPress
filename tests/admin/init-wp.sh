@@ -7,9 +7,10 @@ bash /wait-for-it.sh -t 0 db:3306
 
 function download_woocommerce()
 {
-  # WOO_V=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/woocommerce/woocommerce '*.*.*'  |  cut --delimiter='/' --fields=3 | grep -o "^[0-9]\.[0-9]\.[0-9]$" |  tail --lines=1)
-  # echo $WOO_V
-  curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce-7.1.0.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.7.1.0.zip
+  echo "Looking for latest Woocommerce version..."
+  WOOV=$(curl -s https://api.github.com/repos/woocommerce/woocommerce/releases/latest | grep -oE '"name":\s"[0-9]\.[0-9]\.[0-9]' | grep -oE '[0-9]\.[0-9]\.[0-9]')
+  echo "Latest Woocommerce release is $WOOV!"
+  curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce-$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
 }
 
 function wp_delete_post()
@@ -74,7 +75,8 @@ function wp_update_option()
 
 cd /var/www/html/
 
-echo "install and update wordpress to v$WORDPRESS_VERSION";
+echo "install and update wordpress to v$WORDPRESS_VERSION"
+echo "with Woocommerce version $WOOCOMMERCE_VERSION"
 
 
 wp core install --url=http://mapp_e2e_wp.test --title="Mapp Intelligence E2E Test Suite" --admin_user=admin --admin_password=password --admin_email=admin@mapp.com --path=/var/www/html --skip-email
