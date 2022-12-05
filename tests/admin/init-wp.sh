@@ -11,7 +11,7 @@ function download_woocommerce()
   WOOV=$(curl -s https://api.github.com/repos/woocommerce/woocommerce/releases/latest | grep -oE '"name":\s"[0-9]\.[0-9]\.[0-9]' | grep -oE '[0-9]\.[0-9]\.[0-9]')
   echo "Latest Woocommerce release is $WOOV!"
   curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
-  # unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d /var/www/html/wp.content/plugin/woocommerce
+  unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d /var/www/html/wp-content/plugins
 }
 
 function wp_delete_post()
@@ -87,13 +87,13 @@ wp language core install de_DE
 
 rm -rf /var/www/html/wp-content/plugins/woocommerce/
 download_woocommerce
-if [ "$WOOCOMMERCE_VERSION" != "" ]; then
-  wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION"
-else
-  wp plugin install woocommerce
-fi
+# if [ "$WOOCOMMERCE_VERSION" != "" ]; then
+#   wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION"
+# else
+#   wp plugin install woocommerce
+# fi
 
-sleep 1
+# sleep 1
 
 wp plugin activate woocommerce
 
