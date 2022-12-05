@@ -10,7 +10,8 @@ function download_woocommerce()
   echo "Looking for latest Woocommerce version..."
   WOOV=$(curl -s https://api.github.com/repos/woocommerce/woocommerce/releases/latest | grep -oE '"name":\s"[0-9]\.[0-9]\.[0-9]' | grep -oE '[0-9]\.[0-9]\.[0-9]')
   echo "Latest Woocommerce release is $WOOV!"
-  curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce-$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
+  curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
+  # unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d /var/www/html/wp.content/plugin/woocommerce
 }
 
 function wp_delete_post()
