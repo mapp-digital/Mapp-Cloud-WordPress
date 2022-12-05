@@ -77,8 +77,6 @@ function wp_update_option()
 cd /var/www/html/
 
 echo "install and update wordpress to v$WORDPRESS_VERSION"
-echo "with Woocommerce version $WOOCOMMERCE_VERSION"
-
 
 wp core install --url=http://mapp_e2e_wp.test --title="Mapp Intelligence E2E Test Suite" --admin_user=admin --admin_password=password --admin_email=admin@mapp.com --path=/var/www/html --skip-email
 # wp core update --version="$WORDPRESS_VERSION" --locale=en_US --path=/var/www/html --force
