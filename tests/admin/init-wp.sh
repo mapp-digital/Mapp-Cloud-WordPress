@@ -12,7 +12,7 @@ function download_woocommerce()
   echo "Latest Woocommerce release is $WOOV!"
   curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
   echo "Unzip package into WP-plugins directory..."
-  unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d -q /var/www/html/wp-content/plugins
+  unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d /var/www/html/wp-content/plugins
 }
 
 function wp_delete_post()
