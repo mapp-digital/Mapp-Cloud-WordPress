@@ -97,7 +97,7 @@ download_woocommerce
 wp plugin activate woocommerce
 
 wp plugin install wordpress-importer --activate
-wp plugin activate mapp_intelligence
+wp plugin activate mapp-intelligence
 # set default settings for Mapp plugin
 wp option set MappIntelligence_mappConfig '{"General":{"v":5,"tiId":"136699033798929","gtmId":"GTM-N2FH826","tiDomain":"responder.wt-safetag.com","filterKeys":"","excludeWpUser":false,"acquire":""}}'
 

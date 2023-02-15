@@ -17,9 +17,7 @@ if (!defined("ABSPATH")) {
 	exit();
 }
 
-if (is_readable(WP_PLUGIN_DIR . "/mapp_intelligence/vendor/autoload.php")) {
-	require WP_PLUGIN_DIR . "/mapp_intelligence/vendor/autoload.php";
-}
-if (!class_exists("MappCloud")) {
+if (!class_exists("MappCloud") && is_readable(__DIR__ . "/vendor/autoload.php")) {
+	require __DIR__ . "/vendor/autoload.php";
 	new MappCloud\Init();
 }

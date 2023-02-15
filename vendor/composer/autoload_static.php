@@ -22,6 +22,17 @@ class ComposerStaticInit2d038e738c2e753882aa1f0a9f6c6762
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'MappCloud\\Init' => __DIR__ . '/../..' . '/src/Init.php',
+        'MappCloud\\Intelligence\\DataLayer\\Page' => __DIR__ . '/../..' . '/src/Intelligence/DataLayer/Page.php',
+        'MappCloud\\Intelligence\\DataLayer\\User' => __DIR__ . '/../..' . '/src/Intelligence/DataLayer/User.php',
+        'MappCloud\\Intelligence\\DataLayer\\Woocommerce' => __DIR__ . '/../..' . '/src/Intelligence/DataLayer/Woocommerce.php',
+        'MappCloud\\Intelligence\\Helper' => __DIR__ . '/../..' . '/src/Intelligence/Helper.php',
+        'MappCloud\\Intelligence\\Loader' => __DIR__ . '/../..' . '/src/Intelligence/Loader.php',
+        'MappCloud\\Intelligence\\Runtime' => __DIR__ . '/../..' . '/src/Intelligence/Runtime.php',
+        'MappCloud\\Settings\\SettingRoutes' => __DIR__ . '/../..' . '/src/Settings/SettingRoutes.php',
+        'MappCloud\\Settings\\Settings' => __DIR__ . '/../..' . '/src/Settings/Settings.php',
+        'MappCloud\\Settings\\SettingsMenu' => __DIR__ . '/../..' . '/src/Settings/SettingsMenu.php',
+        'MappCloud\\i18n\\Translation' => __DIR__ . '/../..' . '/src/i18n/Translation.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

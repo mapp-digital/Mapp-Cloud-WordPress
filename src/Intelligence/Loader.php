@@ -28,16 +28,8 @@ class Loader
 
 	public static function smartpixel_loader()
 	{
-		?>
-        <script>
-            window.loaderConfig_ = window.loaderConfig_ || {
-                domain: '',
-                path: '<?php echo plugin_dir_url(__FILE__) . "../../js/"; ?>',
-                file: 'smart-pixel.min.js'
-            };
-            (function(f,c,a,b){function d(){}var e=c.getElementsByTagName(a)[0];a=c.createElement(a);a.async=!0;a.onload=d;a.onerror=d;if(-1!==c.cookie.indexOf("wtstp_debug=1")||-1!==f.location.hash.indexOf("wtstp_debug"))b.file=b.file.replace(/\.min\./,".debug.");a.src=(""!==b.domain?"//"+b.domain:"")+b.path+b.file;e.parentNode.insertBefore(a,e)})(window,document,"script",window.loaderConfig_||{});
-        </script>
-        <?php
+		$smartPixelPath = str_replace("src/Intelligence/", "", plugin_dir_url(__FILE__)) . "js/smart-pixel.min.js";
+		echo "<script type=\"text/javascript\" src=\"" . $smartPixelPath . "\"></script>";
 	}
 
 	public static function acquire_loader($config)

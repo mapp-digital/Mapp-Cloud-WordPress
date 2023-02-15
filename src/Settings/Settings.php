@@ -20,6 +20,7 @@ class Settings
 	public static function get_settings()
 	{
 		$saved = get_option(self::$option_key);
+		$saved = stripslashes($saved);
 		if ($saved) {
 			$saved = json_decode($saved, true);
 		}

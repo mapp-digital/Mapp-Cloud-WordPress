@@ -33,7 +33,7 @@ services:
       WORDPRESS_TABLE_PREFIX: "wp_"
       WORDPRESS_DEBUG: 1
     volumes:
-      - "../../:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
       - wordpress:/var/www/html
     networks:
       - mapp
@@ -59,7 +59,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - "../../:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
       # - "../../release/trunk:/var/www/html/wp-content/plugins/mapp_intelligence"
       - wordpress:/var/www/html
       - ./cli.php:/cli.php
