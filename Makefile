@@ -62,9 +62,12 @@ prepare-release:
 	cp ./assets/* ./release/assets/
 
 	$(info ----------------  INFO  ----------------------)
-	$(info write new version into readme.txt and mapp_intelligence.php header, add changelog to readme.txt)
-	$(info now run: cd release && svn copy ./trunk ./tags/1.x.x && svn ci -m"MESSAGE" --username mappdigital --password PW)
-	$(info password here: https://wiki.webtrekk.com/pages/viewpage.action?pageId=26804873)
+	$(info make set-version version=1.x.x to set the version)
+	$(info fill the trunk by running this make command)
+	$(info now run: cd release && svn copy ./trunk ./tags/1.x.x)
+	$(info If new files are introduced, in release dir run svn add --force .)
+	$(info If folders or files are deleted, run  svn st | grep ! | cut -d! -f2| sed 's/^ *//' | sed 's/^/"/g' | sed 's/$/"/g' | xargs svn rm)
+	$(info To publish, run svn ci -m"MESSAGE" --username mappdigital --password PW)
 	$(info ---------------- OUTPUT ----------------------)
 
 get-smartpixel:
