@@ -71,3 +71,5 @@ get-smartpixel:
 	curl https://raw.githubusercontent.com/Webtrekk/Webtrekk-Smart-Pixel/master/packages/core/dist/smart-pixel.min.js --output ./js/smart-pixel.min.js
 	curl https://raw.githubusercontent.com/Webtrekk/Webtrekk-Smart-Pixel/master/packages/core/dist/smart-pixel.debug.js --output ./js/smart-pixel.debug.js
 
+zip:
+	cp -r ./release/trunk ./mapp-intelligence && zip -r mapp-cloud-wordpress_v$$(jq -r '.version' package.json).zip ./mapp-intelligence && rm -rf ./mapp-intelligence

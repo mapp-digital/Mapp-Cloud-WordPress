@@ -39,7 +39,7 @@ if (versionPattern.test(newVersion)) {
 			replacement: "Version: ###version###",
 		},
 		{
-			file: "src/Helper.php",
+			file: "src/Intelligence/Helper.php",
 			pattern: /\tpublic\sstatic\s\$version\s=\s"[0-9]+\.[0-9]+\.[0-9]+"/,
 			replacement: '\tpublic static $version = "###version###"',
 		},
