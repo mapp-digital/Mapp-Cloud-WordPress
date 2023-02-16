@@ -1,3 +1,11 @@
+<a name="1.1.8"></a>
+# 1.1.8
+
+* Update Smartpixel to version 6.3.8
+* Faster loading of Smartpixel
+* Support for German in settings menu
+* New internal code structure
+
 <a name="1.1.7"></a>
 # 1.1.7
 

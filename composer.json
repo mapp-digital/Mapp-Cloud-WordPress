@@ -1,0 +1,19 @@
+{
+  "name": "mapp-digital/mapp-cloud-wordpress",
+  "version": "1.1.8",
+  "description": "Mapp Cloud for Wordpress and Woccommerce",
+  "type": "wordpress-plugin",
+  "license": "GNU",
+  "authors": [
+    {
+      "name": "Mapp Digital",
+      "email": "support@mapp.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MappCloud\\": "src/"
+    }
+  },
+  "require": {}
+}

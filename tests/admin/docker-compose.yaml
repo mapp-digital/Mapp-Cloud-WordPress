@@ -1,0 +1,98 @@
+version: "3.3"
+
+services:
+  db:
+    image: mariadb:10.5
+    container_name: mapp_e2e_wp_db
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - mapp
+
+  wordpress-mapp:
+    image: wordpress:latest
+    container_name: mapp_e2e_wp.test
+    depends_on:
+      - db
+    ports:
+      - 80:80
+    restart: on-failure
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: testdb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
+      - wordpress:/var/www/html
+    networks:
+      - mapp
+
+  wordpress-cli:
+    image: wordpress:cli
+    container_name: mapp_e2e_wpcli
+    depends_on:
+      - db
+      - wordpress-mapp
+    restart: on-failure
+    environment:
+      WORDPRESS_VERSION: "${WORDPRESS_VERSION:-latest}"
+      WP_CLI_CACHE_DIR: /var/www/html/.wp-cli/cache
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: testdb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 1
+      WOOCOMMERCE_VERSION:
+    user: xfs
+    ports:
+      - 8000:8000
+    volumes:
+      - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
+      # - "../../release/trunk:/var/www/html/wp-content/plugins/mapp_intelligence"
+      - wordpress:/var/www/html
+      - ./cli.php:/cli.php
+      - "./init-wp.sh:/init-wp.sh"
+      - "./wait-for-it.sh:/wait-for-it.sh"
+      - "./db.php:/db.php"
+    # command: sh -c "tail -f /dev/null"
+    command: php -S mapp_e2e_wpcli:8000 /cli.php
+    networks:
+      - mapp
+
+  cypress:
+    container_name: mapp_e2e_wp_cypress
+    entrypoint: ["/bin/bash", "/cypress_entrypoint.sh"]
+    build:
+      context: .
+      dockerfile: ./Dockerfile.cypress
+      args:
+          USER_ID: ${USER_ID}
+          GROUP_ID: ${GROUP_ID}  
+    volumes:
+      - ./../cypress:/cypress
+      - ./../cypress.config.js:/cypress.config.js
+      - ./cypress_entrypoint.sh:/cypress_entrypoint.sh
+      - ./../results:/results
+      - ./wait-for-it.sh:/wait-for-it.sh
+    networks:
+      - mapp
+
+volumes:
+  db:
+  wordpress:
+
+networks:
+    mapp:
+      name: mapp_e2e_wp

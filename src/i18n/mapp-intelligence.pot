@@ -1,0 +1,148 @@
+# Copyright (C) 2022
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/Mapp-Cloud-WordPress\n"
+"POT-Creation-Date: 2022-11-25 12:47:42+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: src/Settings/SettingsMenu.php:40 src/Settings/SettingsMenu.php:41
+msgid "Mapp Cloud"
+msgstr ""
+
+#: src/i18n/Translation.php:22
+msgid "Mapp Intelligence Pixel Version"
+msgstr ""
+
+#: src/i18n/Translation.php:26
+msgid "Tag Integration ID"
+msgstr ""
+
+#: src/i18n/Translation.php:27
+msgid "Google Tag Manager Container ID"
+msgstr ""
+
+#: src/i18n/Translation.php:31
+msgid "Tag Integration Domain"
+msgstr ""
+
+#: src/i18n/Translation.php:32
+msgid "Exclude keys"
+msgstr ""
+
+#: src/i18n/Translation.php:33
+msgid "Exclude users"
+msgstr ""
+
+#: src/i18n/Translation.php:34
+msgid "Mapp Acquire"
+msgstr ""
+
+#: src/i18n/Translation.php:37
+msgid ""
+"Please choose if you want to use Tag Integration or Google Tag Manager for "
+"your implementation."
+msgstr ""
+
+#: src/i18n/Translation.php:41
+msgid "Enter your Tag Integration ID."
+msgstr ""
+
+#: src/i18n/Translation.php:42
+msgid ""
+"Enter your Google Tag Manager Container ID if you have not embedded the "
+"Google Tag Manager script already on your website."
+msgstr ""
+
+#: src/i18n/Translation.php:46
+msgid ""
+"If you use a custom Tag Integration Domain, please indicate it here, "
+"otherwise keep empty and \"responder.wt-safetag.com\" will be used."
+msgstr ""
+
+#: src/i18n/Translation.php:50
+msgid ""
+"Please enter the keys you do not want to include in the datalayer here "
+"(comma separated). customFields are excluded by default."
+msgstr ""
+
+#: src/i18n/Translation.php:54
+msgid "Disable tracking for users logged into WordPress."
+msgstr ""
+
+#: src/i18n/Translation.php:58
+msgid ""
+"If you use Mapp Acquire alongside Mapp Intelligence, please add your Mapp "
+"Acquire tracking script here."
+msgstr ""
+
+#: src/i18n/Translation.php:64
+msgid "The tiId has to consist of 15 numbers."
+msgstr ""
+
+#: src/i18n/Translation.php:68
+msgid ""
+"GTM Container ID not valid - keep this field empty or enter \"GTM-XXXXXXX\" "
+"ID."
+msgstr ""
+
+#: src/i18n/Translation.php:72
+msgid "Please enter a valid URL or keep empty"
+msgstr ""
+
+#: src/i18n/Translation.php:76
+msgid "Could not detect Mapp Acquire script input."
+msgstr ""
+
+#: src/i18n/Translation.php:80
+msgid "Please enter a valid value for: "
+msgstr ""
+
+#: src/i18n/Translation.php:84
+msgid "Error"
+msgstr ""
+
+#: src/i18n/Translation.php:90
+msgid "Save Changes"
+msgstr ""
+
+#: src/i18n/Translation.php:91
+msgid "Saving Changes..."
+msgstr ""
+
+#: src/i18n/Translation.php:92
+msgid "Settings saved successfully"
+msgstr ""
+
+#: src/i18n/Translation.php:96
+msgid "An error occured. More details in JS console."
+msgstr ""
+
+#: src/i18n/Translation.php:100
+msgid "For a detailed step-by-step implementation guide, please visit "
+msgstr ""
+
+#: src/i18n/Translation.php:104
+msgid ""
+"https://documentation.mapp.com/1.0/en/mapp-intelligence-wordpress-plugin-721"
+"7612.html"
+msgstr ""

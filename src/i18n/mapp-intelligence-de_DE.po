@@ -1,0 +1,165 @@
+# Copyright (C) 2022
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Mapp-Cloud-"
+"WordPress\n"
+"POT-Creation-Date: 2022-11-25 12:47:42+00:00\n"
+"PO-Revision-Date: 2022-11-25 13:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/Settings/SettingsMenu.php:40 src/Settings/SettingsMenu.php:41
+msgid "Mapp Cloud"
+msgstr ""
+
+#: src/i18n/Translation.php:22
+msgid "Mapp Intelligence Pixel Version"
+msgstr ""
+
+#: src/i18n/Translation.php:26
+msgid "Tag Integration ID"
+msgstr ""
+
+#: src/i18n/Translation.php:27
+msgid "Google Tag Manager Container ID"
+msgstr ""
+
+#: src/i18n/Translation.php:31
+msgid "Tag Integration Domain"
+msgstr ""
+
+#: src/i18n/Translation.php:32
+msgid "Exclude keys"
+msgstr "Schlüssel ausschließen"
+
+#: src/i18n/Translation.php:33
+msgid "Exclude users"
+msgstr "Nutzer ausschließen"
+
+#: src/i18n/Translation.php:34
+msgid "Mapp Acquire"
+msgstr ""
+
+#: src/i18n/Translation.php:37
+msgid ""
+"Please choose if you want to use Tag Integration or Google Tag Manager for "
+"your implementation."
+msgstr ""
+"Bitte wählen Sie Tag Integration oder Google Tag Manager für Ihre "
+"Implementierung aus."
+
+#: src/i18n/Translation.php:41
+msgid "Enter your Tag Integration ID."
+msgstr "Geben Sie Ihre Tag Integration ID ein."
+
+#: src/i18n/Translation.php:42
+msgid ""
+"Enter your Google Tag Manager Container ID if you have not embedded the "
+"Google Tag Manager script already on your website."
+msgstr ""
+"Sollten Sie den Google Tag Manager noch nicht auf Ihrer Seite implementiert "
+"haben, geben Sie bitte hier die ID Ihres Google Tag Manager Containers an. "
+"(Sie finden diesen in Ihrem Google Tag Manager Account.)"
+
+#: src/i18n/Translation.php:46
+msgid ""
+"If you use a custom Tag Integration Domain, please indicate it here, "
+"otherwise keep empty and \"responder.wt-safetag.com\" will be used."
+msgstr ""
+"Wenn Sie eine eigene Tag Integration Domain verwenden, tragen Sie diese "
+"bitte hier ein. Wenn dieses Feld leer ist verwenden wir unsere "
+"Standarddomain „responder.wt-safetag.com“."
+
+#: src/i18n/Translation.php:50
+msgid ""
+"Please enter the keys you do not want to include in the datalayer here "
+"(comma separated). customFields are excluded by default."
+msgstr ""
+"Bitte tragen Sie hier die Data Layer Keys ein, die Sie nicht tracken möchten "
+"(kommasepariert). customFields werden standardmäßig ausgeschlossen."
+
+#: src/i18n/Translation.php:54
+msgid "Disable tracking for users logged into WordPress."
+msgstr ""
+"Deaktivieren Sie das Tracking von Nutzern, die sich im WordPress Admin "
+"Bereich eingelogged haben."
+
+#: src/i18n/Translation.php:58
+msgid ""
+"If you use Mapp Acquire alongside Mapp Intelligence, please add your Mapp "
+"Acquire tracking script here."
+msgstr ""
+"Wenn Sie Mapp Acquire zusätzlich zu Mapp Intelligence nutzen, geben Sie hier "
+"das Mapp Acquire Tracking Script ein."
+
+#: src/i18n/Translation.php:64
+msgid "The tiId has to consist of 15 numbers."
+msgstr "Die tiId muss aus 15 Zahlen bestehen."
+
+#: src/i18n/Translation.php:68
+msgid ""
+"GTM Container ID not valid - keep this field empty or enter \"GTM-XXXXXXX\" "
+"ID."
+msgstr ""
+"Ungültige GTM Container ID - Lassen Sie dieses Feld leer oder geben Sie Ihre "
+"„GTM-XXXXXXX“ ID ein."
+
+#: src/i18n/Translation.php:72
+msgid "Please enter a valid URL or keep empty"
+msgstr "Bitte geben Sie eine gültige URL ein oder lassen Sie dieses Feld leer"
+
+#: src/i18n/Translation.php:76
+msgid "Could not detect Mapp Acquire script input."
+msgstr "Das Mapp Acquire Script wurde nicht erkannt."
+
+#: src/i18n/Translation.php:80
+msgid "Please enter a valid value for: "
+msgstr "Bitte geben Sie einen gültigen Wert ein für: "
+
+#: src/i18n/Translation.php:84
+msgid "Error"
+msgstr "Fehler"
+
+#: src/i18n/Translation.php:90
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: src/i18n/Translation.php:91
+msgid "Saving Changes..."
+msgstr "Änderungen werden gespeichert…"
+
+#: src/i18n/Translation.php:92
+msgid "Settings saved successfully"
+msgstr "Einstellungen wurden erfolgreich gespeichert"
+
+#: src/i18n/Translation.php:96
+msgid "An error occured. More details in JS console."
+msgstr ""
+"Ein Fehler ist aufgetreten. Mehr Informationen finden Sie in der JS Konsole."
+
+#: src/i18n/Translation.php:100
+msgid "For a detailed step-by-step implementation guide, please visit "
+msgstr "Eine genaue Implementierungsanleitung finden Sie auf "
+
+#: src/i18n/Translation.php:104
+msgid ""
+"https://documentation.mapp.com/1.0/en/mapp-intelligence-wordpress-"
+"plugin-7217612.html"
+msgstr ""
+"https://documentation.mapp.com/1.0/de/mapp-intelligence-wordpress-"
+"plugin-7217612.html"

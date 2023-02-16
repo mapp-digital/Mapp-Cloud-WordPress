@@ -1,13 +1,26 @@
 /frontend/node_modules/
 woocommerce
 coverage
-vendor
 composer.lock
 .idea
+.vscode
 /release/
 /node_modules/
 package-lock.json
 output-*.txt
+
+phpcs.xml
+phpunit.xml
+Thumbs.db
+wp-cli.local.yml
+node_modules/
+*.sql
+*.tar.gz
+*.zip
+cache/*.*
+release
+.cache
+.idea
 
 .DS_Store
 /frontend/public/build/bundle.css.map
