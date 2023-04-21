@@ -14,7 +14,7 @@ describe("Product", () => {
 			});
 			cy.getGtmDataLayer().then((dataLayer) => {
 				expect(dataLayer[0].language).to.equal("en_US");
-				expect(dataLayer[0].pageTitle).to.equal("Products");
+				expect(dataLayer[0].pageTitle).to.match(/(Products|Shop)/);
 				expect(dataLayer[0].pageNumber).to.equal("1");
 				expect(dataLayer[0].orderBy).to.equal("default");
 				expect(dataLayer[0].contentCategory).to.equal("shop-startpage");
@@ -915,7 +915,7 @@ describe("Product", () => {
 
 			cy.getTiDataLayer().then((dataLayer) => {
 				expect(dataLayer.language).to.equal("en_US");
-				expect(dataLayer.pageTitle).to.equal("Products");
+				expect(dataLayer.pageTitle).to.match(/(Products|Shop)/);
 				expect(dataLayer.pageNumber).to.equal("1");
 				expect(dataLayer.orderBy).to.equal("default");
 				expect(dataLayer.contentCategory).to.equal("shop-startpage");

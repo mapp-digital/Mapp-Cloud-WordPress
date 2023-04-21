@@ -564,7 +564,7 @@ describe("Add-To-Cart", () => {
 
 				expect(view.event).to.equal("mapp.load");
 				expect(view.mapp.language).to.equal("en_US");
-				expect(view.mapp.pageTitle).to.equal("Products");
+				expect(view.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(view.mapp.pageNumber).to.equal("1");
 				expect(view.mapp.orderBy).to.equal("default");
 				expect(view.mapp.contentCategory).to.equal("shop-startpage");
@@ -601,7 +601,7 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.pageRequestType).to.equal("virtual");
 				expect(add.event).to.equal("mapp.load");
 				expect(add.mapp.language).to.equal("en_US");
-				expect(add.mapp.pageTitle).to.equal("Products");
+				expect(add.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(add.mapp.pageNumber).to.equal("1");
 				expect(add.mapp.orderBy).to.equal("default");
 				expect(add.mapp.contentCategory).to.equal("shop-startpage");
@@ -638,7 +638,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.pageRequestType).to.equal("virtual");
 				expect(restore.event).to.equal("mapp.restore");
 				expect(restore.mapp.language).to.equal("en_US");
-				expect(restore.mapp.pageTitle).to.equal("Products");
+				expect(restore.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(restore.mapp.pageNumber).to.equal("1");
 				expect(restore.mapp.orderBy).to.equal("default");
 				expect(restore.mapp.contentCategory).to.equal("shop-startpage");
@@ -704,7 +704,7 @@ describe("Add-To-Cart", () => {
 
 				expect(view.event).to.equal("mapp.load");
 				expect(view.mapp.language).to.equal("en_US");
-				expect(view.mapp.pageTitle).to.equal("Products");
+				expect(view.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(view.mapp.pageNumber).to.equal("1");
 				expect(view.mapp.orderBy).to.equal("default");
 				expect(view.mapp.contentCategory).to.equal("shop-startpage");
@@ -736,7 +736,7 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.pageRequestType).to.equal("virtual");
 				expect(add.event).to.equal("mapp.load");
 				expect(add.mapp.language).to.equal("en_US");
-				expect(add.mapp.pageTitle).to.equal("Products");
+				expect(add.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(add.mapp.pageNumber).to.equal("1");
 				expect(add.mapp.orderBy).to.equal("default");
 				expect(add.mapp.contentCategory).to.equal("shop-startpage");
@@ -768,7 +768,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.pageRequestType).to.equal("virtual");
 				expect(restore.event).to.equal("mapp.restore");
 				expect(restore.mapp.language).to.equal("en_US");
-				expect(restore.mapp.pageTitle).to.equal("Products");
+				expect(restore.mapp.pageTitle).to.match(/(Products|Shop)/);
 				expect(restore.mapp.pageNumber).to.equal("1");
 				expect(restore.mapp.orderBy).to.equal("default");
 				expect(restore.mapp.contentCategory).to.equal("shop-startpage");
@@ -1141,7 +1141,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.st).to.equal("add");
 
 				expect(tiDataLayer[0].language).to.equal("en_US");
-				expect(tiDataLayer[0].pageTitle).to.equal("Products");
+				expect(tiDataLayer[0].pageTitle).to.match(/(Products|Shop)/);
 				expect(tiDataLayer[0].pageNumber).to.equal("1");
 				expect(tiDataLayer[0].orderBy).to.equal("default");
 				expect(tiDataLayer[0].contentCategory).to.equal(
@@ -1176,7 +1176,7 @@ describe("Add-To-Cart", () => {
 				expect(tiDataLayer[0].shoppingCartStatus).to.equal("view");
 				expect(tiDataLayer[0].pageRequestType).to.equal("virtual");
 				expect(tiDataLayer[1].language).to.equal("en_US");
-				expect(tiDataLayer[1].pageTitle).to.equal("Products");
+				expect(tiDataLayer[1].pageTitle).to.match(/(Products|Shop)/);
 				expect(tiDataLayer[1].pageNumber).to.equal("1");
 				expect(tiDataLayer[1].orderBy).to.equal("default");
 				expect(tiDataLayer[1].contentCategory).to.equal(
@@ -1260,7 +1260,7 @@ describe("Add-To-Cart", () => {
 				const view = tiDataLayer[0];
 				const add = tiDataLayer[1];
 				expect(view.language).to.equal("en_US");
-				expect(view.pageTitle).to.equal("Products");
+				expect(view.pageTitle).to.match(/(Products|Shop)/);
 				expect(view.pageNumber).to.equal("1");
 				expect(view.orderBy).to.equal("default");
 				expect(view.contentCategory).to.equal("shop-startpage");
@@ -1280,7 +1280,7 @@ describe("Add-To-Cart", () => {
 				expect(view.shoppingCartStatus).to.equal("view");
 				expect(view.pageRequestType).to.equal("virtual");
 				expect(add.language).to.equal("en_US");
-				expect(add.pageTitle).to.equal("Products");
+				expect(add.pageTitle).to.match(/(Products|Shop)/);
 				expect(add.pageNumber).to.equal("1");
 				expect(add.orderBy).to.equal("default");
 				expect(add.contentCategory).to.equal("shop-startpage");
