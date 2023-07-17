@@ -35,6 +35,12 @@ services:
     volumes:
       - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
       - wordpress:/var/www/html
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://mapp_e2e_wp.test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
     networks:
       - mapp
 
@@ -42,8 +48,8 @@ services:
     image: wordpress:cli
     container_name: mapp_e2e_wpcli
     depends_on:
-      - db
-      - wordpress-mapp
+      wordpress-mapp:
+        condition: service_healthy
     restart: on-failure
     environment:
       WORDPRESS_VERSION: "${WORDPRESS_VERSION:-latest}"
