@@ -35,7 +35,7 @@ switch-wp-version:
 switch-woo-version:
 	docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin install woocommerce --version=$(WOO) --force"
 get-wordpress-version:
-	@docker exec -t -u xfs mapp_e2e_wpcli php -r 'require "./wp-includes/version.php"; echo $$wp_version;'
+	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp core version | tr -d '\n'"
 get-woocommerce-version:
 	@docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin list --format=json" | grep -oE "woocommerce.+name" | grep -o "[0-9.]\+"
 get-latest-woo-version-number:
