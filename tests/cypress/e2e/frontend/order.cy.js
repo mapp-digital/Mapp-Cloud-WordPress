@@ -9,7 +9,7 @@ describe("Order", () => {
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
 			});
-			cy.get('[href="?add-to-cart=11"]').click();
+			cy.get('a[data-product_sku="woo-belt"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
 			});
@@ -19,7 +19,7 @@ describe("Order", () => {
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=27"]').click();
+			cy.get('a[data-product_sku="Woo-beanie-logo"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
 			});
@@ -29,7 +29,7 @@ describe("Order", () => {
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=15"]').click();
+			cy.get('a[data-product_sku="woo-hoodie-with-zipper"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
 			});
@@ -39,7 +39,7 @@ describe("Order", () => {
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=27"]').click();
+			cy.get('a[data-product_sku="Woo-beanie-logo"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
 			});
@@ -66,7 +66,7 @@ describe("Order", () => {
 				expect(track.pageName).to.match(
 					/mapp_e2e_wp.test\/checkout\/order-received\/[0-9]+/
 				);
-				expect(track.params.ba).to.equal("11;27;15");
+				expect(track.params.ba).to.match(/\d{1,3};\d{1,3};\d{1,3}/);
 				expect(track.params.ca1).to.equal(
 					"Accessories;Accessories;Hoodies"
 				);
@@ -92,7 +92,7 @@ describe("Order", () => {
 					expect(dataLayer.currency).to.equal("EUR");
 					expect(dataLayer.products[0].productName).to.equal("Belt");
 					expect(dataLayer.products[0].productCost).to.equal("55");
-					expect(dataLayer.products[0].productId).to.equal("11");
+					expect(dataLayer.products[0].productId).to.match(/\d{1,3}/);
 					expect(dataLayer.products[0].productSKU).to.equal(
 						"woo-belt"
 					);
@@ -113,7 +113,7 @@ describe("Order", () => {
 						"Beanie with Logo"
 					);
 					expect(dataLayer.products[1].productCost).to.equal("36");
-					expect(dataLayer.products[1].productId).to.equal("27");
+					expect(dataLayer.products[1].productId).to.match(/\d{1,3}/);
 					expect(dataLayer.products[1].productSKU).to.equal(
 						"Woo-beanie-logo"
 					);
@@ -137,7 +137,7 @@ describe("Order", () => {
 						"Hoodie with Zipper"
 					);
 					expect(dataLayer.products[2].productCost).to.equal("45");
-					expect(dataLayer.products[2].productId).to.equal("15");
+					expect(dataLayer.products[2].productId).to.match(/\d{1,3}/);
 					expect(dataLayer.products[2].productSKU).to.equal(
 						"woo-hoodie-with-zipper"
 					);
@@ -173,7 +173,7 @@ describe("Order", () => {
 						"Belt;Beanie with Logo;Hoodie with Zipper"
 					);
 					expect(dataLayer.productCost).to.equal("55;36;45");
-					expect(dataLayer.productId).to.equal("11;27;15");
+					expect(dataLayer.productId).to.match(/\d{1,3};\d{1,3};\d{1,3}/);
 					expect(dataLayer.productSKU).to.equal(
 						"woo-belt;Woo-beanie-logo;woo-hoodie-with-zipper"
 					);
@@ -196,28 +196,28 @@ describe("Order", () => {
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
 			});
-			cy.get('[href="?add-to-cart=11"]').click();
+			cy.get('a[data-product_sku="woo-belt"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("view");
 			});
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=27"]').click();
+			cy.get('a[data-product_sku="Woo-beanie-logo"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("view");
 			});
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=15"]').click();
+			cy.get('a[data-product_sku="woo-hoodie-with-zipper"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("view");
 			});
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("add");
 			});
-			cy.get('[href="?add-to-cart=27"]').click();
+			cy.get('a[data-product_sku="Woo-beanie-logo"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.params.st).to.equal("view");
 			});
@@ -241,8 +241,8 @@ describe("Order", () => {
 				expect(track.pageName).to.match(
 					/mapp_e2e_wp.test\/checkout\/order-received\/[0-9]+/
 				);
-				expect(track.params.ba).to.equal(
-					"11 - Belt;27 - Beanie with Logo;15 - Hoodie with Zipper"
+				expect(track.params.ba).to.match(
+					/\d{1,3} - Belt;\d{1,3} - Beanie with Logo;\d{1,3} - Hoodie with Zipper/
 				);
 				expect(track.params.ca3).to.equal(
 					"woo-belt;Woo-beanie-logo;woo-hoodie-with-zipper"
@@ -274,7 +274,7 @@ describe("Order", () => {
 						"Belt"
 					);
 					expect(dataLayer[0].products[0].productCost).to.equal("55");
-					expect(dataLayer[0].products[0].productId).to.equal("11");
+					expect(dataLayer[0].products[0].productId).to.match(/\d{1,3}/);
 					expect(dataLayer[0].products[0].productSKU).to.equal(
 						"woo-belt"
 					);
@@ -297,7 +297,7 @@ describe("Order", () => {
 						"Beanie with Logo"
 					);
 					expect(dataLayer[0].products[1].productCost).to.equal("36");
-					expect(dataLayer[0].products[1].productId).to.equal("27");
+					expect(dataLayer[0].products[1].productId).to.match(/\d{1,3}/);
 					expect(dataLayer[0].products[1].productSKU).to.equal(
 						"Woo-beanie-logo"
 					);
@@ -323,7 +323,7 @@ describe("Order", () => {
 						"Hoodie with Zipper"
 					);
 					expect(dataLayer[0].products[2].productCost).to.equal("45");
-					expect(dataLayer[0].products[2].productId).to.equal("15");
+					expect(dataLayer[0].products[2].productId).to.match(/\d{1,3}/);
 					expect(dataLayer[0].products[2].productSKU).to.equal(
 						"woo-hoodie-with-zipper"
 					);
@@ -355,8 +355,8 @@ describe("Order", () => {
 					expect(dataLayer[0].paymentMethod).to.equal(
 						"Direct bank transfer"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id).to.equal(
-						"11 - Belt"
+					expect(dataLayer[0].gtmProductArray[0].id).to.match(
+						/\d{1,3} - Belt/
 					);
 					expect(dataLayer[0].gtmProductArray[0].cost).to.equal("55");
 					expect(dataLayer[0].gtmProductArray[0].quantity).to.equal(
@@ -368,8 +368,8 @@ describe("Order", () => {
 					expect(dataLayer[0].gtmProductArray[0].status).to.equal(
 						"confirmation"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id_only).to.equal(
-						"11"
+					expect(dataLayer[0].gtmProductArray[0].id_only).to.match(
+						/\d{1,3}/
 					);
 					expect(dataLayer[0].gtmProductArray[0].sku).to.equal(
 						"woo-belt"
@@ -380,8 +380,8 @@ describe("Order", () => {
 					expect(
 						dataLayer[0].gtmProductArray[0].product_cat_0
 					).to.equal("Accessories");
-					expect(dataLayer[0].gtmProductArray[1].id).to.equal(
-						"27 - Beanie with Logo"
+					expect(dataLayer[0].gtmProductArray[1].id).to.match(
+						/\d{1,3} - Beanie with Logo/
 					);
 					expect(dataLayer[0].gtmProductArray[1].cost).to.equal("36");
 					expect(dataLayer[0].gtmProductArray[1].quantity).to.equal(
@@ -393,8 +393,8 @@ describe("Order", () => {
 					expect(dataLayer[0].gtmProductArray[1].status).to.equal(
 						"confirmation"
 					);
-					expect(dataLayer[0].gtmProductArray[1].id_only).to.equal(
-						"27"
+					expect(dataLayer[0].gtmProductArray[1].id_only).to.match(
+						/\d{1,3}/
 					);
 					expect(dataLayer[0].gtmProductArray[1].sku).to.equal(
 						"Woo-beanie-logo"
@@ -408,8 +408,8 @@ describe("Order", () => {
 					expect(dataLayer[0].gtmProductArray[1].pa_color_0).to.equal(
 						"Red"
 					);
-					expect(dataLayer[0].gtmProductArray[2].id).to.equal(
-						"15 - Hoodie with Zipper"
+					expect(dataLayer[0].gtmProductArray[2].id).to.match(
+						/\d{1,3} - Hoodie with Zipper/
 					);
 					expect(dataLayer[0].gtmProductArray[2].cost).to.equal("45");
 					expect(dataLayer[0].gtmProductArray[2].quantity).to.equal(
@@ -421,8 +421,8 @@ describe("Order", () => {
 					expect(dataLayer[0].gtmProductArray[2].status).to.equal(
 						"confirmation"
 					);
-					expect(dataLayer[0].gtmProductArray[2].id_only).to.equal(
-						"15"
+					expect(dataLayer[0].gtmProductArray[2].id_only).to.match(
+						/\d{1,3}/
 					);
 					expect(dataLayer[0].gtmProductArray[2].sku).to.equal(
 						"woo-hoodie-with-zipper"

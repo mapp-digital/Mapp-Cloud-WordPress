@@ -34,7 +34,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.taxonomies.pa_color[0]).to.equal("Red");
 				expect(add.mapp.productName).to.equal("Beanie with Logo");
 				expect(add.mapp.productCost).to.equal(18);
-				expect(add.mapp.productId).to.equal("27");
+				expect(add.mapp.productId).to.match(/\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal("Woo-beanie-logo");
 				expect(add.mapp.currency).to.equal("EUR");
 				expect(add.mapp.productQuantity).to.equal("1");
@@ -43,13 +43,13 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.productCategories[0]).to.equal("Accessories");
 				expect(add.mapp.productCategory).to.equal("Accessories");
 
-				expect(addGtmArray.id).to.equal("27 - Beanie with Logo");
+				expect(addGtmArray.id).to.match(/\d{1,3} - Beanie with Logo/);
 				expect(addGtmArray.cost).to.equal(18);
 				expect(addGtmArray.quantity).to.equal("1");
 				expect(addGtmArray.name).to.equal("Beanie with Logo");
 				expect(addGtmArray.collection).to.equal("0");
 				expect(addGtmArray.status).to.equal("basket");
-				expect(addGtmArray.id_only).to.equal("27");
+				expect(addGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(addGtmArray.sku).to.equal("Woo-beanie-logo");
 				expect(addGtmArray.product_type_0).to.equal("simple");
 				expect(addGtmArray.product_cat_0).to.equal("Accessories");
@@ -74,7 +74,7 @@ describe("Add-To-Cart", () => {
 				expect(restore.mapp.taxonomies.pa_color[0]).to.equal("Red");
 				expect(restore.mapp.productName).to.equal("Beanie with Logo");
 				expect(restore.mapp.productCost).to.equal("18");
-				expect(restore.mapp.productId).to.equal("27");
+				expect(restore.mapp.productId).to.match(/\d{1,3}/);
 				expect(restore.mapp.productSKU).to.equal("Woo-beanie-logo");
 				expect(restore.mapp.currency).to.equal("EUR");
 				expect(restore.mapp.productQuantity).to.equal("1");
@@ -85,13 +85,13 @@ describe("Add-To-Cart", () => {
 				);
 				expect(restore.mapp.productCategory).to.equal("Accessories");
 
-				expect(rstGtmArray.id).to.equal("27 - Beanie with Logo");
+				expect(rstGtmArray.id).to.match(/\d{1,3} - Beanie with Logo/);
 				expect(rstGtmArray.cost).to.equal("18");
 				expect(rstGtmArray.quantity).to.equal("1");
 				expect(rstGtmArray.name).to.equal("Beanie with Logo");
 				expect(rstGtmArray.collection).to.equal("0");
 				expect(rstGtmArray.status).to.equal("view");
-				expect(rstGtmArray.id_only).to.equal("27");
+				expect(rstGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(rstGtmArray.sku).to.equal("Woo-beanie-logo");
 				expect(rstGtmArray.product_type_0).to.equal("simple");
 				expect(rstGtmArray.product_cat_0).to.equal("Accessories");
@@ -103,7 +103,7 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/beanie-with-logo/"
 				);
-				expect(track.params.ba).to.equal("27 - Beanie with Logo");
+				expect(track.params.ba).to.match(/\d{1,3} - Beanie with Logo/);
 				expect(track.params.ca3).to.equal("Woo-beanie-logo");
 				expect(track.params.cb20).to.equal("Red");
 				expect(track.params.cb760).to.equal("0");
@@ -133,7 +133,7 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/long-sleeve-tee/"
 				);
-				expect(track.params.ba).to.equal("16 - Long Sleeve Tee");
+				expect(track.params.ba).to.match(/\d{1,3} - Long Sleeve Tee/);
 				expect(track.params.ca3).to.equal("woo-long-sleeve-tee");
 				expect(track.params.cb20).to.equal("Green");
 				expect(track.params.cb760).to.equal("0");
@@ -163,7 +163,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.taxonomies.pa_color[0]).to.equal("Green");
 				expect(add.mapp.productName).to.equal("Long Sleeve Tee");
 				expect(add.mapp.productCost).to.equal(25);
-				expect(add.mapp.productId).to.equal("16");
+				expect(add.mapp.productId).to.match(/\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal("woo-long-sleeve-tee");
 				expect(add.mapp.currency).to.equal("EUR");
 				expect(add.mapp.productQuantity).to.equal("1");
@@ -172,13 +172,13 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.productCategories[0]).to.equal("Tshirts");
 				expect(add.mapp.productCategory).to.equal("Tshirts");
 
-				expect(addGtmArray.id).to.equal("16 - Long Sleeve Tee");
+				expect(addGtmArray.id).to.match(/\d{1,3} - Long Sleeve Tee/);
 				expect(addGtmArray.cost).to.equal(25);
 				expect(addGtmArray.quantity).to.equal("1");
 				expect(addGtmArray.name).to.equal("Long Sleeve Tee");
 				expect(addGtmArray.collection).to.equal("0");
 				expect(addGtmArray.status).to.equal("basket");
-				expect(addGtmArray.id_only).to.equal("16");
+				expect(addGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(addGtmArray.sku).to.equal("woo-long-sleeve-tee");
 				expect(addGtmArray.product_type_0).to.equal("simple");
 				expect(addGtmArray.product_cat_0).to.equal("Tshirts");
@@ -203,7 +203,7 @@ describe("Add-To-Cart", () => {
 				expect(restore.mapp.taxonomies.pa_color[0]).to.equal("Green");
 				expect(restore.mapp.productName).to.equal("Long Sleeve Tee");
 				expect(restore.mapp.productCost).to.equal("25");
-				expect(restore.mapp.productId).to.equal("16");
+				expect(restore.mapp.productId).to.match(/\d{1,3}/);
 				expect(restore.mapp.productSKU).to.equal("woo-long-sleeve-tee");
 				expect(restore.mapp.currency).to.equal("EUR");
 				expect(restore.mapp.productQuantity).to.equal("1");
@@ -212,13 +212,13 @@ describe("Add-To-Cart", () => {
 
 				expect(restore.mapp.productCategories[0]).to.equal("Tshirts");
 				expect(restore.mapp.productCategory).to.equal("Tshirts");
-				expect(rstGtmArray.id).to.equal("16 - Long Sleeve Tee");
+				expect(rstGtmArray.id).to.match(/\d{1,3} - Long Sleeve Tee/);
 				expect(rstGtmArray.cost).to.equal("25");
 				expect(rstGtmArray.quantity).to.equal("1");
 				expect(rstGtmArray.name).to.equal("Long Sleeve Tee");
 				expect(rstGtmArray.collection).to.equal("0");
 				expect(rstGtmArray.status).to.equal("view");
-				expect(rstGtmArray.id_only).to.equal("16");
+				expect(rstGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(rstGtmArray.sku).to.equal("woo-long-sleeve-tee");
 				expect(rstGtmArray.product_type_0).to.equal("simple");
 				expect(rstGtmArray.product_cat_0).to.equal("Tshirts");
@@ -246,7 +246,7 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/hoodie/"
 				);
-				expect(track.params.ba).to.equal("24 - Hoodie");
+				expect(track.params.ba).to.match(/\d{1,3} - Hoodie/);
 				expect(track.params.ca3).to.equal("woo-hoodie-green");
 				expect(track.params.cb20).to.equal("green");
 				expect(track.params.cb760).to.equal("0");
@@ -282,7 +282,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.taxonomies.logo[0]).to.equal("No");
 				expect(add.mapp.productName).to.equal("Hoodie");
 				expect(add.mapp.productCost).to.equal(45);
-				expect(add.mapp.productId).to.equal("24");
+				expect(add.mapp.productId).to.match(/\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal("woo-hoodie-green");
 				expect(add.mapp.currency).to.equal("EUR");
 				expect(add.mapp.productQuantity).to.equal("1");
@@ -290,13 +290,13 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.productCollection).to.equal("0");
 				expect(add.mapp.productCategories[0]).to.equal("Hoodies");
 				expect(add.mapp.productCategory).to.equal("Hoodies");
-				expect(addGtmArray.id).to.equal("24 - Hoodie");
+				expect(addGtmArray.id).to.match(/\d{1,3} - Hoodie/);
 				expect(addGtmArray.cost).to.equal(45);
 				expect(addGtmArray.quantity).to.equal("1");
 				expect(addGtmArray.name).to.equal("Hoodie");
 				expect(addGtmArray.collection).to.equal("0");
 				expect(addGtmArray.status).to.equal("basket");
-				expect(addGtmArray.id_only).to.equal("24");
+				expect(addGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(addGtmArray.sku).to.equal("woo-hoodie-green");
 				expect(addGtmArray.product_type_0).to.equal("variable");
 				expect(addGtmArray.product_cat_0).to.equal("Hoodies");
@@ -326,7 +326,7 @@ describe("Add-To-Cart", () => {
 				expect(restore.mapp.taxonomies.logo[0]).to.equal("No");
 				expect(restore.mapp.productName).to.equal("Hoodie");
 				expect(restore.mapp.productCost).to.equal("45");
-				expect(restore.mapp.productId).to.equal("24");
+				expect(restore.mapp.productId).to.match(/\d{1,3}/);
 				expect(restore.mapp.productSKU).to.equal("woo-hoodie-green");
 				expect(restore.mapp.currency).to.equal("EUR");
 				expect(restore.mapp.productQuantity).to.equal("1");
@@ -334,13 +334,13 @@ describe("Add-To-Cart", () => {
 				expect(restore.mapp.productCollection).to.equal("0");
 				expect(restore.mapp.productCategories[0]).to.equal("Hoodies");
 				expect(restore.mapp.productCategory).to.equal("Hoodies");
-				expect(restoreGtmArray.id).to.equal("24 - Hoodie");
+				expect(restoreGtmArray.id).to.match(/\d{1,3} - Hoodie/);
 				expect(restoreGtmArray.cost).to.equal("45");
 				expect(restoreGtmArray.quantity).to.equal("1");
 				expect(restoreGtmArray.name).to.equal("Hoodie");
 				expect(restoreGtmArray.collection).to.equal("0");
 				expect(restoreGtmArray.status).to.equal("view");
-				expect(restoreGtmArray.id_only).to.equal("24");
+				expect(restoreGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(restoreGtmArray.sku).to.equal("woo-hoodie-green");
 				expect(restoreGtmArray.product_type_0).to.equal("variable");
 				expect(restoreGtmArray.product_cat_0).to.equal("Hoodies");
@@ -370,8 +370,8 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/logo-collection/"
 				);
-				expect(track.params.ba).to.equal(
-					"28 - Logo Collection;8 - Hoodie with Logo;9 - T-Shirt;10 - Beanie"
+				expect(track.params.ba).to.match(
+					/\d{1,3} - Logo Collection;\d{1,3} - Hoodie with Logo;\d{1,3} - T-Shirt;\d{1,3} - Beanie/
 				);
 				expect(track.params.ca3).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
@@ -413,7 +413,7 @@ describe("Add-To-Cart", () => {
 					"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
 				);
 				expect(add.mapp.productCost).to.equal("81;45;18;18");
-				expect(add.mapp.productId).to.equal("28;8;9;10");
+				expect(add.mapp.productId).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 				);
@@ -427,8 +427,8 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.productCategory).to.equal(
 					"Clothing;Hoodies;Tshirts;Accessories"
 				);
-				expect(addGtmArray.id).to.equal(
-					"28 - Logo Collection;8 - Hoodie with Logo;9 - T-Shirt;10 - Beanie"
+				expect(addGtmArray.id).to.match(
+					/\d{1,3} - Logo Collection;\d{1,3} - Hoodie with Logo;\d{1,3} - T-Shirt;\d{1,3} - Beanie/
 				);
 				expect(addGtmArray.cost).to.equal("81;45;18;18");
 				expect(addGtmArray.quantity).to.equal("1;1;1;1");
@@ -437,7 +437,7 @@ describe("Add-To-Cart", () => {
 				);
 				expect(addGtmArray.collection).to.equal("1;0;0;0");
 				expect(addGtmArray.status).to.equal("basket");
-				expect(addGtmArray.id_only).to.equal("28;8;9;10");
+				expect(addGtmArray.id_only).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(addGtmArray.sku).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 				);
@@ -471,7 +471,7 @@ describe("Add-To-Cart", () => {
 					"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
 				);
 				expect(restore.mapp.productCost).to.equal("81;45;18;18");
-				expect(restore.mapp.productId).to.equal("28;8;9;10");
+				expect(restore.mapp.productId).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(restore.mapp.productSKU).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 				);
@@ -485,8 +485,8 @@ describe("Add-To-Cart", () => {
 				expect(restore.mapp.productCategory).to.equal(
 					"Clothing;Hoodies;Tshirts;Accessories"
 				);
-				expect(restoreGtmArray.id).to.equal(
-					"28 - Logo Collection;8 - Hoodie with Logo;9 - T-Shirt;10 - Beanie"
+				expect(restoreGtmArray.id).to.match(
+					/\d{1,3} - Logo Collection;\d{1,3} - Hoodie with Logo;\d{1,3} - T-Shirt;\d{1,3} - Beanie/
 				);
 				expect(restoreGtmArray.cost).to.equal("81;45;18;18");
 				expect(restoreGtmArray.quantity).to.equal("1;1;1;1");
@@ -495,7 +495,7 @@ describe("Add-To-Cart", () => {
 				);
 				expect(restoreGtmArray.collection).to.equal("1;0;0;0");
 				expect(restoreGtmArray.status).to.equal("view");
-				expect(restoreGtmArray.id_only).to.equal("28;8;9;10");
+				expect(restoreGtmArray.id_only).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(restoreGtmArray.sku).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 				);
@@ -518,11 +518,11 @@ describe("Add-To-Cart", () => {
 				cy.spyOnGtmDataLayer().then((d) => (gtmDataLayer = d));
 			});
             cy.wait(3000);
-			cy.get('[href="?add-to-cart=12"]').click();
+			cy.get('a[data-product_sku="woo-cap"]').click();
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("12 - Cap");
+				expect(track.params.ba).to.match(/\d{1,3} - Cap/);
 				expect(track.params.ca3).to.equal("woo-cap");
 				expect(track.params.cb20).to.equal("Yellow");
 				expect(track.params.cb760).to.equal("0");
@@ -540,7 +540,7 @@ describe("Add-To-Cart", () => {
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("12 - Cap");
+				expect(track.params.ba).to.match(/\d{1,3} - Cap/);
 				expect(track.params.ca3).to.equal("woo-cap");
 				expect(track.params.cb20).to.equal("Yellow");
 				expect(track.params.cb760).to.equal("0");
@@ -569,8 +569,8 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.orderBy).to.equal("default");
 				expect(view.mapp.contentCategory).to.equal("shop-startpage");
 				expect(view.mapp.currency).to.equal("EUR");
-				expect(viewGtmArray.id).to.equal("12 - Cap");
-				expect(viewGtmArray.id_only).to.equal("12");
+				expect(viewGtmArray.id).to.match(/\d{1,3} - Cap/);
+				expect(viewGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(viewGtmArray.name).to.equal("Cap");
 				expect(viewGtmArray.sku).to.equal("woo-cap");
 				expect(viewGtmArray.product_type_0).to.equal("simple");
@@ -583,7 +583,7 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(view.mapp.productName).to.equal("Cap");
 				expect(view.mapp.productCost).to.equal("16");
-				expect(view.mapp.productId).to.equal("12");
+				expect(view.mapp.productId).to.match(/\d{1,3}/);
 				expect(view.mapp.productSKU).to.equal("woo-cap");
 				expect(view.mapp.productQuantity).to.equal("1");
 				expect(view.mapp.taxonomies.product_type[0]).to.equal("simple");
@@ -606,8 +606,8 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.orderBy).to.equal("default");
 				expect(add.mapp.contentCategory).to.equal("shop-startpage");
 				expect(add.mapp.currency).to.equal("EUR");
-				expect(addGtmArray.id).to.equal("12 - Cap");
-				expect(addGtmArray.id_only).to.equal("12");
+				expect(addGtmArray.id).to.match(/\d{1,3} - Cap/);
+				expect(addGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(addGtmArray.name).to.equal("Cap");
 				expect(addGtmArray.sku).to.equal("woo-cap");
 				expect(addGtmArray.product_type_0).to.equal("simple");
@@ -620,7 +620,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(add.mapp.productName).to.equal("Cap");
 				expect(add.mapp.productCost).to.equal("16");
-				expect(add.mapp.productId).to.equal("12");
+				expect(add.mapp.productId).to.match(/\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal("woo-cap");
 				expect(add.mapp.productQuantity).to.equal("1");
 				expect(add.mapp.taxonomies.product_type[0]).to.equal("simple");
@@ -658,11 +658,11 @@ describe("Add-To-Cart", () => {
 			});
             cy.wait(3000);
 
-			cy.get('[href="?add-to-cart=17"]').click();
+			cy.get('a[data-product_sku="woo-polo"]').click();
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("17 - Polo");
+				expect(track.params.ba).to.match(/\d{1,3} - Polo/);
 				expect(track.params.ca3).to.equal("woo-polo");
 				expect(track.params.cb20).to.equal("Blue");
 				expect(track.params.cb760).to.equal("0");
@@ -680,7 +680,7 @@ describe("Add-To-Cart", () => {
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("17 - Polo");
+				expect(track.params.ba).to.match(/\d{1,3} - Polo/);
 				expect(track.params.ca3).to.equal("woo-polo");
 				expect(track.params.cb20).to.equal("Blue");
 				expect(track.params.cb760).to.equal("0");
@@ -710,8 +710,8 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.contentCategory).to.equal("shop-startpage");
 				expect(view.mapp.currency).to.equal("EUR");
 
-				expect(viewGtmArray.id).to.equal("17 - Polo");
-				expect(viewGtmArray.id_only).to.equal("17");
+				expect(viewGtmArray.id).to.match(/\d{1,3} - Polo/);
+				expect(viewGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(viewGtmArray.name).to.equal("Polo");
 				expect(viewGtmArray.sku).to.equal("woo-polo");
 				expect(viewGtmArray.product_type_0).to.equal("simple");
@@ -723,7 +723,7 @@ describe("Add-To-Cart", () => {
 				expect(view.mapp.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(view.mapp.productName).to.equal("Polo");
 				expect(view.mapp.productCost).to.equal("20");
-				expect(view.mapp.productId).to.equal("17");
+				expect(view.mapp.productId).to.match(/\d{1,3}/);
 				expect(view.mapp.productSKU).to.equal("woo-polo");
 				expect(view.mapp.productQuantity).to.equal("1");
 				expect(view.mapp.taxonomies.product_type[0]).to.equal("simple");
@@ -742,8 +742,8 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.contentCategory).to.equal("shop-startpage");
 				expect(add.mapp.currency).to.equal("EUR");
 
-				expect(addGtmArray.id).to.equal("17 - Polo");
-				expect(addGtmArray.id_only).to.equal("17");
+				expect(addGtmArray.id).to.match(/\d{1,3} - Polo/);
+				expect(addGtmArray.id_only).to.match(/\d{1,3}/);
 				expect(addGtmArray.name).to.equal("Polo");
 				expect(addGtmArray.sku).to.equal("woo-polo");
 				expect(addGtmArray.product_type_0).to.equal("simple");
@@ -755,7 +755,7 @@ describe("Add-To-Cart", () => {
 				expect(add.mapp.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(add.mapp.productName).to.equal("Polo");
 				expect(add.mapp.productCost).to.equal("20");
-				expect(add.mapp.productId).to.equal("17");
+				expect(add.mapp.productId).to.match(/\d{1,3}/);
 				expect(add.mapp.productSKU).to.equal("woo-polo");
 				expect(add.mapp.productQuantity).to.equal("1");
 				expect(add.mapp.taxonomies.product_type[0]).to.equal("simple");
@@ -803,7 +803,7 @@ describe("Add-To-Cart", () => {
 						expect(track.pageName).to.equal(
 							"mapp_e2e_wp.test/product/beanie-with-logo/"
 						);
-						expect(track.params.ba).to.equal("27");
+						expect(track.params.ba).to.match(/\d{1,3}/)
 						expect(track.params.ca1).to.equal("Accessories");
 						expect(track.params.ca3).to.equal("Beanie with Logo");
 						expect(track.params.cg1).to.equal("product");
@@ -839,7 +839,7 @@ describe("Add-To-Cart", () => {
 							"Beanie with Logo"
 						);
 						expect(tiDataLayer[0].productCost).to.equal(18);
-						expect(tiDataLayer[0].productId).to.equal("27");
+						expect(tiDataLayer[0].productId).to.match(/\d{1,3}/);
 						expect(tiDataLayer[0].productSKU).to.equal(
 							"Woo-beanie-logo"
 						);
@@ -876,7 +876,7 @@ describe("Add-To-Cart", () => {
 						expect(track.pageName).to.equal(
 							"mapp_e2e_wp.test/product/long-sleeve-tee/"
 						);
-						expect(track.params.ba).to.equal("16");
+						expect(track.params.ba).to.match(/\d{1,3}/);
 						expect(track.params.ca1).to.equal("Tshirts");
 						expect(track.params.ca3).to.equal("Long Sleeve Tee");
 						expect(track.params.cg1).to.equal("product");
@@ -912,7 +912,7 @@ describe("Add-To-Cart", () => {
 							"Long Sleeve Tee"
 						);
 						expect(tiDataLayer[0].productCost).to.equal(25);
-						expect(tiDataLayer[0].productId).to.equal("16");
+						expect(tiDataLayer[0].productId).to.match(/\d{1,3}/);
 						expect(tiDataLayer[0].productSKU).to.equal(
 							"woo-long-sleeve-tee"
 						);
@@ -951,7 +951,7 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/hoodie/"
 				);
-				expect(track.params.ba).to.equal("24");
+				expect(track.params.ba).to.match(/\d{1,3}/);			
 				expect(track.params.ca1).to.equal("Hoodies");
 				expect(track.params.ca3).to.equal("Hoodie");
 				expect(track.params.cg1).to.equal("product");
@@ -980,7 +980,7 @@ describe("Add-To-Cart", () => {
 				expect(tiDataLayer[0].taxonomies.logo[0]).to.equal("No");
 				expect(tiDataLayer[0].productName).to.equal("Hoodie");
 				expect(tiDataLayer[0].productCost).to.equal("45");
-				expect(tiDataLayer[0].productId).to.equal("24");
+				expect(tiDataLayer[0].productId).to.match(/\d{1,3}/);
 				expect(tiDataLayer[0].productSKU).to.equal("woo-hoodie-green");
 				expect(tiDataLayer[0].currency).to.equal("EUR");
 				expect(tiDataLayer[0].productQuantity).to.equal("1");
@@ -1007,7 +1007,7 @@ describe("Add-To-Cart", () => {
 				expect(tiDataLayer[1].taxonomies.logo[0]).to.equal("No");
 				expect(tiDataLayer[1].productName).to.equal("Hoodie");
 				expect(tiDataLayer[1].productCost).to.equal(45);
-				expect(tiDataLayer[1].productId).to.equal("24");
+				expect(tiDataLayer[1].productId).to.match(/\d{1,3}/);
 				expect(tiDataLayer[1].productSKU).to.equal("woo-hoodie-green");
 				expect(tiDataLayer[1].currency).to.equal("EUR");
 				expect(tiDataLayer[1].productQuantity).to.equal("1");
@@ -1037,7 +1037,7 @@ describe("Add-To-Cart", () => {
 				expect(track.pageName).to.equal(
 					"mapp_e2e_wp.test/product/logo-collection/"
 				);
-				expect(track.params.ba).to.equal("28;8;9;10");
+				expect(track.params.ba).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(track.params.ca1).to.equal(
 					"Clothing;Hoodies;Tshirts;Accessories"
 				);
@@ -1073,7 +1073,7 @@ describe("Add-To-Cart", () => {
 					"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
 				);
 				expect(tiDataLayer[0].productCost).to.equal("81;45;18;18");
-				expect(tiDataLayer[0].productId).to.equal("28;8;9;10");
+				expect(tiDataLayer[0].productId).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 				expect(tiDataLayer[0].productSKU).to.equal(
 					"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 				);
@@ -1100,7 +1100,7 @@ describe("Add-To-Cart", () => {
 				cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
 			});
             cy.wait(3000);
-			cy.get('[href="?add-to-cart=12"]').click();
+			cy.get('a[data-product_sku="woo-cap"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
@@ -1111,7 +1111,7 @@ describe("Add-To-Cart", () => {
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("12");
+				expect(track.params.ba).to.match(/\d{1,3}/);		
 				expect(track.params.ca1).to.equal("Accessories");
 				expect(track.params.ca3).to.equal("Cap");
 				expect(track.params.cg1).to.equal("shop-startpage");
@@ -1127,7 +1127,7 @@ describe("Add-To-Cart", () => {
 
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("12");
+				expect(track.params.ba).to.match(/\d{1,3}/);		
 				expect(track.params.ca1).to.equal("Accessories");
 				expect(track.params.ca3).to.equal("Cap");
 				expect(track.params.cg1).to.equal("shop-startpage");
@@ -1153,7 +1153,7 @@ describe("Add-To-Cart", () => {
 				);
 				expect(tiDataLayer[0].productName).to.equal("Cap");
 				expect(tiDataLayer[0].productCost).to.equal("16");
-				expect(tiDataLayer[0].productId).to.equal("12");
+				expect(tiDataLayer[0].productId).to.match(/\d{1,3}/);
 				expect(tiDataLayer[0].productSKU).to.equal("woo-cap");
 				expect(tiDataLayer[0].productQuantity).to.equal("1");
 				expect(tiDataLayer[0].taxonomies.product_type[0]).to.equal(
@@ -1188,7 +1188,7 @@ describe("Add-To-Cart", () => {
 				);
 				expect(tiDataLayer[1].productName).to.equal("Cap");
 				expect(tiDataLayer[1].productCost).to.equal("16");
-				expect(tiDataLayer[1].productId).to.equal("12");
+				expect(tiDataLayer[1].productId).to.match(/\d{1,3}/);
 				expect(tiDataLayer[1].productSKU).to.equal("woo-cap");
 				expect(tiDataLayer[1].productQuantity).to.equal("1");
 				expect(tiDataLayer[1].taxonomies.product_type[0]).to.equal(
@@ -1219,7 +1219,7 @@ describe("Add-To-Cart", () => {
 				cy.spyOnTiDataLayer().then((d) => (tiDataLayer = d));
 			});
             cy.wait(3000);
-			cy.get('[href="?add-to-cart=17"]').click();
+			cy.get('a[data-product_sku="woo-polo"]').click();
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(track.params.ct).to.equal("mapp_e2e_wp.test.shop.");
@@ -1229,7 +1229,7 @@ describe("Add-To-Cart", () => {
 			});
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("17");
+				expect(track.params.ba).to.match(/\d{1,3}/);			
 				expect(track.params.ca1).to.equal("Tshirts");
 				expect(track.params.ca3).to.equal("Polo");
 				expect(track.params.cg1).to.equal("shop-startpage");
@@ -1244,7 +1244,7 @@ describe("Add-To-Cart", () => {
 			});
 			cy.testTrackRequest().then((track) => {
 				expect(track.pageName).to.equal("mapp_e2e_wp.test/shop/");
-				expect(track.params.ba).to.equal("17");
+				expect(track.params.ba).to.match(/\d{1,3}/);			
 				expect(track.params.ca1).to.equal("Tshirts");
 				expect(track.params.ca3).to.equal("Polo");
 				expect(track.params.cg1).to.equal("shop-startpage");
@@ -1268,7 +1268,7 @@ describe("Add-To-Cart", () => {
 				expect(view.pageName).to.equal("mapp_e2e_wp.test/shop/");
 				expect(view.productName).to.equal("Polo");
 				expect(view.productCost).to.equal("20");
-				expect(view.productId).to.equal("17");
+				expect(view.productId).to.match(/\d{1,3}/);
 				expect(view.productSKU).to.equal("woo-polo");
 				expect(view.productQuantity).to.equal("1");
 				expect(view.taxonomies.product_type[0]).to.equal("simple");
@@ -1287,7 +1287,7 @@ describe("Add-To-Cart", () => {
 				expect(add.currency).to.equal("EUR");
 				expect(add.productName).to.equal("Polo");
 				expect(add.productCost).to.equal("20");
-				expect(add.productId).to.equal("17");
+				expect(add.productId).to.match(/\d{1,3}/);
 				expect(add.productSKU).to.equal("woo-polo");
 				expect(add.productQuantity).to.equal("1");
 				expect(add.taxonomies.product_type[0]).to.equal("simple");

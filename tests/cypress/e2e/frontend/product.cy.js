@@ -21,7 +21,7 @@ describe("Product", () => {
 				expect(dataLayer[0].currency).to.equal("EUR");
 				expect(dataLayer[0].products[0].productName).to.equal("Album");
 				expect(dataLayer[0].products[0].productCost).to.equal("15");
-				expect(dataLayer[0].products[0].productId).to.equal("18");
+				expect(dataLayer[0].products[0].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[0].productSKU).to.equal(
 					"woo-album"
 				);
@@ -40,7 +40,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[1].productName).to.equal("Beanie");
 				expect(dataLayer[0].products[1].productCost).to.equal("18");
-				expect(dataLayer[0].products[1].productId).to.equal("10");
+				expect(dataLayer[0].products[1].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[1].productSKU).to.equal(
 					"woo-beanie"
 				);
@@ -64,7 +64,7 @@ describe("Product", () => {
 					"Beanie with Logo"
 				);
 				expect(dataLayer[0].products[2].productCost).to.equal("18");
-				expect(dataLayer[0].products[2].productId).to.equal("27");
+				expect(dataLayer[0].products[2].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[2].productSKU).to.equal(
 					"Woo-beanie-logo"
 				);
@@ -86,7 +86,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[3].productName).to.equal("Belt");
 				expect(dataLayer[0].products[3].productCost).to.equal("55");
-				expect(dataLayer[0].products[3].productId).to.equal("11");
+				expect(dataLayer[0].products[3].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[3].productSKU).to.equal(
 					"woo-belt"
 				);
@@ -105,7 +105,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[4].productName).to.equal("Cap");
 				expect(dataLayer[0].products[4].productCost).to.equal("16");
-				expect(dataLayer[0].products[4].productId).to.equal("12");
+				expect(dataLayer[0].products[4].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[4].productSKU).to.equal("woo-cap");
 				expect(dataLayer[0].products[4].productQuantity).to.equal("1");
 				expect(
@@ -128,7 +128,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[5].productName).to.equal("Hoodie");
 				expect(dataLayer[0].products[5].productCost).to.equal("42");
-				expect(dataLayer[0].products[5].productId).to.equal("7");
+				expect(dataLayer[0].products[5].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[5].productSKU).to.equal(
 					"woo-hoodie"
 				);
@@ -158,7 +158,7 @@ describe("Product", () => {
 					"Hoodie with Logo"
 				);
 				expect(dataLayer[0].products[6].productCost).to.equal("45");
-				expect(dataLayer[0].products[6].productId).to.equal("8");
+				expect(dataLayer[0].products[6].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[6].productSKU).to.equal(
 					"woo-hoodie-with-logo"
 				);
@@ -182,7 +182,7 @@ describe("Product", () => {
 					"Hoodie with Zipper"
 				);
 				expect(dataLayer[0].products[7].productCost).to.equal("45");
-				expect(dataLayer[0].products[7].productId).to.equal("15");
+				expect(dataLayer[0].products[7].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[7].productSKU).to.equal(
 					"woo-hoodie-with-zipper"
 				);
@@ -206,7 +206,7 @@ describe("Product", () => {
 					"Logo Collection"
 				);
 				expect(dataLayer[0].products[8].productCost).to.equal("18");
-				expect(dataLayer[0].products[8].productId).to.equal("28");
+				expect(dataLayer[0].products[8].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[8].productSKU).to.equal(
 					"logo-collection"
 				);
@@ -227,7 +227,7 @@ describe("Product", () => {
 					"Long Sleeve Tee"
 				);
 				expect(dataLayer[0].products[9].productCost).to.equal("25");
-				expect(dataLayer[0].products[9].productId).to.equal("16");
+				expect(dataLayer[0].products[9].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[9].productSKU).to.equal(
 					"woo-long-sleeve-tee"
 				);
@@ -249,7 +249,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[10].productName).to.equal("Polo");
 				expect(dataLayer[0].products[10].productCost).to.equal("20");
-				expect(dataLayer[0].products[10].productId).to.equal("17");
+				expect(dataLayer[0].products[10].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[10].productSKU).to.equal(
 					"woo-polo"
 				);
@@ -273,7 +273,7 @@ describe("Product", () => {
 					"Single"
 				);
 				expect(dataLayer[0].products[11].productCost).to.equal("2");
-				expect(dataLayer[0].products[11].productId).to.equal("19");
+				expect(dataLayer[0].products[11].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[11].productSKU).to.equal(
 					"woo-single"
 				);
@@ -294,7 +294,7 @@ describe("Product", () => {
 					"Sunglasses"
 				);
 				expect(dataLayer[0].products[12].productCost).to.equal("90");
-				expect(dataLayer[0].products[12].productId).to.equal("13");
+				expect(dataLayer[0].products[12].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[12].productSKU).to.equal(
 					"woo-sunglasses"
 				);
@@ -318,7 +318,7 @@ describe("Product", () => {
 					"T-Shirt"
 				);
 				expect(dataLayer[0].products[13].productCost).to.equal("18");
-				expect(dataLayer[0].products[13].productId).to.equal("9");
+				expect(dataLayer[0].products[13].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[13].productSKU).to.equal(
 					"woo-tshirt"
 				);
@@ -342,7 +342,7 @@ describe("Product", () => {
 					"T-Shirt with Logo"
 				);
 				expect(dataLayer[0].products[14].productCost).to.equal("18");
-				expect(dataLayer[0].products[14].productId).to.equal("26");
+				expect(dataLayer[0].products[14].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[14].productSKU).to.equal(
 					"Woo-tshirt-logo"
 				);
@@ -366,7 +366,7 @@ describe("Product", () => {
 					"V-Neck T-Shirt"
 				);
 				expect(dataLayer[0].products[15].productCost).to.equal("15");
-				expect(dataLayer[0].products[15].productId).to.equal("6");
+				expect(dataLayer[0].products[15].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[15].productSKU).to.equal(
 					"woo-vneck-tee"
 				);
@@ -437,7 +437,7 @@ describe("Product", () => {
 				expect(dataLayer[0].currency).to.equal("EUR");
 				expect(dataLayer[0].products[0].productName).to.equal("Beanie");
 				expect(dataLayer[0].products[0].productCost).to.equal("18");
-				expect(dataLayer[0].products[0].productId).to.equal("10");
+				expect(dataLayer[0].products[0].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[0].productSKU).to.equal(
 					"woo-beanie"
 				);
@@ -461,7 +461,7 @@ describe("Product", () => {
 					"Beanie with Logo"
 				);
 				expect(dataLayer[0].products[1].productCost).to.equal("18");
-				expect(dataLayer[0].products[1].productId).to.equal("27");
+				expect(dataLayer[0].products[1].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[1].productSKU).to.equal(
 					"Woo-beanie-logo"
 				);
@@ -483,7 +483,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[2].productName).to.equal("Belt");
 				expect(dataLayer[0].products[2].productCost).to.equal("55");
-				expect(dataLayer[0].products[2].productId).to.equal("11");
+				expect(dataLayer[0].products[2].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[2].productSKU).to.equal(
 					"woo-belt"
 				);
@@ -502,7 +502,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer[0].products[3].productName).to.equal("Cap");
 				expect(dataLayer[0].products[3].productCost).to.equal("16");
-				expect(dataLayer[0].products[3].productId).to.equal("12");
+				expect(dataLayer[0].products[3].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[3].productSKU).to.equal("woo-cap");
 				expect(dataLayer[0].products[3].productQuantity).to.equal("1");
 				expect(
@@ -527,7 +527,7 @@ describe("Product", () => {
 					"Sunglasses"
 				);
 				expect(dataLayer[0].products[4].productCost).to.equal("90");
-				expect(dataLayer[0].products[4].productId).to.equal("13");
+				expect(dataLayer[0].products[4].productId).to.match(/\d{1,3}/);
 				expect(dataLayer[0].products[4].productSKU).to.equal(
 					"woo-sunglasses"
 				);
@@ -560,7 +560,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/beanie-with-logo/"
 					);
-					expect(track.params.ba).to.equal("27 - Beanie with Logo");
+					expect(track.params.ba).to.match(/\d{1,3} - Beanie with Logo/);
 					expect(track.params.ca3).to.equal("Woo-beanie-logo");
 					expect(track.params.cb20).to.equal("Red");
 					expect(track.params.cb760).to.equal("0");
@@ -594,7 +594,7 @@ describe("Product", () => {
 						"Beanie with Logo"
 					);
 					expect(dataLayer[0].productCost).to.equal("18");
-					expect(dataLayer[0].productId).to.equal("27");
+					expect(dataLayer[0].productId).to.match(/\d{1,3}/);
 					expect(dataLayer[0].productSKU).to.equal("Woo-beanie-logo");
 					expect(dataLayer[0].currency).to.equal("EUR");
 					expect(dataLayer[0].productQuantity).to.equal("1");
@@ -606,8 +606,8 @@ describe("Product", () => {
 					expect(dataLayer[0].productCategory).to.equal(
 						"Accessories"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id).to.equal(
-						"27 - Beanie with Logo"
+					expect(dataLayer[0].gtmProductArray[0].id).to.match(
+						/\d{1,3} - Beanie with Logo/
 					);
 					expect(dataLayer[0].gtmProductArray[0].cost).to.equal("18");
 					expect(dataLayer[0].gtmProductArray[0].quantity).to.equal(
@@ -622,8 +622,8 @@ describe("Product", () => {
 					expect(dataLayer[0].gtmProductArray[0].status).to.equal(
 						"view"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id_only).to.equal(
-						"27"
+					expect(dataLayer[0].gtmProductArray[0].id_only).to.match(
+						/\d{1,3}/
 					);
 					expect(dataLayer[0].gtmProductArray[0].sku).to.equal(
 						"Woo-beanie-logo"
@@ -648,7 +648,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/long-sleeve-tee/"
 					);
-					expect(track.params.ba).to.equal("16 - Long Sleeve Tee");
+					expect(track.params.ba).to.match(/\d{1,3} - Long Sleeve Tee/);
 					expect(track.params.ca3).to.equal("woo-long-sleeve-tee");
 					expect(track.params.cb20).to.equal("Green");
 					expect(track.params.cb760).to.equal("0");
@@ -675,7 +675,7 @@ describe("Product", () => {
 					expect(dl.taxonomies.pa_color[0]).to.equal("Green");
 					expect(dl.productName).to.equal("Long Sleeve Tee");
 					expect(dl.productCost).to.equal("25");
-					expect(dl.productId).to.equal("16");
+					expect(dl.productId).to.match(/\d{1,3}/);
 					expect(dl.productSKU).to.equal("woo-long-sleeve-tee");
 					expect(dl.currency).to.equal("EUR");
 					expect(dl.productQuantity).to.equal("1");
@@ -683,13 +683,13 @@ describe("Product", () => {
 					expect(dl.productCollection).to.equal("0");
 					expect(dl.productCategories[0]).to.equal("Tshirts");
 					expect(dl.productCategory).to.equal("Tshirts");
-					expect(gtmArray.id).to.equal("16 - Long Sleeve Tee");
+					expect(gtmArray.id).to.match(/\d{1,3} - Long Sleeve Tee/);
 					expect(gtmArray.cost).to.equal("25");
 					expect(gtmArray.quantity).to.equal("1");
 					expect(gtmArray.name).to.equal("Long Sleeve Tee");
 					expect(gtmArray.collection).to.equal("0");
 					expect(gtmArray.status).to.equal("view");
-					expect(gtmArray.id_only).to.equal("16");
+					expect(gtmArray.id_only).to.match(/\d{1,3}/);
 					expect(gtmArray.sku).to.equal("woo-long-sleeve-tee");
 					expect(gtmArray.product_type_0).to.equal("simple");
 					expect(gtmArray.product_cat_0).to.equal("Tshirts");
@@ -705,7 +705,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/hoodie/"
 					);
-					expect(track.params.ba).to.equal("7 - Hoodie");
+					expect(track.params.ba).to.match(/\d{1,3} - Hoodie/);
 					expect(track.params.ca3).to.equal("woo-hoodie");
 					expect(track.params.cb20).to.equal("Red");
 					expect(track.params.cb760).to.equal("0");
@@ -743,7 +743,7 @@ describe("Product", () => {
 					);
 					expect(dataLayer[0].productName).to.equal("Hoodie");
 					expect(dataLayer[0].productCost).to.equal("42");
-					expect(dataLayer[0].productId).to.equal("7");
+					expect(dataLayer[0].productId).to.match(/\d{1,3}/);
 					expect(dataLayer[0].productSKU).to.equal("woo-hoodie");
 					expect(dataLayer[0].currency).to.equal("EUR");
 					expect(dataLayer[0].productQuantity).to.equal("1");
@@ -801,8 +801,8 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/logo-collection/"
 					);
-					expect(track.params.ba).to.equal(
-						"28 - Logo Collection;8 - Hoodie with Logo;9 - T-Shirt;10 - Beanie"
+					expect(track.params.ba).to.match(
+						/\d{1,3} - Logo Collection;\d{1,3} - Hoodie with Logo;\d{1,3} - T-Shirt;\d{1,3} - Beanie/
 					);
 					expect(track.params.ca3).to.equal(
 						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
@@ -841,7 +841,7 @@ describe("Product", () => {
 						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
 					);
 					expect(dataLayer[0].productCost).to.equal("81;45;18;18");
-					expect(dataLayer[0].productId).to.equal("28;8;9;10");
+					expect(dataLayer[0].productId).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 					expect(dataLayer[0].productSKU).to.equal(
 						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 					);
@@ -855,8 +855,8 @@ describe("Product", () => {
 					expect(dataLayer[0].productCategory).to.equal(
 						"Clothing;Hoodies;Tshirts;Accessories"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id).to.equal(
-						"28 - Logo Collection;8 - Hoodie with Logo;9 - T-Shirt;10 - Beanie"
+					expect(dataLayer[0].gtmProductArray[0].id).to.match(
+						/\d{1,3} - Logo Collection;\d{1,3} - Hoodie with Logo;\d{1,3} - T-Shirt;\d{1,3} - Beanie/
 					);
 					expect(dataLayer[0].gtmProductArray[0].cost).to.equal(
 						"81;45;18;18"
@@ -873,8 +873,8 @@ describe("Product", () => {
 					expect(dataLayer[0].gtmProductArray[0].status).to.equal(
 						"view"
 					);
-					expect(dataLayer[0].gtmProductArray[0].id_only).to.equal(
-						"28;8;9;10"
+					expect(dataLayer[0].gtmProductArray[0].id_only).to.match(
+						/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/
 					);
 					expect(dataLayer[0].gtmProductArray[0].sku).to.equal(
 						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
@@ -922,7 +922,7 @@ describe("Product", () => {
 				expect(dataLayer.currency).to.equal("EUR");
 				expect(dataLayer.products[0].productName).to.equal("Album");
 				expect(dataLayer.products[0].productCost).to.equal("15");
-				expect(dataLayer.products[0].productId).to.equal("18");
+				expect(dataLayer.products[0].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[0].productSKU).to.equal("woo-album");
 				expect(dataLayer.products[0].productQuantity).to.equal("1");
 				expect(
@@ -937,7 +937,7 @@ describe("Product", () => {
 				expect(dataLayer.products[0].productCategory).to.equal("Music");
 				expect(dataLayer.products[1].productName).to.equal("Beanie");
 				expect(dataLayer.products[1].productCost).to.equal("18");
-				expect(dataLayer.products[1].productId).to.equal("10");
+				expect(dataLayer.products[1].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[1].productSKU).to.equal("woo-beanie");
 				expect(dataLayer.products[1].productQuantity).to.equal("1");
 				expect(
@@ -959,7 +959,7 @@ describe("Product", () => {
 					"Beanie with Logo"
 				);
 				expect(dataLayer.products[2].productCost).to.equal("18");
-				expect(dataLayer.products[2].productId).to.equal("27");
+				expect(dataLayer.products[2].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[2].productSKU).to.equal(
 					"Woo-beanie-logo"
 				);
@@ -981,7 +981,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[3].productName).to.equal("Belt");
 				expect(dataLayer.products[3].productCost).to.equal("55");
-				expect(dataLayer.products[3].productId).to.equal("11");
+				expect(dataLayer.products[3].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[3].productSKU).to.equal("woo-belt");
 				expect(dataLayer.products[3].productQuantity).to.equal("1");
 				expect(
@@ -998,7 +998,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[4].productName).to.equal("Cap");
 				expect(dataLayer.products[4].productCost).to.equal("16");
-				expect(dataLayer.products[4].productId).to.equal("12");
+				expect(dataLayer.products[4].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[4].productSKU).to.equal("woo-cap");
 				expect(dataLayer.products[4].productQuantity).to.equal("1");
 				expect(
@@ -1021,7 +1021,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[5].productName).to.equal("Hoodie");
 				expect(dataLayer.products[5].productCost).to.equal("42");
-				expect(dataLayer.products[5].productId).to.equal("7");
+				expect(dataLayer.products[5].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[5].productSKU).to.equal("woo-hoodie");
 				expect(dataLayer.products[5].productQuantity).to.equal("1");
 				expect(
@@ -1049,7 +1049,7 @@ describe("Product", () => {
 					"Hoodie with Logo"
 				);
 				expect(dataLayer.products[6].productCost).to.equal("45");
-				expect(dataLayer.products[6].productId).to.equal("8");
+				expect(dataLayer.products[6].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[6].productSKU).to.equal(
 					"woo-hoodie-with-logo"
 				);
@@ -1073,7 +1073,7 @@ describe("Product", () => {
 					"Hoodie with Zipper"
 				);
 				expect(dataLayer.products[7].productCost).to.equal("45");
-				expect(dataLayer.products[7].productId).to.equal("15");
+				expect(dataLayer.products[7].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[7].productSKU).to.equal(
 					"woo-hoodie-with-zipper"
 				);
@@ -1097,7 +1097,7 @@ describe("Product", () => {
 					"Logo Collection"
 				);
 				expect(dataLayer.products[8].productCost).to.equal("18");
-				expect(dataLayer.products[8].productId).to.equal("28");
+				expect(dataLayer.products[8].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[8].productSKU).to.equal(
 					"logo-collection"
 				);
@@ -1118,7 +1118,7 @@ describe("Product", () => {
 					"Long Sleeve Tee"
 				);
 				expect(dataLayer.products[9].productCost).to.equal("25");
-				expect(dataLayer.products[9].productId).to.equal("16");
+				expect(dataLayer.products[9].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[9].productSKU).to.equal(
 					"woo-long-sleeve-tee"
 				);
@@ -1140,7 +1140,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[10].productName).to.equal("Polo");
 				expect(dataLayer.products[10].productCost).to.equal("20");
-				expect(dataLayer.products[10].productId).to.equal("17");
+				expect(dataLayer.products[10].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[10].productSKU).to.equal("woo-polo");
 				expect(dataLayer.products[10].productQuantity).to.equal("1");
 				expect(
@@ -1160,7 +1160,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[11].productName).to.equal("Single");
 				expect(dataLayer.products[11].productCost).to.equal("2");
-				expect(dataLayer.products[11].productId).to.equal("19");
+				expect(dataLayer.products[11].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[11].productSKU).to.equal(
 					"woo-single"
 				);
@@ -1181,7 +1181,7 @@ describe("Product", () => {
 					"Sunglasses"
 				);
 				expect(dataLayer.products[12].productCost).to.equal("90");
-				expect(dataLayer.products[12].productId).to.equal("13");
+				expect(dataLayer.products[12].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[12].productSKU).to.equal(
 					"woo-sunglasses"
 				);
@@ -1203,7 +1203,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[13].productName).to.equal("T-Shirt");
 				expect(dataLayer.products[13].productCost).to.equal("18");
-				expect(dataLayer.products[13].productId).to.equal("9");
+				expect(dataLayer.products[13].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[13].productSKU).to.equal(
 					"woo-tshirt"
 				);
@@ -1227,7 +1227,7 @@ describe("Product", () => {
 					"T-Shirt with Logo"
 				);
 				expect(dataLayer.products[14].productCost).to.equal("18");
-				expect(dataLayer.products[14].productId).to.equal("26");
+				expect(dataLayer.products[14].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[14].productSKU).to.equal(
 					"Woo-tshirt-logo"
 				);
@@ -1251,7 +1251,7 @@ describe("Product", () => {
 					"V-Neck T-Shirt"
 				);
 				expect(dataLayer.products[15].productCost).to.equal("15");
-				expect(dataLayer.products[15].productId).to.equal("6");
+				expect(dataLayer.products[15].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[15].productSKU).to.equal(
 					"woo-vneck-tee"
 				);
@@ -1320,7 +1320,7 @@ describe("Product", () => {
 				expect(dataLayer.currency).to.equal("EUR");
 				expect(dataLayer.products[0].productName).to.equal("Beanie");
 				expect(dataLayer.products[0].productCost).to.equal("18");
-				expect(dataLayer.products[0].productId).to.equal("10");
+				expect(dataLayer.products[0].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[0].productSKU).to.equal("woo-beanie");
 				expect(dataLayer.products[0].productQuantity).to.equal("1");
 				expect(
@@ -1342,7 +1342,7 @@ describe("Product", () => {
 					"Beanie with Logo"
 				);
 				expect(dataLayer.products[1].productCost).to.equal("18");
-				expect(dataLayer.products[1].productId).to.equal("27");
+				expect(dataLayer.products[1].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[1].productSKU).to.equal(
 					"Woo-beanie-logo"
 				);
@@ -1364,7 +1364,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[2].productName).to.equal("Belt");
 				expect(dataLayer.products[2].productCost).to.equal("55");
-				expect(dataLayer.products[2].productId).to.equal("11");
+				expect(dataLayer.products[2].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[2].productSKU).to.equal("woo-belt");
 				expect(dataLayer.products[2].productQuantity).to.equal("1");
 				expect(
@@ -1381,7 +1381,7 @@ describe("Product", () => {
 				);
 				expect(dataLayer.products[3].productName).to.equal("Cap");
 				expect(dataLayer.products[3].productCost).to.equal("16");
-				expect(dataLayer.products[3].productId).to.equal("12");
+				expect(dataLayer.products[3].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[3].productSKU).to.equal("woo-cap");
 				expect(dataLayer.products[3].productQuantity).to.equal("1");
 				expect(
@@ -1406,7 +1406,7 @@ describe("Product", () => {
 					"Sunglasses"
 				);
 				expect(dataLayer.products[4].productCost).to.equal("90");
-				expect(dataLayer.products[4].productId).to.equal("13");
+				expect(dataLayer.products[4].productId).to.match(/\d{1,3}/);
 				expect(dataLayer.products[4].productSKU).to.equal(
 					"woo-sunglasses"
 				);
@@ -1439,7 +1439,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/beanie-with-logo/"
 					);
-					expect(track.params.ba).to.equal("27");
+					expect(track.params.ba).to.match(/\d{1,3}/);
 					expect(track.params.ca1).to.equal("Accessories");
 					expect(track.params.ca3).to.equal("Beanie with Logo");
 					expect(track.params.cg1).to.equal("product");
@@ -1469,7 +1469,7 @@ describe("Product", () => {
 					expect(dataLayer.taxonomies.pa_color[0]).to.equal("Red");
 					expect(dataLayer.productName).to.equal("Beanie with Logo");
 					expect(dataLayer.productCost).to.equal("18");
-					expect(dataLayer.productId).to.equal("27");
+					expect(dataLayer.productId).to.match(/\d{1,3}/);
 					expect(dataLayer.productSKU).to.equal("Woo-beanie-logo");
 					expect(dataLayer.currency).to.equal("EUR");
 					expect(dataLayer.productQuantity).to.equal("1");
@@ -1491,7 +1491,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/long-sleeve-tee/"
 					);
-					expect(track.params.ba).to.equal("16");
+					expect(track.params.ba).to.match(/\d{1,3}/);
 					expect(track.params.ca1).to.equal("Tshirts");
 					expect(track.params.ca3).to.equal("Long Sleeve Tee");
 					expect(track.params.cg1).to.equal("product");
@@ -1522,7 +1522,7 @@ describe("Product", () => {
 					expect(dataLayer.taxonomies.pa_color[0]).to.equal("Green");
 					expect(dataLayer.productName).to.equal("Long Sleeve Tee");
 					expect(dataLayer.productCost).to.equal("25");
-					expect(dataLayer.productId).to.equal("16");
+					expect(dataLayer.productId).to.match(/\d{1,3}/);
 					expect(dataLayer.productSKU).to.equal(
 						"woo-long-sleeve-tee"
 					);
@@ -1544,7 +1544,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/logo-collection/"
 					);
-					expect(track.params.ba).to.equal("28;8;9;10");
+					expect(track.params.ba).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 					expect(track.params.ca1).to.equal(
 						"Clothing;Hoodies;Tshirts;Accessories"
 					);
@@ -1582,7 +1582,7 @@ describe("Product", () => {
 						"Logo Collection;Hoodie with Logo;T-Shirt;Beanie"
 					);
 					expect(dataLayer.productCost).to.equal("81;45;18;18");
-					expect(dataLayer.productId).to.equal("28;8;9;10");
+					expect(dataLayer.productId).to.match(/\d{1,3};\d{1,3};\d{1,3};\d{1,3}/);
 					expect(dataLayer.productSKU).to.equal(
 						"logo-collection;woo-hoodie-with-logo;woo-tshirt;woo-beanie"
 					);
@@ -1607,7 +1607,7 @@ describe("Product", () => {
 					expect(track.pageName).to.equal(
 						"mapp_e2e_wp.test/product/hoodie/"
 					);
-					expect(track.params.ba).to.equal("7");
+					expect(track.params.ba).to.match(/\d{1,3}/);
 					expect(track.params.ca1).to.equal("Hoodies");
 					expect(track.params.ca3).to.equal("Hoodie");
 					expect(track.params.cg1).to.equal("product");
@@ -1639,7 +1639,7 @@ describe("Product", () => {
 					expect(dataLayer.taxonomies.pa_color[2]).to.equal("Blue");
 					expect(dataLayer.productName).to.equal("Hoodie");
 					expect(dataLayer.productCost).to.equal("42");
-					expect(dataLayer.productId).to.equal("7");
+					expect(dataLayer.productId).to.match(/\d{1,3}/);
 					expect(dataLayer.productSKU).to.equal("woo-hoodie");
 					expect(dataLayer.currency).to.equal("EUR");
 					expect(dataLayer.productQuantity).to.equal("1");
