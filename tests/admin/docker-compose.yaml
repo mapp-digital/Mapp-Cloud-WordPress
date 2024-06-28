@@ -45,12 +45,7 @@ services:
       - mapp
 
   wordpress-cli:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.wpcli
-      args:
-          USER_ID: ${USER_ID}
-          GROUP_ID: ${GROUP_ID}  
+    image: wordpress:cli-2.6.0-php8.1
     container_name: mapp_e2e_wpcli
     depends_on:
       wordpress-mapp:
@@ -68,6 +63,7 @@ services:
       WOOCOMMERCE_VERSION:
     ports:
       - 8000:8000
+    user: xfs
     volumes:
       - "../../:/var/www/html/wp-content/plugins/mapp-intelligence"
       # - "../../release/trunk:/var/www/html/wp-content/plugins/mapp_intelligence"
