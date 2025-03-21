@@ -279,5 +279,8 @@ wp menu item add-post "$TOP_MENU_ID" "$SAMPLE_PAGE_ID"
 # update rewrite
 wp rewrite structure "/%category%/%postname%/"
 
+# make products visible for everyone
+wp option update woocommerce_coming_soon 'no'
+
 # display the current WordPress version
 wp core version --extra

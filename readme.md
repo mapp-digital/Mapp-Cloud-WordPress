@@ -1,9 +1,9 @@
 # Wordpress / Woocommerce - Mapp Cloud Extension
 
 [Site](https://mapp.com/) |
-[Docs](https://documentation.mapp.com/1.0/en/wordpress-woocommerce-19109987.html) |
+[Docs](https://docs.mapp.com/v1/docs/en/wordpress-woocommerce) |
 [Support](https://support.mapp.com/) |
-[Changelog](./CHANGELOG.md)
+[Changelog](./readme.txt)
 
 The Mapp Cloud plugin provides basic tracking for WordPress and advanced e-commerce tracking for WooCommerce.
 
