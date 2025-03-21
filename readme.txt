@@ -60,12 +60,16 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 
 == Changelog ==
 
+= 1.2.0=
+* Update Smart Pixel to 6.5.0
+* Remove support for Mapp Acquire
+
 = 1.1.9=
 * Hotfix
 
 = 1.1.8=
-* Update Smartpixel to version 6.3.8
-* Faster loading of Smartpixel
+* Update Smart Pixel to version 6.3.8
+* Faster loading of Smart Pixel
 * Support for German in settings menu
 * New internal code structure
 
@@ -73,24 +77,24 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 * fix pixel statistic version
 
 = 1.1.6=
-* update Smartpixel to version 6.3.7
+* update Smart Pixel to version 6.3.7
 
 = 1.1.5=
-* update Smartpixel to version 6.3.4
+* update Smart Pixel to version 6.3.4
 
 = 1.1.4=
-* update Smartpixel to version 6.2.6
+* update Smart Pixel to version 6.2.6
 
 = 1.1.3 =
-* update Smartpixel to version 6.2.4
+* update Smart Pixel to version 6.2.4
 * rename plugin name to Mapp Cloud Integration
 * add Mapp Acquire
 
 = 1.1.2 =
-* update Smartpixel to version 6.2.3
+* update Smart Pixel to version 6.2.3
 
 = 1.1.1 =
-* fix Smartpixel not loading when no GTM ID is set
+* fix Smart Pixel not loading when no GTM ID is set
 
 = 1.1.0 =
 * add GTM support

@@ -1,6 +1,6 @@
 import { t } from '../lib/translations';
 import { derived } from 'svelte/store';
-import { acquire, gtmId, tiDomain, tiId } from './settings';
+import { gtmId, tiDomain, tiId } from './settings';
 
 export const tiIdValidated = derived(tiId, (tiId) => {
 	return /(?:^$|^\d{15}$)/.test(tiId);
@@ -11,13 +11,11 @@ export const tiDomainValidated = derived(tiDomain, (tiDomain) => {
 export const gtmIdValidated = derived(gtmId, (gtmId) => {
 	return /(?:^$|^GTM-[A-Z0-9]{1,7}$)/.test(gtmId);
 });
-export const acquireValidated = derived(acquire, (acquire) => {
-	return /(?:^$|id=(\d+?)&m=(\d+?)\D)/.test(acquire);
-});
+
 
 export const wrongSettings = derived(
-	[tiIdValidated, tiDomainValidated, gtmIdValidated, acquireValidated],
-	([tiIdValidated, tiDomainValidated, gtmIdValidated, acquireValidated]) => {
+	[tiIdValidated, tiDomainValidated, gtmIdValidated],
+	([tiIdValidated, tiDomainValidated, gtmIdValidated]) => {
 		const errors: string[] = [];
 		if (!tiIdValidated) {
 			errors.push(t.header.ti_id);
@@ -27,9 +25,6 @@ export const wrongSettings = derived(
 		}
 		if (!gtmIdValidated) {
 			errors.push(t.header.gtm_id);
-		}
-		if (!acquireValidated) {
-			errors.push(t.header.acquire);
 		}
 		return errors;
 	}

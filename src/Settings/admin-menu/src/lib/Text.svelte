@@ -29,11 +29,10 @@
 		{:else if type === 'textarea'}
 			<textarea
 				{id}
-				type="text"
 				bind:value={$configStore}
 				class="regular-text"
 				aria-describedby={helpId}
-			/>
+			></textarea>
 		{/if}
 		<p class={className} id={helpId}>
 			{hint}

@@ -32,33 +32,6 @@ class Loader
 		echo "<script type=\"text/javascript\" src=\"" . $smartPixelPath . "\"></script>";
 	}
 
-	public static function acquire_loader($config)
-	{
-		if (key_exists("acquire", $config["General"])) {
-			if (
-				preg_match(
-					"/id=(\d+?)&m=(\d+?)\D/",
-					$config["General"]["acquire"],
-					$ids
-				)
-			) {
-				$link =
-					"https://c.flx1.com/" .
-					$ids[2] .
-					"-" .
-					$ids[1] .
-					".js?id=" .
-					$ids[1] .
-					"&m=" .
-					$ids[2];
-				echo '<script>(function(e){var t=document,n=t.createElement("script");n.async=!0,n.defer=!0,';
-				echo 'n.src=e,t.getElementsByTagName("head")[0].appendChild(n)})("' .
-					$link .
-					'")</script>';
-			}
-		}
-	}
-
 	public static function gtm_loader($id)
 	{
 		?>

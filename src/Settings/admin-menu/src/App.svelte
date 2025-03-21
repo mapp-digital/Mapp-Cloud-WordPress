@@ -4,14 +4,12 @@
 	import SaveButton from './lib/SaveButton.svelte';
 	import Text from './lib/Text.svelte';
 	import { t } from './lib/translations';
-	import { v, acquire, tiId, gtmId, filterKeys, tiDomain } from './store/settings';
+	import { v, tiId, gtmId, filterKeys, tiDomain } from './store/settings';
 	import {
-		acquireValidated,
 		tiIdValidated,
 		tiDomainValidated,
 		gtmIdValidated
 	} from './store/validation';
-	import { saveSettings } from './store/saveSettings';
 </script>
 
 <main>
@@ -54,15 +52,6 @@
 					type="textarea"
 				/>
 				<ExcludeUserCheckbox />
-				<Text
-					id="mapp_acquire"
-					label={t.header.acquire}
-					hint={t.hints.acquire}
-					configStore={acquire}
-					validated={$acquireValidated}
-					errorMessage={t.error.acquire}
-					type="textarea"
-				/>
 			</tbody>
 		</table>
 		<SaveButton />

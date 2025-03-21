@@ -20,7 +20,7 @@ export const saveSettings = () => {
 		body: getRequestBody()
 	})
 		.then((r) => r.json())
-		.then((config) => {
+		.then((_config) => {
 			saveState.set(t.settings_saved);
 			window.setTimeout(() => {
 				saveState.set('');

@@ -96,7 +96,6 @@ class Runtime
 				$this->dataLayer->track_add_product_archive(false);
 				$this->dataLayer->product_variant_events(false);
 			}
-			Loader::acquire_loader($this->config);
 		}
 	}
 
