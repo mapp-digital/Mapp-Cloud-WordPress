@@ -4,7 +4,8 @@
   "description": "Cypress E2E tests for Mapp Intelligence Wordpress plugin",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "install": "npx cypress install"
   },
   "author": "",
   "license": "ISC",

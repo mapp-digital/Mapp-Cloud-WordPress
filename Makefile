@@ -24,7 +24,7 @@ exec-wpcli:
 cypress-run:
 	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run"
 cypress-local:
-	cd ./tests && if [ ! -d "./node_modules" ];then npm install;fi && cd ./admin && docker-compose up -d && cd .. && npm run test
+	cd ./tests && if [ ! -d "./node_modules" ];then npm install;fi && cd ./admin && docker-compose up -d && cd .. && npm run install &&npm run test
 
 reset-wp:
 	docker exec -t -u xfs mapp_e2e_wpcli bash -c "php /db.php drop_db"
