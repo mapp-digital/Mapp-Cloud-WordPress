@@ -13,7 +13,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - db:/var/lib/mysql
+      - wp_db:/var/lib/mysql
     networks:
       - mapp
 
@@ -96,7 +96,7 @@ services:
       - mapp
 
 volumes:
-  db:
+  wp_db:
   wordpress:
 
 networks:
