@@ -253,7 +253,7 @@ describe("Order", () => {
 				expect(track.params.cg1).to.equal("order-received");
 				expect(track.params.co).to.equal("55;36;45");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.oi).to.match(/[0-9]+/);
 				expect(track.params.ov).to.equal("136");
 				expect(track.params.qn).to.equal("1;2;1");

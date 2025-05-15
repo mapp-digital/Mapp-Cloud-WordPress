@@ -111,7 +111,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg2).to.equal("single-product");
 				expect(track.params.co).to.equal("18");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/product/beanie-with-logo/"
 				);
@@ -141,7 +141,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg2).to.equal("single-product");
 				expect(track.params.co).to.equal("25");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
 				);
@@ -240,6 +240,7 @@ describe("Add-To-Cart", () => {
 			cy.wait("@trackRequest").then(() => {
 				cy.spyOnGtmDataLayer().then((d) => (gtmDataLayer = d));
 			});
+			cy.wait(3000);
 			cy.get(".single_add_to_cart_button").click();
 
 			cy.testAddTrackRequest().then((track) => {
@@ -254,7 +255,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg2).to.equal("single-product");
 				expect(track.params.co).to.equal("45");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/product/hoodie/"
 				);
@@ -382,7 +383,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg2).to.equal("single-product");
 				expect(track.params.co).to.equal("81;45;18;18");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/product/logo-collection/"
 				);
@@ -529,7 +530,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg1).to.equal("shop-startpage");
 				expect(track.params.co).to.equal("16");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/shop/"
 				);
@@ -547,7 +548,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg1).to.equal("shop-startpage");
 				expect(track.params.co).to.equal("16");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/shop/"
 				);
@@ -669,7 +670,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg1).to.equal("shop-startpage");
 				expect(track.params.co).to.equal("20");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/shop/"
 				);
@@ -687,7 +688,7 @@ describe("Add-To-Cart", () => {
 				expect(track.params.cg1).to.equal("shop-startpage");
 				expect(track.params.co).to.equal("20");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/shop/"
 				);
@@ -946,6 +947,7 @@ describe("Add-To-Cart", () => {
 			cy.get("#logo").select("No");
 
 			cy.wait("@trackRequest");
+			cy.wait(3000);
 			cy.get(".single_add_to_cart_button").click();
 			cy.testAddTrackRequest().then((track) => {
 				expect(track.pageName).to.equal(

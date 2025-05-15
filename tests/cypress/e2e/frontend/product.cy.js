@@ -419,7 +419,7 @@ describe("Product", () => {
 				expect(track.params.cg1).to.equal("archive");
 				expect(track.params.cg2).to.equal("tax-product");
 				expect(track.params.cr).to.equal("EUR");
-				expect(track.params.cs802).to.equal("3072");
+				expect(track.params.cs802).to.equal("3104");
 				expect(track.params.pu).to.equal(
 					"http://mapp_e2e_wp.test/product-category/accessories/"
 				);
@@ -568,7 +568,7 @@ describe("Product", () => {
 					expect(track.params.cg2).to.equal("single-product");
 					expect(track.params.co).to.equal("18");
 					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.cs802).to.equal("3072");
+					expect(track.params.cs802).to.equal("3104");
 					expect(track.params.pu).to.equal(
 						"http://mapp_e2e_wp.test/product/beanie-with-logo/"
 					);
@@ -656,7 +656,7 @@ describe("Product", () => {
 					expect(track.params.cg2).to.equal("single-product");
 					expect(track.params.co).to.equal("25");
 					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.cs802).to.equal("3072");
+					expect(track.params.cs802).to.equal("3104");
 					expect(track.params.pu).to.equal(
 						"http://mapp_e2e_wp.test/product/long-sleeve-tee/"
 					);
@@ -713,7 +713,7 @@ describe("Product", () => {
 					expect(track.params.cg2).to.equal("single-product");
 					expect(track.params.co).to.equal("42");
 					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.cs802).to.equal("3072");
+					expect(track.params.cs802).to.equal("3104");
 					expect(track.params.pu).to.equal(
 						"http://mapp_e2e_wp.test/product/hoodie/"
 					);
@@ -813,7 +813,7 @@ describe("Product", () => {
 					expect(track.params.cg2).to.equal("single-product");
 					expect(track.params.co).to.equal("81;45;18;18");
 					expect(track.params.cr).to.equal("EUR");
-					expect(track.params.cs802).to.equal("3072");
+					expect(track.params.cs802).to.equal("3104");
 					expect(track.params.pu).to.equal(
 						"http://mapp_e2e_wp.test/product/logo-collection/"
 					);
