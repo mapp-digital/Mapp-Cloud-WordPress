@@ -9,9 +9,9 @@ Author URI: https://mapp.com/mapp-cloud/mapp-intelligence/
 Contributors: mappdigital
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.7.2
+Tested up to: 6.8.1
 WC requires at least: 3.0
-WC tested up to: 9.7.1
+WC tested up to: 9.8.5
 
 The plugin adds the Mapp Cloud Tag Integration code to your website and creates the data layer for your customer insights dashboards.
 

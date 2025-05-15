@@ -9,11 +9,11 @@ if (!dockerPS.includes("mapp_e2e_wpcli")) {
 	return;
 }
 
-const pluginData = JSON.parse(
-	execSync(
-		'docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin list --format=json"'
-	)
-);
+const pluginDataWithPotentialPhpNotices = execSync(
+	'docker exec -t -u xfs mapp_e2e_wpcli bash -c "wp plugin list --format=json"'
+).toString();
+const pluginData = JSON.parse(pluginDataWithPotentialPhpNotices.slice(pluginDataWithPotentialPhpNotices.indexOf('[{"name"')));
+
 const wooVersion = pluginData
 	.filter((plugin) => plugin.name === "woocommerce")
 	.map((woo) => woo.version)[0];
