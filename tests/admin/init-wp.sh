@@ -1,6 +1,9 @@
 #!/bin/bash
 
 set -e
+# Silence Woocommerce translation warnings since it is expected behavior when using cli  
+wp config set WP_DEBUG false --raw --type=constant
+wp config set WP_DEBUG_DISPLAY false --raw --type=constant
 
 # wait for the database to be ready
 bash /wait-for-it.sh -t 0 db:3306
