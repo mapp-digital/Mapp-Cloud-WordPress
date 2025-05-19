@@ -1,4 +1,9 @@
 <a name="1.1.9"></a>
+# 1.2.0
+
+* Remove Mapp Acquire support
+
+<a name="1.1.9"></a>
 # 1.1.9
 
 * Hotfix
