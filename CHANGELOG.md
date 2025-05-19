@@ -1,4 +1,4 @@
-<a name="1.1.9"></a>
+<a name="1.2.0"></a>
 # 1.2.0
 
 * Remove Mapp Acquire support
