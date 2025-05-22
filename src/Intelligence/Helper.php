@@ -5,7 +5,7 @@ namespace MappCloud\Intelligence;
 class Helper
 {
 	public static $slug = "mapp-intelligence";
-	public static $version = "1.2.0";
+	public static $version = "1.2.1";
 
 	/**
 	 * returns false if plugin setting 'track wp users' is not checked and
