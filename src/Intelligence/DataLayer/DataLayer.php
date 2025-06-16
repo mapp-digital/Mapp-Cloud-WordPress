@@ -2,7 +2,6 @@
 
 namespace MappCloud\Intelligence\DataLayer;
 
-use MappCloud\Intelligence\Helper;
 use MappCloud\Intelligence\DataLayer\Page;
 use MappCloud\Intelligence\DataLayer\User;
 use MappCloud\Intelligence\DataLayer\Woocommerce;
@@ -71,6 +70,10 @@ class Datalayer
 	 */
 	public function create_datalayer($config)
 	{
+		if (function_exists('apply_filters')) {
+			// Allow modification of datalayer before it's exposed
+			$this->datalayer = apply_filters('mapp_datalayer_before_create', $this->datalayer);
+		}
 		$filter_keys = isset($config["General"]["filterKeys"])
 			? explode(",", $config["General"]["filterKeys"])
 			: [];

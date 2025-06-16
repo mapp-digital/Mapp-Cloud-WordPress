@@ -1,7 +1,7 @@
 {
   "name": "mapp-digital/mapp-cloud-wordpress",
-  "version": "1.2.1",
-  "description": "Mapp Cloud for Wordpress and Woccommerce",
+  "version": "1.2.2",
+  "description": "Mapp Cloud for Wordpress and Woocommerce",
   "type": "wordpress-plugin",
   "license": "GNU",
   "authors": [

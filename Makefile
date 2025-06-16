@@ -53,7 +53,7 @@ prepare-release:
 	svn co https://plugins.svn.wordpress.org/mapp-intelligence release
 	rm -rf ./release/trunk/*
 	cp ./*.php ./release/trunk/
-	cp -r ./js/ ./release/trunk/
+	cp -r ./js/ ./release/trunk/js/
 	rsync -r --exclude="admin-menu" ./src ./release/trunk
 	mkdir ./release/trunk/src/Settings/admin-menu/
 	cp -r ./src/Settings/admin-menu/dist ./release/trunk/src/Settings/admin-menu/

@@ -1,3 +1,8 @@
+<a name="1.2.2"></a>
+# 1.2.2
+
+* Add WP filter "mapp_datalayer_before_create"
+
 <a name="1.2.1"></a>
 # 1.2.1
 
