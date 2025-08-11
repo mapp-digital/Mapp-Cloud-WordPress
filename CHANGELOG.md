@@ -1,3 +1,8 @@
+<a name="1.2.3"></a>
+# 1.2.3
+
+* Make virtual product view+add requests on catalogue pages more resilient to bad browser performance
+
 <a name="1.2.2"></a>
 # 1.2.2
 
