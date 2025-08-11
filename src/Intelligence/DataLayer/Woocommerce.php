@@ -525,8 +525,8 @@ trait Woocommerce
 										window._ti.shoppingCartStatus = 'add';
 										window.wts.push(['send', 'pageupdate']);
 										// restore
-										window._ti = JSON.parse(oldProduct);
-									}, 0);
+										setTimeout(function(){window._ti = JSON.parse(oldProduct);}, 500);
+									}, 500);
 								}
 							}
 							<?php } else { ?>
