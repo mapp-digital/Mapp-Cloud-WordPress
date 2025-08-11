@@ -60,6 +60,16 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 
 == Changelog ==
 
+= 1.2.3 =
+* Make virtual product view+add requests on catalogue pages more resilient to bad browser performance
+* Update Smart Pixel to 6.6.0
+
+= 1.2.2 =
+* Add WP filter "mapp_datalayer_before_create"
+
+= 1.2.1 =
+* Hotfix admin menu
+
 = 1.2.0=
 * Update Smart Pixel to 6.5.1
 * Remove support for Mapp Acquire
