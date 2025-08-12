@@ -8,23 +8,11 @@ wp config set WP_DEBUG_DISPLAY false --raw --type=constant
 # wait for the database to be ready
 bash /wait-for-it.sh -t 0 db:3306
 
-function download_woocommerce()
-{
-  echo "Looking for latest Woocommerce version..."
-  WOOV=$(curl -s https://api.github.com/repos/woocommerce/woocommerce/releases/latest | grep -oE '"name":\s"[0-9]\.[0-9]\.[0-9]' | grep -oE '[0-9]\.[0-9]\.[0-9]')
-  echo "Latest Woocommerce release is $WOOV!"
-  curl -o /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip --create-dirs https://downloads.wordpress.org/plugin/woocommerce.$WOOV.zip
-  echo "Unzip package into WP-plugins directory..."
-  unzip /var/www/html/.wp-cli/cache/plugin/woocommerce.$WOOV.zip -d /var/www/html/wp-content/plugins > /dev/null 2>&1
-}
-
-function wp_delete_post()
-{
-  IDS=$(wp post list --post_type="$1" --field=ID)
-  if [ "$IDS" != "" ]; then
-    for ID in $IDS; do
-      wp post delete "$ID" --force
-    done
+function wp_delete_post_type() {
+  local POST_TYPE="$1"
+  IDS=$(wp post list --post_type="$POST_TYPE" --format=ids)
+  if [ -n "$IDS" ]; then
+    wp post delete $IDS --force
   fi
 }
 
@@ -38,24 +26,27 @@ function wp_delete_user()
   fi
 }
 
-function wp_delete_attributes()
-{
-  # collect list of product attribute ids
-  ATTRIBUTE_IDS=$(wp wc product_attribute list --field=id --user=1)
-  if [ "$ATTRIBUTE_IDS" != "" ]; then
-    for ATTRIBUTE_ID in $ATTRIBUTE_IDS; do
-      # collect list of product attribute term ids
-      TERM_IDS=$(wp wc product_attribute_term list "$ATTRIBUTE_ID" --field=id --user=1)
-      if [ "$TERM_IDS" != "" ]; then
-        for TERM_ID in $TERM_IDS; do
-          # delete product attribute ($ATTRIBUTE_ID) term id ($TERM_ID)
-          wp wc product_attribute_term delete "$ATTRIBUTE_ID" "$TERM_ID" --force=true --user=1
-        done
-        # delete product attribute ($ATTRIBUTE_ID)
-        wp wc product_attribute delete "$ATTRIBUTE_ID" --force=true --user=1
-      fi
-    done
-  fi
+function wp_delete_attributes() {
+  wp eval '
+    $user_id = 1;
+    $attributes = wc_get_attribute_taxonomies();
+
+    if ($attributes) {
+      foreach ($attributes as $attr) {
+        $taxonomy = wc_attribute_taxonomy_name($attr->attribute_name);
+        $terms = get_terms([
+          "taxonomy" => $taxonomy,
+          "hide_empty" => false,
+        ]);
+        if (!is_wp_error($terms)) {
+          foreach ($terms as $term) {
+            wp_delete_term($term->term_id, $taxonomy);
+          }
+        }
+        wc_delete_attribute($attr->attribute_id);
+      }
+    }
+  '
 }
 
 function wp_delete_menu()
@@ -88,16 +79,13 @@ wp core install --url=http://mapp_e2e_wp.test --title="Mapp Intelligence E2E Tes
 wp language core install de_DE
 
 rm -rf /var/www/html/wp-content/plugins/woocommerce/
-download_woocommerce
-# if [ "$WOOCOMMERCE_VERSION" != "" ]; then
-#   wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION"
-# else
-#   wp plugin install woocommerce
-# fi
+if [ "$WOOCOMMERCE_VERSION" != "" ]; then
+  wp plugin install woocommerce --version="$WOOCOMMERCE_VERSION" --activate
+else
+  wp plugin install woocommerce --activate
+fi
 
-# sleep 1
-
-wp plugin activate woocommerce
+sleep 1
 
 wp plugin install wordpress-importer --activate
 wp plugin activate mapp-intelligence
@@ -113,117 +101,126 @@ wp_delete_user customer
 wp user create customer customer@mapp.com --user_pass=password --role=customer --path=/var/www/html
 
 # delete all existing pages, posts, products and product variations
-wp_delete_post page
-wp_delete_post post
-wp_delete_post product
-wp_delete_post product_variation
+wp_delete_post_type post
+wp_delete_post_type page
+wp_delete_post_type product
+wp_delete_post_type product_variation
 
 # delete woocommerce attributes and terms
 wp_delete_attributes
 
 # update woocommerce options
-wp_update_option permalink_structure "/%category%/%postname%/" yes
-wp_update_option woocommerce_store_address "route 1" yes
-wp_update_option woocommerce_store_address_2 "room 1" yes
-wp_update_option woocommerce_store_city "Berlin" yes
-wp_update_option woocommerce_default_country "DE:*" yes
-wp_update_option woocommerce_store_postcode "13359" yes
-wp_update_option woocommerce_allowed_countries "all" yes
-wp_update_option woocommerce_all_except_countries "" yes
-wp_update_option woocommerce_specific_allowed_countries "" yes
-wp_update_option woocommerce_ship_to_countries "" yes
-wp_update_option woocommerce_specific_ship_to_countries "" yes
-wp_update_option woocommerce_default_customer_address "base" yes
-wp_update_option woocommerce_calc_taxes "no" yes
-wp_update_option woocommerce_enable_coupons "yes" yes
-wp_update_option woocommerce_calc_discounts_sequentially "no" no
-wp_update_option woocommerce_currency "EUR" yes
-wp_update_option woocommerce_currency_pos "left" yes
-wp_update_option woocommerce_price_thousand_sep "." yes
-wp_update_option woocommerce_price_decimal_sep "," yes
-wp_update_option woocommerce_price_num_decimals "2" yes
-wp_update_option woocommerce_cart_redirect_after_add "no" yes
-wp_update_option woocommerce_enable_ajax_add_to_cart "yes" yes
-wp_update_option woocommerce_placeholder_image "5" yes
-wp_update_option woocommerce_weight_unit "kg" yes
-wp_update_option woocommerce_dimension_unit "cm" yes
-wp_update_option woocommerce_enable_reviews "yes" yes
-wp_update_option woocommerce_review_rating_verification_label "yes" no
-wp_update_option woocommerce_review_rating_verification_required "no" no
-wp_update_option woocommerce_enable_review_rating "yes" yes
-wp_update_option woocommerce_review_rating_required "yes" no
-wp_update_option woocommerce_manage_stock "yes" yes
-wp_update_option woocommerce_hold_stock_minutes "60" no
-wp_update_option woocommerce_notify_low_stock "yes" no
-wp_update_option woocommerce_notify_no_stock "yes" no
-wp_update_option woocommerce_stock_email_recipient "admin@local.test" no
-wp_update_option woocommerce_notify_low_stock_amount "2" no
-wp_update_option woocommerce_notify_no_stock_amount "0" yes
-wp_update_option woocommerce_hide_out_of_stock_items "no" yes
-wp_update_option woocommerce_stock_format "" yes
-wp_update_option woocommerce_file_download_method "force" no
-wp_update_option woocommerce_downloads_require_login "no" no
-wp_update_option woocommerce_downloads_grant_access_after_payment "yes" no
-wp_update_option woocommerce_prices_include_tax "no" yes
-wp_update_option woocommerce_tax_based_on "shipping" yes
-wp_update_option woocommerce_shipping_tax_class "inherit" yes
-wp_update_option woocommerce_tax_round_at_subtotal "no" yes
-wp_update_option woocommerce_tax_classes "" yes
-wp_update_option woocommerce_tax_display_shop "excl" yes
-wp_update_option woocommerce_tax_display_cart "excl" yes
-wp_update_option woocommerce_price_display_suffix "" yes
-wp_update_option woocommerce_tax_total_display "itemized" no
-wp_update_option woocommerce_enable_shipping_calc "yes" no
-wp_update_option woocommerce_shipping_cost_requires_address "no" yes
-wp_update_option woocommerce_ship_to_destination "billing" no
-wp_update_option woocommerce_shipping_debug_mode "no" yes
-wp_update_option woocommerce_enable_guest_checkout "yes" no
-wp_update_option woocommerce_enable_checkout_login_reminder "no" no
-wp_update_option woocommerce_enable_signup_and_login_from_checkout "no" no
-wp_update_option woocommerce_enable_myaccount_registration "no" no
-wp_update_option woocommerce_registration_generate_username "yes" no
-wp_update_option woocommerce_registration_generate_password "yes" no
-wp_update_option woocommerce_erasure_request_removes_order_data "no" no
-wp_update_option woocommerce_erasure_request_removes_download_data "no" no
-wp_update_option woocommerce_allow_bulk_remove_personal_data "no" no
-wp_update_option woocommerce_registration_privacy_policy_text "Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our [privacy_policy]." yes
-wp_update_option woocommerce_checkout_privacy_policy_text "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy]." yes
-wp_update_option woocommerce_trash_pending_orders "" no
-wp_update_option woocommerce_trash_failed_orders "" no
-wp_update_option woocommerce_trash_cancelled_orders "" no
-wp_update_option woocommerce_email_from_name "mapp_e2e_wp.test" no
-wp_update_option woocommerce_email_from_address "admin@local.test" no
-wp_update_option woocommerce_email_header_image "" no
-wp_update_option woocommerce_email_footer_text "{site_title} &mdash; Built with {WooCommerce}" no
-wp_update_option woocommerce_email_base_color "#96588a" no
-wp_update_option woocommerce_email_background_color "#f7f7f7" no
-wp_update_option woocommerce_email_body_background_color "#ffffff" no
-wp_update_option woocommerce_email_text_color "#3c3c3c" no
-wp_update_option woocommerce_terms_page_id "" no
-wp_update_option woocommerce_force_ssl_checkout "no" yes
-wp_update_option woocommerce_unforce_ssl_checkout "no" yes
-wp_update_option woocommerce_checkout_pay_endpoint "order-pay" yes
-wp_update_option woocommerce_checkout_order_received_endpoint "order-received" yes
-wp_update_option woocommerce_myaccount_add_payment_method_endpoint "add-payment-method" yes
-wp_update_option woocommerce_myaccount_delete_payment_method_endpoint "delete-payment-method" yes
-wp_update_option woocommerce_myaccount_set_default_payment_method_endpoint "set-default-payment-method" yes
-wp_update_option woocommerce_myaccount_orders_endpoint "orders" yes
-wp_update_option woocommerce_myaccount_view_order_endpoint "view-order" yes
-wp_update_option woocommerce_myaccount_downloads_endpoint "downloads" yes
-wp_update_option woocommerce_myaccount_edit_account_endpoint "edit-account" yes
-wp_update_option woocommerce_myaccount_edit_address_endpoint "edit-address" yes
-wp_update_option woocommerce_myaccount_payment_methods_endpoint "payment-methods" yes
-wp_update_option woocommerce_myaccount_lost_password_endpoint "lost-password" yes
-wp_update_option woocommerce_logout_endpoint "customer-logout" yes
-wp_update_option woocommerce_api_enabled "no" yes
-wp_update_option woocommerce_allow_tracking "no" no
-wp_update_option woocommerce_show_marketplace_suggestions "yes" no
-wp_update_option woocommerce_single_image_width "600" yes
-wp_update_option woocommerce_thumbnail_image_width "300" yes
-wp_update_option woocommerce_checkout_highlight_required_fields "yes" yes
-wp_update_option woocommerce_demo_store "no" no
-wp_update_option current_theme_supports_woocommerce "yes" yes
-wp_update_option woocommerce_queue_flush_rewrite_rules "no" yes
+wp eval '
+$opts = [
+    "permalink_structure" => ["/%category%/%postname%/", "yes"],
+    "woocommerce_store_address" => ["route 1", "yes"],
+    "woocommerce_store_address_2" => ["room 1", "yes"],
+    "woocommerce_store_city" => ["Berlin", "yes"],
+    "woocommerce_default_country" => ["DE:*", "yes"],
+    "woocommerce_store_postcode" => ["13359", "yes"],
+    "woocommerce_allowed_countries" => ["all", "yes"],
+    "woocommerce_all_except_countries" => ["", "yes"],
+    "woocommerce_specific_allowed_countries" => ["", "yes"],
+    "woocommerce_ship_to_countries" => ["", "yes"],
+    "woocommerce_specific_ship_to_countries" => ["", "yes"],
+    "woocommerce_default_customer_address" => ["base", "yes"],
+    "woocommerce_calc_taxes" => ["no", "yes"],
+    "woocommerce_enable_coupons" => ["yes", "yes"],
+    "woocommerce_calc_discounts_sequentially" => ["no", "no"],
+    "woocommerce_currency" => ["EUR", "yes"],
+    "woocommerce_currency_pos" => ["left", "yes"],
+    "woocommerce_price_thousand_sep" => [".", "yes"],
+    "woocommerce_price_decimal_sep" => [",", "yes"],
+    "woocommerce_price_num_decimals" => ["2", "yes"],
+    "woocommerce_cart_redirect_after_add" => ["no", "yes"],
+    "woocommerce_enable_ajax_add_to_cart" => ["yes", "yes"],
+    "woocommerce_placeholder_image" => ["5", "yes"],
+    "woocommerce_weight_unit" => ["kg", "yes"],
+    "woocommerce_dimension_unit" => ["cm", "yes"],
+    "woocommerce_enable_reviews" => ["yes", "yes"],
+    "woocommerce_review_rating_verification_label" => ["yes", "no"],
+    "woocommerce_review_rating_verification_required" => ["no", "no"],
+    "woocommerce_enable_review_rating" => ["yes", "yes"],
+    "woocommerce_review_rating_required" => ["yes", "no"],
+    "woocommerce_manage_stock" => ["yes", "yes"],
+    "woocommerce_hold_stock_minutes" => ["60", "no"],
+    "woocommerce_notify_low_stock" => ["yes", "no"],
+    "woocommerce_notify_no_stock" => ["yes", "no"],
+    "woocommerce_stock_email_recipient" => ["admin@local.test", "no"],
+    "woocommerce_notify_low_stock_amount" => ["2", "no"],
+    "woocommerce_notify_no_stock_amount" => ["0", "yes"],
+    "woocommerce_hide_out_of_stock_items" => ["no", "yes"],
+    "woocommerce_stock_format" => ["", "yes"],
+    "woocommerce_file_download_method" => ["force", "no"],
+    "woocommerce_downloads_require_login" => ["no", "no"],
+    "woocommerce_downloads_grant_access_after_payment" => ["yes", "no"],
+    "woocommerce_prices_include_tax" => ["no", "yes"],
+    "woocommerce_tax_based_on" => ["shipping", "yes"],
+    "woocommerce_shipping_tax_class" => ["inherit", "yes"],
+    "woocommerce_tax_round_at_subtotal" => ["no", "yes"],
+    "woocommerce_tax_classes" => ["", "yes"],
+    "woocommerce_tax_display_shop" => ["excl", "yes"],
+    "woocommerce_tax_display_cart" => ["excl", "yes"],
+    "woocommerce_price_display_suffix" => ["", "yes"],
+    "woocommerce_tax_total_display" => ["itemized", "no"],
+    "woocommerce_enable_shipping_calc" => ["yes", "no"],
+    "woocommerce_shipping_cost_requires_address" => ["no", "yes"],
+    "woocommerce_ship_to_destination" => ["billing", "no"],
+    "woocommerce_shipping_debug_mode" => ["no", "yes"],
+    "woocommerce_enable_guest_checkout" => ["yes", "no"],
+    "woocommerce_enable_checkout_login_reminder" => ["no", "no"],
+    "woocommerce_enable_signup_and_login_from_checkout" => ["no", "no"],
+    "woocommerce_enable_myaccount_registration" => ["no", "no"],
+    "woocommerce_registration_generate_username" => ["yes", "no"],
+    "woocommerce_registration_generate_password" => ["yes", "no"],
+    "woocommerce_erasure_request_removes_order_data" => ["no", "no"],
+    "woocommerce_erasure_request_removes_download_data" => ["no", "no"],
+    "woocommerce_allow_bulk_remove_personal_data" => ["no", "no"],
+    "woocommerce_registration_privacy_policy_text" => ["Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our [privacy_policy].", "yes"],
+    "woocommerce_checkout_privacy_policy_text" => ["Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy].", "yes"],
+    "woocommerce_trash_pending_orders" => ["", "no"],
+    "woocommerce_trash_failed_orders" => ["", "no"],
+    "woocommerce_trash_cancelled_orders" => ["", "no"],
+    "woocommerce_email_from_name" => ["mapp_e2e_wp.test", "no"],
+    "woocommerce_email_from_address" => ["admin@local.test", "no"],
+    "woocommerce_email_header_image" => ["", "no"],
+    "woocommerce_email_footer_text" => ["{site_title} &mdash; Built with {WooCommerce}", "no"],
+    "woocommerce_email_base_color" => ["#96588a", "no"],
+    "woocommerce_email_background_color" => ["#f7f7f7", "no"],
+    "woocommerce_email_body_background_color" => ["#ffffff", "no"],
+    "woocommerce_email_text_color" => ["#3c3c3c", "no"],
+    "woocommerce_terms_page_id" => ["", "no"],
+    "woocommerce_force_ssl_checkout" => ["no", "yes"],
+    "woocommerce_unforce_ssl_checkout" => ["no", "yes"],
+    "woocommerce_checkout_pay_endpoint" => ["order-pay", "yes"],
+    "woocommerce_checkout_order_received_endpoint" => ["order-received", "yes"],
+    "woocommerce_myaccount_add_payment_method_endpoint" => ["add-payment-method", "yes"],
+    "woocommerce_myaccount_delete_payment_method_endpoint" => ["delete-payment-method", "yes"],
+    "woocommerce_myaccount_set_default_payment_method_endpoint" => ["set-default-payment-method", "yes"],
+    "woocommerce_myaccount_orders_endpoint" => ["orders", "yes"],
+    "woocommerce_myaccount_view_order_endpoint" => ["view-order", "yes"],
+    "woocommerce_myaccount_downloads_endpoint" => ["downloads", "yes"],
+    "woocommerce_myaccount_edit_account_endpoint" => ["edit-account", "yes"],
+    "woocommerce_myaccount_edit_address_endpoint" => ["edit-address", "yes"],
+    "woocommerce_myaccount_payment_methods_endpoint" => ["payment-methods", "yes"],
+    "woocommerce_myaccount_lost_password_endpoint" => ["lost-password", "yes"],
+    "woocommerce_logout_endpoint" => ["customer-logout", "yes"],
+    "woocommerce_api_enabled" => ["no", "yes"],
+    "woocommerce_allow_tracking" => ["no", "no"],
+    "woocommerce_show_marketplace_suggestions" => ["yes", "no"],
+    "woocommerce_single_image_width" => ["600", "yes"],
+    "woocommerce_thumbnail_image_width" => ["300", "yes"],
+    "woocommerce_checkout_highlight_required_fields" => ["yes", "yes"],
+    "woocommerce_demo_store" => ["no", "no"],
+    "current_theme_supports_woocommerce" => ["yes", "yes"],
+    "woocommerce_queue_flush_rewrite_rules" => ["no", "yes"]
+];
+
+foreach ($opts as $name => [$value, $autoload]) {
+    update_option($name, $value, $autoload);
+}
+'
+
 
 # activate woocommerce payment methods
 wp option update --format=json woocommerce_cod_settings '{"enabled":"yes"}'

@@ -1,17 +1,17 @@
 === Mapp Intelligence ===
 
 Plugin name: Mapp Cloud Integration
-Description: Adds the Mapp Cloud Tag Integration code to your WordPress blog or WooCommerce shop and creates the necessary data layer for your customer insights dashboards.
-Version: 1.2.2
+Description: Adds the Mapp Cloud Tag Integration code to your WordPress blog or WooCommerce shop and creates the necessary datalayer for your customer insights dashboards.
+Version: 1.2.3
 Tags: analytics, tracking, marketing
 Author: Mapp Digital US, LLC
-Author URI: https://mapp.com/mapp-cloud/mapp-intelligence/
+Author URI: https://mapp.com/digital-analytics/
 Contributors: mappdigital
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.8.1
+Tested up to: 6.8.2
 WC requires at least: 3.0
-WC tested up to: 9.9.3
+WC tested up to: 10.0.4
 
 The plugin adds the Mapp Cloud Tag Integration code to your website and creates the data layer for your customer insights dashboards.
 
@@ -48,7 +48,7 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 
 1. Add the plugin to your admin panel.
 2. Add your Tag Integration ID /GTM ID. Leave the Tag Integration domain as is unless you host the tracking script on your own servers.
-3. Optionally, exclude keys from the data layer.
+3. Optionally, exclude keys from the datalayer.
 4. Optionally, exclude users logged into the WordPress admin panel from being tracked via the pixel.
 5. Optionally, add your Mapp Acquire script tag.
 6. Save the plugin in WordPress.
@@ -59,6 +59,16 @@ Find out more on our [website]("https://mapp.com/mapp-cloud")
 1. Mapp Cloud settings
 
 == Changelog ==
+
+= 1.2.3 =
+* Make virtual product view & add requests on catalogue pages more resilient to bad browser performance
+* Update Smart Pixel to 6.6.0
+
+= 1.2.2 =
+* Add WP filter "mapp_datalayer_before_create"
+
+= 1.2.1 =
+* Hotfix admin menu
 
 = 1.2.0=
 * Update Smart Pixel to 6.5.1

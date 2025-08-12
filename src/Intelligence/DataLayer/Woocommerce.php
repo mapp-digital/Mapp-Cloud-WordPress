@@ -525,8 +525,8 @@ trait Woocommerce
 										window._ti.shoppingCartStatus = 'add';
 										window.wts.push(['send', 'pageupdate']);
 										// restore
-										window._ti = JSON.parse(oldProduct);
-									}, 0);
+										setTimeout(function(){window._ti = JSON.parse(oldProduct);}, 500);
+									}, 500);
 								}
 							}
 							<?php } else { ?>
@@ -598,9 +598,11 @@ trait Woocommerce
 											mappData['gtmProductArray'][0]['status'] = 'basket';
 											window.dataLayer.push({ event: 'mapp.load', mapp: mappData });
 											// restore
-											mappData = JSON.parse(backup);
-											window.dataLayer.push({ event: 'mapp.restore', mapp: mappData });
-										}, 0);
+											setTimeout(function(){
+												mappData = JSON.parse(backup);
+												window.dataLayer.push({ event: 'mapp.restore', mapp: mappData });
+											}, 500);
+										}, 500);
 									}
 								}
 							<?php } ?>
