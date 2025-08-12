@@ -598,9 +598,11 @@ trait Woocommerce
 											mappData['gtmProductArray'][0]['status'] = 'basket';
 											window.dataLayer.push({ event: 'mapp.load', mapp: mappData });
 											// restore
-											mappData = JSON.parse(backup);
-											window.dataLayer.push({ event: 'mapp.restore', mapp: mappData });
-										}, 0);
+											setTimeout(function(){
+												mappData = JSON.parse(backup);
+												window.dataLayer.push({ event: 'mapp.restore', mapp: mappData });
+											}, 500);
+										}, 500);
 									}
 								}
 							<?php } ?>
