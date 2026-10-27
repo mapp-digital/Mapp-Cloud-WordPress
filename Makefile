@@ -10,11 +10,11 @@ export USER_ID
 export GROUP_ID
 
 start-e2e:
-	cd ./tests/admin && docker-compose up -d
+	cd ./tests/admin && docker compose up -d
 build-e2e:
-	cd ./tests/admin && docker-compose up --build -d 
+	cd ./tests/admin && docker compose up --build -d 
 stop-e2e: 
-	cd ./tests/admin && docker-compose down
+	cd ./tests/admin && docker compose down
 
 exec-cypress:
 	docker exec -it  mapp_e2e_wp_cypress bash	
@@ -24,7 +24,7 @@ exec-wpcli:
 cypress-run:
 	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run"
 cypress-local:
-	cd ./tests && if [ ! -d "./node_modules" ];then npm install;fi && cd ./admin && docker-compose up -d && cd .. && npm run install &&npm run test
+	cd ./tests && if [ ! -d "./node_modules" ];then npm install;fi && cd ./admin && docker compose up -d && cd .. && npm run install &&npm run test
 
 reset-wp:
 	docker exec -t -u 33:33 mapp_e2e_wpcli bash -c "php /db.php drop_db"
