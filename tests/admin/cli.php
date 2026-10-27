@@ -37,6 +37,8 @@ function deactivate_woo()
 function activate_woo()
 {
 	shell_exec("wp plugin activate woocommerce");
+	// reactivation sets the setup wizard redirect again
+	shell_exec("wp transient delete _wc_activation_redirect");
 	respond("Woocommerce activated!");
 }
 

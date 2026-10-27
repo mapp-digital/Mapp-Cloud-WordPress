@@ -282,5 +282,9 @@ wp rewrite structure "/%category%/%postname%/"
 # make products visible for everyone
 wp option update woocommerce_coming_soon 'no'
 
+# skip the woocommerce setup wizard, otherwise the first wp-admin visit gets redirected to it
+wp transient delete _wc_activation_redirect
+wp option update woocommerce_onboarding_profile '{"skipped":true}' --format=json
+
 # display the current WordPress version
 wp core version --extra
