@@ -4,6 +4,9 @@ set -e
 # Silence Woocommerce translation warnings since it is expected behavior when using cli  
 wp config set WP_DEBUG false --raw --type=constant
 wp config set WP_DEBUG_DISPLAY false --raw --type=constant
+# No background updates: the first cron run after install updates e.g. translations, and every update
+# empties wp-content/upgrade, which breaks the WooCommerce install if it is unpacking there at that moment
+wp config set AUTOMATIC_UPDATER_DISABLED true --raw --type=constant
 
 # wait for the database to be ready
 bash /wait-for-it.sh -t 0 db:3306
@@ -281,6 +284,10 @@ wp rewrite structure "/%category%/%postname%/"
 
 # make products visible for everyone
 wp option update woocommerce_coming_soon 'no'
+
+# skip the woocommerce setup wizard, otherwise the first wp-admin visit gets redirected to it
+wp transient delete _wc_activation_redirect
+wp option update woocommerce_onboarding_profile '{"skipped":true}' --format=json
 
 # display the current WordPress version
 wp core version --extra

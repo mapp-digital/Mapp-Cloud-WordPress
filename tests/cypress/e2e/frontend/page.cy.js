@@ -96,7 +96,7 @@ describe("Page", () => {
 					"internal search"
 				);
 				expect(dataLayer[0].contentSubcategory).to.not.exist;
-				expect(dataLayer[0].numberSearchResults).to.equal("4");
+				expect(dataLayer[0].numberSearchResults).to.equal("3");
 				expect(dataLayer[0].pageTitle).to.equal(
 					" hoodie | Search Results "
 				);
@@ -235,7 +235,7 @@ describe("Page", () => {
 				expect(dataLayer.pageName).to.equal("mapp_e2e_wp.test/");
 				expect(dataLayer.contentCategory).to.equal("internal search");
 				expect(dataLayer.contentSubcategory).to.not.exist;
-				expect(dataLayer.numberSearchResults).to.equal("4");
+				expect(dataLayer.numberSearchResults).to.equal("3");
 			});
 		});
 
