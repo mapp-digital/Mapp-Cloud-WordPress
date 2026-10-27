@@ -5,7 +5,8 @@
 # then readme.txt is committed and pushed to GitHub.
 # SVN goes first: if the push fails, a rerun finds SVN up to date and only retries the push.
 #
-# Needs SVN_USERNAME and SVN_PASSWORD. SVN_DRY_RUN=true shows the diffs and commits nothing.
+# Needs SVN_USERNAME and SVN_PASSWORD, and GIT_USER and GIT_TOKEN for the push on Jenkins.
+# SVN_DRY_RUN=true shows the diffs and commits nothing.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -55,4 +56,11 @@ if ! git config user.email >/dev/null; then
 	GIT_IDENTITY=(-c user.name="Jenkins" -c user.email="jenkins@ci.nbg.webtrekk.com")
 fi
 git ${GIT_IDENTITY[@]+"${GIT_IDENTITY[@]}"} commit -m "${MESSAGE}" -- readme.txt
-git push origin "HEAD:refs/heads/${BRANCH_NAME}"
+
+# Jenkins binds the GitHub credentials as GIT_USER and GIT_TOKEN; the helper hands them to git at push time,
+# so the token is neither in the remote URL nor in .git/config. Without them git uses its own credentials.
+GIT_AUTH=()
+if [[ -n "${GIT_USER:-}" && -n "${GIT_TOKEN:-}" ]]; then
+	GIT_AUTH=(-c credential.helper= -c 'credential.helper=!f() { echo "username=${GIT_USER}"; echo "password=${GIT_TOKEN}"; }; f')
+fi
+git ${GIT_AUTH[@]+"${GIT_AUTH[@]}"} push origin "HEAD:refs/heads/${BRANCH_NAME}"
