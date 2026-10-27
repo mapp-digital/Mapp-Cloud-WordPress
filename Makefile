@@ -45,6 +45,10 @@ set-version:
 	@npm run set-version $(version)
 set-tested-version:
 	@node ./bin/set-tested-version.js
+update-tested-version:
+	@bash ./bin/update-tested-version.sh
+svn-set-tested-version:
+	@docker exec -t -u 33:33 -e WP_VERSION -e WC_VERSION -e SVN_USERNAME -e SVN_PASSWORD -e SVN_DRY_RUN mapp_e2e_wpcli bash /var/www/html/wp-content/plugins/mapp-intelligence/bin/svn-set-tested-version.sh
 
 build-settings-frontend:
 	cd ./src/Settings/admin-menu && if [ ! -d "./node_modules" ];then npm install;fi && npm run build
