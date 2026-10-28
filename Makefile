@@ -22,7 +22,7 @@ exec-wpcli:
 	docker exec -it -u 33:33  mapp_e2e_wpcli bash
 
 cypress-run:
-	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run"
+	docker exec -t mapp_e2e_wp_cypress bash -c "cypress run --browser chrome"
 cypress-local:
 	cd ./tests && if [ ! -d "./node_modules" ];then npm install;fi && cd ./admin && docker compose up -d && cd .. && npm run install &&npm run test
 

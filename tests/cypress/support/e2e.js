@@ -17,5 +17,17 @@
 import './commands';
 import './wordpress';
 
+// Chrome serves the Tag Integration loader and gtm.js from its HTTP cache after the first visit, and cached
+// requests never reach cy.intercept (cy.wait('@responder') then times out). Cypress clears cookies and
+// localStorage between tests, but not the browser cache, so clear it here.
+beforeEach(() => {
+	if (Cypress.browser.family === 'chromium') {
+		cy.wrap(
+			Cypress.automation('remote:debugger:protocol', { command: 'Network.clearBrowserCache' }),
+			{ log: false }
+		);
+	}
+});
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
